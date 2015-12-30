@@ -53,6 +53,7 @@ NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' s
             }
             
             if (stringHTML) {
+                //删除被注入的JS代码
                 stringHTML = [stringHTML stringByReplacingOccurrencesOfString:JSReplaceScript withString:@""];
                 NSLog(@"%@",stringHTML);
                 [_webView loadHTMLString:stringHTML baseURL:_webURL];
@@ -73,7 +74,7 @@ NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' s
     //4G   save:1,len:906  见文件 web-4G.html
     //WIFI save:1,len:760  见文件 web-WIFI.html
     
-    //多出来的数据就是这个被插入的JS URL，这个URL在只能在4G网络下才能访问到。JS如下，
+    //在4G网络下多出来的数据就是这个被插入的JS，这个URL在只能在4G网络下才能访问到。JS如下，
     //<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>
     
     
@@ -84,9 +85,8 @@ NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' s
     NSLog(@"save:%d,len:%ld", save, data.length);
     //save:1,len:2676  见文件 scg.js，阅读美化后 scg_format.js
     
-    //这个scg.js执行后拼接成一个URL,再下载一个类似JSON的数据，里面包含了一些CSS和其他JS的URL和一些信息，JS还会继续下载这些资源。
+    //这个scg.js执行后拼接成一个新的URL，再被webview下载，其实是一个类似JSON的数据。
     //http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451016603036
-    
     
     //3、获取这个JSON数据
     data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451016603036"]];
@@ -95,7 +95,7 @@ NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' s
     NSLog(@"save:%d,len:%ld", save, data.length);
     //save:1,len:958 见文件 jsreq.json 阅读美化后 jsreq_fromat.json
     
-    //实际上是3个Dict
+    //实际上是3个Dict，里面包含了CSS和其他JS的URL和其他信息。可以看到这个name为'流量助手'。
     //top.tlbs={name : '流量助手', tlbaurl : '221.179.140.145:30000', tid : '4', cid : '2', url : 'http://221.179.140.145:9090/', css : 'http://221.179.140.145:9090/tlbsgui/baseline/L_bar/css/tlbs_min.css?vv=104|http://221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/css/fluxball_min.css?vv=104|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/tlbs_min.css?vv=104', iframejs : 'http://221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151230110500|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151229110534|http://221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js|http://221.179.140.145:9090/tlbsgui/baseline/L_bar/js/tlbs_min.js?vv=104|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/simplifiedCloseHandler.js?vv=104'};top.tlbs.config={n:{t:-1,a:'',c:'1',s:40,edv:0,p:{}}};top.tlbs.templatesettings = {resCode : '0',dockingPosition : '0',buoyPosition : '85.333,89.484,1'};
 }
 
