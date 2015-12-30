@@ -4,8 +4,8 @@
 
 当我们用手机上网时，打开浏览器或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下二图。上面显示着“xx%”，实际是你流量余量百分比。
 
-[WebClean](Image/Safari-Screenshot-1.PNG)
-[WebClean](Image/WebClean-Screenshot-3.PNG)
+![WebClean](Image/Safari-Screenshot-1.PNG)
+![WebClean](Image/WebClean-Screenshot-3.PNG)
 
 点开后显示了流量的具体数据，还有流量订购功能，如下图。真是为用户操碎了心。
 
