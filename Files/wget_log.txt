@@ -1,0 +1,1436 @@
+Last login: Mon Dec 28 20:22:38 on ttys000
+LYN-iMac:tmp liuyuning$ wget -r -e robots=off -i urls_109.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
+--2015-12-28 20:22:49--  http://www.yktz.net/
+Resolving www.yktz.net... 121.199.33.111
+Connecting to www.yktz.net|121.199.33.111|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 906 [text/html]
+Saving to: 'www.yktz.net/index.html'
+
+www.yktz.net/index. 100%[=====================>]     906  --.-KB/s   in 0s     
+
+2015-12-28 20:22:49 (108 MB/s) - 'www.yktz.net/index.html' saved [906/906]
+
+--2015-12-28 20:22:49--  http://www.yktz.net/i/index.gif
+Reusing existing connection to www.yktz.net:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 28884 (28K) [image/gif]
+Saving to: 'www.yktz.net/i/index.gif'
+
+www.yktz.net/i/inde 100%[=====================>]  28.21K   141KB/s   in 0.2s   
+
+2015-12-28 20:22:49 (141 KB/s) - 'www.yktz.net/i/index.gif' saved [28884/28884]
+
+--2015-12-28 20:22:49--  http://www.yktz.net/i/icon.gif
+Reusing existing connection to www.yktz.net:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 1865 (1.8K) [image/gif]
+Saving to: 'www.yktz.net/i/icon.gif'
+
+www.yktz.net/i/icon 100%[=====================>]   1.82K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (137 MB/s) - 'www.yktz.net/i/icon.gif' saved [1865/1865]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/scg.js
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2676 (2.6K) [application/javascript]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/scg.js'
+
+221.179.140.145:909 100%[=====================>]   2.61K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (182 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/scg.js' saved [2676/2676]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451304537121
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 969 [text/javascript]
+Saving to: '221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451304537121'
+
+221.179.140.145:909 100%[=====================>]     969  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (185 MB/s) - '221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451304537121' saved [969/969]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151228200500
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 22 [application/javascript]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151228200500'
+
+221.179.140.145:909 100%[=====================>]      22  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (4.20 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151228200500' saved [22/22]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 4584 (4.5K) [application/javascript]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   4.48K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (125 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151218144734' saved [4584/4584]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 95786 (94K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js'
+
+221.179.140.145:300 100%[=====================>]  93.54K  --.-KB/s   in 0.09s  
+
+2015-12-28 20:22:50 (1.07 MB/s) - '221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js' saved [95786/95786]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/js/tlbs_min.js?vv=104
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 111743 (109K) [application/javascript]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/js/tlbs_min.js?vv=104'
+
+221.179.140.145:909 100%[=====================>] 109.12K  --.-KB/s   in 0.09s  
+
+2015-12-28 20:22:50 (1.23 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/js/tlbs_min.js?vv=104' saved [111743/111743]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/simplifiedCloseHandler.js?vv=104
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 5932 (5.8K) [application/javascript]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/simplifiedCloseHandler.js?vv=104'
+
+221.179.140.145:909 100%[=====================>]   5.79K  --.-KB/s   in 0.001s 
+
+2015-12-28 20:22:50 (8.97 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/simplifiedCloseHandler.js?vv=104' saved [5932/5932]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:30000/tlbaserver/traffic/trafficball?time=1451304537387&callback=jQuery111108904374768026173_1451304537367&_=1451304537368
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 128 [charset=utf-8]
+Saving to: '221.179.140.145:30000/tlbaserver/traffic/trafficball?time=1451304537387&callback=jQuery111108904374768026173_1451304537367&_=1451304537368'
+
+221.179.140.145:300 100%[=====================>]     128  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (24.4 MB/s) - '221.179.140.145:30000/tlbaserver/traffic/trafficball?time=1451304537387&callback=jQuery111108904374768026173_1451304537367&_=1451304537368' saved [128/128]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/css/tlbs_min.css?vv=104
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 13167 (13K) [text/css]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/css/tlbs_min.css?vv=104'
+
+221.179.140.145:909 100%[=====================>]  12.86K  --.-KB/s   in 0.01s  
+
+2015-12-28 20:22:50 (1.07 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/css/tlbs_min.css?vv=104' saved [13167/13167]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/content_bg.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 395 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/content_bg.png'
+
+221.179.140.145:909 100%[=====================>]     395  --.-KB/s   in 0s     
+
+2015-12-28 20:22:50 (75.3 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/content_bg.png' saved [395/395]
+
+--2015-12-28 20:22:50--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/notice.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 900 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/notice.png'
+
+221.179.140.145:909 100%[=====================>]     900  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (172 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/notice.png' saved [900/900]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/menu/menu_1.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1204 (1.2K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/menu/menu_1.png'
+
+221.179.140.145:909 100%[=====================>]   1.18K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (230 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/menu/menu_1.png' saved [1204/1204]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 135 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow.png'
+
+221.179.140.145:909 100%[=====================>]     135  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (32.2 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow.png' saved [135/135]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/content/menu_1_1.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 439 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/content/menu_1_1.png'
+
+221.179.140.145:909 100%[=====================>]     439  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (83.7 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/content/menu_1_1.png' saved [439/439]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/noticing.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 2978 (2.9K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/noticing.png'
+
+221.179.140.145:909 100%[=====================>]   2.91K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (258 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/noticing.png' saved [2978/2978]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/close.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1867 (1.8K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/close.png'
+
+221.179.140.145:909 100%[=====================>]   1.82K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (119 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/close.png' saved [1867/1867]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/traffic.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 83355 (81K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/traffic.png'
+
+221.179.140.145:909 100%[=====================>]  81.40K  --.-KB/s   in 0.04s  
+
+2015-12-28 20:22:51 (2.02 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/traffic.png' saved [83355/83355]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/close.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1032 (1.0K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/close.png'
+
+221.179.140.145:909 100%[=====================>]   1.01K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (70.3 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/advert/close.png' saved [1032/1032]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/popbg.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 100 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/popbg.png'
+
+221.179.140.145:909 100%[=====================>]     100  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (19.1 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/popbg.png' saved [100/100]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_left.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1398 (1.4K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_left.png'
+
+221.179.140.145:909 100%[=====================>]   1.37K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (222 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_left.png' saved [1398/1398]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_right.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1359 (1.3K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_right.png'
+
+221.179.140.145:909 100%[=====================>]   1.33K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (216 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/images/layout/arrow_right.png' saved [1359/1359]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/css/fluxball_min.css?vv=104
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 3233 (3.2K) [text/css]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/css/fluxball_min.css?vv=104'
+
+221.179.140.145:909 100%[=====================>]   3.16K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (257 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/css/fluxball_min.css?vv=104' saved [3233/3233]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/circle.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 7295 (7.1K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/circle.png'
+
+221.179.140.145:909 100%[=====================>]   7.12K  --.-KB/s   in 0.001s 
+
+2015-12-28 20:22:51 (13.6 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/circle.png' saved [7295/7295]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/animatelogo.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 6973 (6.8K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/animatelogo.png'
+
+221.179.140.145:909 100%[=====================>]   6.81K  --.-KB/s   in 0.003s 
+
+2015-12-28 20:22:51 (2.62 MB/s) - '221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/images/animatelogo.png' saved [6973/6973]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/tlbs_min.css?vv=104
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 5463 (5.3K) [text/css]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/tlbs_min.css?vv=104'
+
+221.179.140.145:909 100%[=====================>]   5.33K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (326 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/tlbs_min.css?vv=104' saved [5463/5463]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/close.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1867 (1.8K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/close.png'
+
+221.179.140.145:909 100%[=====================>]   1.82K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (297 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/close.png' saved [1867/1867]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/content_bg_1.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 110 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/content_bg_1.png'
+
+221.179.140.145:909 100%[=====================>]     110  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (26.2 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/content_bg_1.png' saved [110/110]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/active.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 355 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/active.png'
+
+221.179.140.145:909 100%[=====================>]     355  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (84.6 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/active.png' saved [355/355]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_1.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 84 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_1.png'
+
+221.179.140.145:909 100%[=====================>]      84  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (13.4 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_1.png' saved [84/84]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_left.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1398 (1.4K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_left.png'
+
+221.179.140.145:909 100%[=====================>]   1.37K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (222 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_left.png' saved [1398/1398]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_right.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1359 (1.3K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_right.png'
+
+221.179.140.145:909 100%[=====================>]   1.33K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:51 (324 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/layout/arrow_right.png' saved [1359/1359]
+
+--2015-12-28 20:22:51--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/animatelogo.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 25380 (25K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/animatelogo.png'
+
+221.179.140.145:909 100%[=====================>]  24.79K  --.-KB/s   in 0.007s 
+
+2015-12-28 20:22:52 (3.37 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/animatelogo.png' saved [25380/25380]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/simplifiedClose_min.css
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 2147 (2.1K) [text/css]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/simplifiedClose_min.css'
+
+221.179.140.145:909 100%[=====================>]   2.10K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (410 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/simplifiedClose_min.css' saved [2147/2147]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_check.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1347 (1.3K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_check.png'
+
+221.179.140.145:909 100%[=====================>]   1.32K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (321 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_check.png' saved [1347/1347]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_unCheck.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 548 [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_unCheck.png'
+
+221.179.140.145:909 100%[=====================>]     548  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (87.1 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/radio_unCheck.png' saved [548/548]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_opt.png?uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 25380 (25K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_opt.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]  24.79K  --.-KB/s   in 0.009s 
+
+2015-12-28 20:22:52 (2.76 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_opt.png?uflag=20151218144734' saved [25380/25380]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_close.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 3280 (3.2K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_close.png'
+
+221.179.140.145:909 100%[=====================>]   3.20K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (261 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_close.png' saved [3280/3280]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more1.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1413 (1.4K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more1.png'
+
+221.179.140.145:909 100%[=====================>]   1.38K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (225 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more1.png' saved [1413/1413]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more2.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1860 (1.8K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more2.png'
+
+221.179.140.145:909 100%[=====================>]   1.82K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (296 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more2.png' saved [1860/1860]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app1.png?uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1687 (1.6K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app1.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   1.65K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (322 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app1.png?uflag=20151218144734' saved [1687/1687]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app2.png?uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1944 (1.9K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app2.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   1.90K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (265 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app2.png?uflag=20151218144734' saved [1944/1944]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app3.png?uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 2067 (2.0K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app3.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   2.02K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (6.12 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app3.png?uflag=20151218144734' saved [2067/2067]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app4.png?uflag=20151218144734
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 1945 (1.9K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app4.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   1.90K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (309 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_app4.png?uflag=20151218144734' saved [1945/1945]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_feedback.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 3581 (3.5K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_feedback.png'
+
+221.179.140.145:909 100%[=====================>]   3.50K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (228 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_feedback.png' saved [3581/3581]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_about.png
+Reusing existing connection to 221.179.140.145:9090.
+HTTP request sent, awaiting response... 200 OK
+Length: 3467 (3.4K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_about.png'
+
+221.179.140.145:909 100%[=====================>]   3.39K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (254 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/menu/more_about.png' saved [3467/3467]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/traffic/html/all.html?page=overview&tid=4&cid=2&time=1451304537485
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1077 (1.1K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/all.html?page=overview&tid=4&cid=2&time=1451304537485'
+
+221.179.140.145:300 100%[=====================>]   1.05K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (68.5 MB/s) - '221.179.140.145:30000/tlbagui/traffic/html/all.html?page=overview&tid=4&cid=2&time=1451304537485' saved [1077/1077]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/common/css/tlba.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 3429 (3.3K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/common/css/tlba.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   3.35K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (156 MB/s) - '221.179.140.145:30000/tlbagui/common/css/tlba.css?v20151211141818' saved [3429/3429]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/traffic/css/common.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1473 (1.4K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/common.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   1.44K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (117 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/common.css?v20151211141818' saved [1473/1473]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/common/js/whdz.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 789 [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/js/whdz.js?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]     789  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (125 MB/s) - '221.179.140.145:30000/tlbagui/common/js/whdz.js?v20151211141818' saved [789/789]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/common/js/tlba_cn.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 3270 (3.2K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/js/tlba_cn.js?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   3.19K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:52 (520 MB/s) - '221.179.140.145:30000/tlbagui/common/js/tlba_cn.js?v20151211141818' saved [3270/3270]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/traffic/js/all.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 9808 (9.6K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/js/all.js?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   9.58K  --.-KB/s   in 0.009s 
+
+2015-12-28 20:22:52 (1.05 MB/s) - '221.179.140.145:30000/tlbagui/traffic/js/all.js?v20151211141818' saved [9808/9808]
+
+--2015-12-28 20:22:52--  http://221.179.140.145:30000/tlbagui/common/images/layout/pophead-backbtn.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 503 [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/common/images/layout/pophead-backbtn.png'
+
+221.179.140.145:300 100%[=====================>]     503  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (95.9 MB/s) - '221.179.140.145:30000/tlbagui/common/images/layout/pophead-backbtn.png' saved [503/503]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/common/images/layout/loadclose.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 416 [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/common/images/layout/loadclose.png'
+
+221.179.140.145:300 100%[=====================>]     416  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (79.3 MB/s) - '221.179.140.145:30000/tlbagui/common/images/layout/loadclose.png' saved [416/416]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/common/images/layout/reloadwarn.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 883 [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/common/images/layout/reloadwarn.png'
+
+221.179.140.145:300 100%[=====================>]     883  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (46.8 MB/s) - '221.179.140.145:30000/tlbagui/common/images/layout/reloadwarn.png' saved [883/883]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/html/about.html?v1.0
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 2861 (2.8K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/research/html/about.html?v1.0'
+
+221.179.140.145:300 100%[=====================>]   2.79K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (182 MB/s) - '221.179.140.145:30000/tlbagui/research/html/about.html?v1.0' saved [2861/2861]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/common/css/tlba.css?v1.1
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 3429 (3.3K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/common/css/tlba.css?v1.1'
+
+221.179.140.145:300 100%[=====================>]   3.35K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (545 MB/s) - '221.179.140.145:30000/tlbagui/common/css/tlba.css?v1.1' saved [3429/3429]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/css/common.css
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1475 (1.4K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/common.css'
+
+221.179.140.145:300 100%[=====================>]   1.44K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (234 MB/s) - '221.179.140.145:30000/tlbagui/research/css/common.css' saved [1475/1475]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/css/about.css
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1048 (1.0K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/about.css'
+
+221.179.140.145:300 100%[=====================>]   1.02K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (71.4 MB/s) - '221.179.140.145:30000/tlbagui/research/css/about.css' saved [1048/1048]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/css/feedback_msg.css
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 789 [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/feedback_msg.css'
+
+221.179.140.145:300 100%[=====================>]     789  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (75.2 MB/s) - '221.179.140.145:30000/tlbagui/research/css/feedback_msg.css' saved [789/789]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/images/about/img1.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 8861 (8.7K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/research/images/about/img1.png'
+
+221.179.140.145:300 100%[=====================>]   8.65K  --.-KB/s   in 0.007s 
+
+2015-12-28 20:22:53 (1.19 MB/s) - '221.179.140.145:30000/tlbagui/research/images/about/img1.png' saved [8861/8861]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/common/js/tlba.js?v1.1
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 13951 (14K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/js/tlba.js?v1.1'
+
+221.179.140.145:300 100%[=====================>]  13.62K  --.-KB/s   in 0.01s  
+
+2015-12-28 20:22:53 (945 KB/s) - '221.179.140.145:30000/tlbagui/common/js/tlba.js?v1.1' saved [13951/13951]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/common/js/whdz.js?v20141213173936
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 789 [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/js/whdz.js?v20141213173936'
+
+221.179.140.145:300 100%[=====================>]     789  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (150 MB/s) - '221.179.140.145:30000/tlbagui/common/js/whdz.js?v20141213173936' saved [789/789]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/js/about/about.js
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 2596 (2.5K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/research/js/about/about.js'
+
+221.179.140.145:300 100%[=====================>]   2.54K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (495 MB/s) - '221.179.140.145:30000/tlbagui/research/js/about/about.js' saved [2596/2596]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/images/feedback_msg/ok.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 6076 (5.9K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/research/images/feedback_msg/ok.png'
+
+221.179.140.145:300 100%[=====================>]   5.93K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:53 (828 MB/s) - '221.179.140.145:30000/tlbagui/research/images/feedback_msg/ok.png' saved [6076/6076]
+
+--2015-12-28 20:22:53--  http://221.179.140.145:30000/tlbagui/research/images/feedback_msg/fail.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 6063 (5.9K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/research/images/feedback_msg/fail.png'
+
+221.179.140.145:300 100%[=====================>]   5.92K  --.-KB/s   in 0.006s 
+
+2015-12-28 20:22:53 (954 KB/s) - '221.179.140.145:30000/tlbagui/research/images/feedback_msg/fail.png' saved [6063/6063]
+
+--2015-12-28 20:22:53--  http://frp.orientalwisdom.com/udp/html/crayon.html
+Resolving frp.orientalwisdom.com... 118.145.22.169
+Connecting to frp.orientalwisdom.com|118.145.22.169|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 2031 (2.0K) [text/html]
+Saving to: 'frp.orientalwisdom.com/udp/html/crayon.html'
+
+frp.orientalwisdom. 100%[=====================>]   1.98K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:57 (323 MB/s) - 'frp.orientalwisdom.com/udp/html/crayon.html' saved [2031/2031]
+
+--2015-12-28 20:22:57--  http://17jifen.bj.chinamobile.com/hd/toolbar/index.html
+Resolving 17jifen.bj.chinamobile.com... 221.179.131.90
+Connecting to 17jifen.bj.chinamobile.com|221.179.131.90|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 7110 (6.9K) [text/html]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/index.html'
+
+17jifen.bj.chinamob 100%[=====================>]   6.94K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:58 (183 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/index.html' saved [7110/7110]
+
+--2015-12-28 20:22:58--  http://17jifen.bj.chinamobile.com/hd/toolbar/css/amazeui.min.css
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 255900 (250K) [text/css]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/css/amazeui.min.css'
+
+17jifen.bj.chinamob 100%[=====================>] 249.90K   933KB/s   in 0.3s   
+
+2015-12-28 20:22:58 (933 KB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/css/amazeui.min.css' saved [255900/255900]
+
+--2015-12-28 20:22:58--  http://17jifen.bj.chinamobile.com/hd/toolbar/css/toolapp.css
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 894 [text/css]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/css/toolapp.css'
+
+17jifen.bj.chinamob 100%[=====================>]     894  --.-KB/s   in 0s     
+
+2015-12-28 20:22:58 (213 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/css/toolapp.css' saved [894/894]
+
+--2015-12-28 20:22:58--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/css/tlba.css
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 2851 (2.8K) [text/css]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/common/css/tlba.css'
+
+17jifen.bj.chinamob 100%[=====================>]   2.78K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:58 (544 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/common/css/tlba.css' saved [2851/2851]
+
+--2015-12-28 20:22:58--  http://17jifen.bj.chinamobile.com/hd/toolbar/js/jquery.min.js
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 84344 (82K) [application/x-javascript]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/js/jquery.min.js'
+
+17jifen.bj.chinamob 100%[=====================>]  82.37K  --.-KB/s   in 0.05s  
+
+2015-12-28 20:22:58 (1.67 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/js/jquery.min.js' saved [84344/84344]
+
+--2015-12-28 20:22:58--  http://17jifen.bj.chinamobile.com/hd/toolbar/js/amazeui.min.js
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 204221 (199K) [application/x-javascript]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/js/amazeui.min.js'
+
+17jifen.bj.chinamob 100%[=====================>] 199.43K  --.-KB/s   in 0.1s   
+
+2015-12-28 20:22:59 (1.99 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/js/amazeui.min.js' saved [204221/204221]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/js/tlba.js
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 3678 (3.6K) [application/x-javascript]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/common/js/tlba.js'
+
+17jifen.bj.chinamob 100%[=====================>]   3.59K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (585 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/common/js/tlba.js' saved [3678/3678]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_kx.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 16885 (16K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_kx.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]  16.49K  --.-KB/s   in 0.001s 
+
+2015-12-28 20:22:59 (14.7 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_kx.jpg' saved [16885/16885]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_ddz.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 21797 (21K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_ddz.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]  21.29K  --.-KB/s   in 0.001s 
+
+2015-12-28 20:22:59 (17.2 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/hallpic_ddz.jpg' saved [21797/21797]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/1444816846215.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 6194 (6.0K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/1444816846215.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]   6.05K  --.-KB/s   in 0.003s 
+
+2015-12-28 20:22:59 (1.87 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/1444816846215.jpg' saved [6194/6194]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/1426837479235.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 5123 (5.0K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/1426837479235.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]   5.00K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (977 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/1426837479235.jpg' saved [5123/5123]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/1418287305875.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 5488 (5.4K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/1418287305875.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]   5.36K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (748 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/1418287305875.jpg' saved [5488/5488]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/i/banner_migu.jpg
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 26619 (26K) [image/jpeg]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/i/banner_migu.jpg'
+
+17jifen.bj.chinamob 100%[=====================>]  26.00K  --.-KB/s   in 0.007s 
+
+2015-12-28 20:22:59 (3.43 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/i/banner_migu.jpg' saved [26619/26619]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/bg.png
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 100 [image/png]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/bg.png'
+
+17jifen.bj.chinamob 100%[=====================>]     100  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (15.9 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/bg.png' saved [100/100]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/pophead-backbtn.png
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 486 [image/png]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/pophead-backbtn.png'
+
+17jifen.bj.chinamob 100%[=====================>]     486  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (92.7 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/pophead-backbtn.png' saved [486/486]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/loadclose.png
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 539 [image/png]
+Saving to: '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/loadclose.png'
+
+17jifen.bj.chinamob 100%[=====================>]     539  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (103 MB/s) - '17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/loadclose.png' saved [539/539]
+
+--2015-12-28 20:22:59--  http://17jifen.bj.chinamobile.com/hd/toolbar/common/images/layout/error-icon.png
+Reusing existing connection to 17jifen.bj.chinamobile.com:80.
+HTTP request sent, awaiting response... 403 Forbidden
+2015-12-28 20:22:59 ERROR 403: Forbidden.
+
+--2015-12-28 20:22:59--  http://221.179.140.145:30000/tlbagui/research/js/configNew.js
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1620 (1.6K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/research/js/configNew.js'
+
+221.179.140.145:300 100%[=====================>]   1.58K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (309 MB/s) - '221.179.140.145:30000/tlbagui/research/js/configNew.js' saved [1620/1620]
+
+--2015-12-28 20:22:59--  http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/buoy_r1.png?uflag=20151218144734
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 6303 (6.2K) [image/png]
+Saving to: '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/buoy_r1.png?uflag=20151218144734'
+
+221.179.140.145:909 100%[=====================>]   6.16K  --.-KB/s   in 0.005s 
+
+2015-12-28 20:22:59 (1.11 MB/s) - '221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/buoy_r1.png?uflag=20151218144734' saved [6303/6303]
+
+--2015-12-28 20:22:59--  http://221.179.140.145:30000/tlbagui/research/css/userService.css?v20151211141818
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 4831 (4.7K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/userService.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   4.72K  --.-KB/s   in 0.006s 
+
+2015-12-28 20:22:59 (823 KB/s) - '221.179.140.145:30000/tlbagui/research/css/userService.css?v20151211141818' saved [4831/4831]
+
+--2015-12-28 20:22:59--  http://221.179.140.145:30000/tlbagui/research/images/close-btn.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 271 [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/research/images/close-btn.png'
+
+221.179.140.145:300 100%[=====================>]     271  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (64.6 MB/s) - '221.179.140.145:30000/tlbagui/research/images/close-btn.png' saved [271/271]
+
+--2015-12-28 20:22:59--  http://221.179.140.145:30000/tlbagui/research/css/common.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1475 (1.4K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/common.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   1.44K  --.-KB/s   in 0s     
+
+2015-12-28 20:22:59 (281 MB/s) - '221.179.140.145:30000/tlbagui/research/css/common.css?v20151211141818' saved [1475/1475]
+
+--2015-12-28 20:22:59--  http://221.179.140.145:30000/tlbagui/research/css/feedback.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 663 [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/feedback.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]     663  --.-KB/s   in 0s     
+
+2015-12-28 20:23:00 (158 MB/s) - '221.179.140.145:30000/tlbagui/research/css/feedback.css?v20151211141818' saved [663/663]
+
+--2015-12-28 20:23:00--  http://221.179.140.145:30000/tlbagui/research/images/back.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1496 (1.5K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/research/images/back.png'
+
+221.179.140.145:300 100%[=====================>]   1.46K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:00 (285 MB/s) - '221.179.140.145:30000/tlbagui/research/images/back.png' saved [1496/1496]
+
+--2015-12-28 20:23:00--  http://221.179.140.145:30000/tlbagui/research/css/feedback_msg.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 789 [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/research/css/feedback_msg.css?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]     789  --.-KB/s   in 0s     
+
+2015-12-28 20:23:00 (188 MB/s) - '221.179.140.145:30000/tlbagui/research/css/feedback_msg.css?v20151211141818' saved [789/789]
+
+--2015-12-28 20:23:00--  http://221.179.140.145:30000/tlbagui/common/js/tlba.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 13951 (14K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/common/js/tlba.js?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]  13.62K  --.-KB/s   in 0.009s 
+
+2015-12-28 20:23:00 (1.50 MB/s) - '221.179.140.145:30000/tlbagui/common/js/tlba.js?v20151211141818' saved [13951/13951]
+
+--2015-12-28 20:23:00--  http://221.179.140.145:30000/tlbagui/research/js/researchNew.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 4458 (4.4K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/research/js/researchNew.js?v20151211141818'
+
+221.179.140.145:300 100%[=====================>]   4.35K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:00 (283 MB/s) - '221.179.140.145:30000/tlbagui/research/js/researchNew.js?v20151211141818' saved [4458/4458]
+
+--2015-12-28 20:23:00--  http://221.179.140.145:9090/tlbsserver/operate?type=1&op=0&time=1451304537683
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 0
+Saving to: '221.179.140.145:9090/tlbsserver/operate?type=1&op=0&time=1451304537683'
+
+221.179.140.145:909     [ <=>                  ]       0  --.-KB/s   in 0s     
+
+2015-12-28 20:23:00 (0.00 B/s) - '221.179.140.145:9090/tlbsserver/operate?type=1&op=0&time=1451304537683' saved [0/0]
+
+--2015-12-28 20:23:00--  http://cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css
+Resolving cdn.amazeui.org... 111.47.247.171
+Connecting to cdn.amazeui.org|111.47.247.171|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 256317 (250K) [text/css]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css'
+
+cdn.amazeui.org/ama 100%[=====================>] 250.31K   152KB/s   in 1.6s   
+
+2015-12-28 20:23:02 (152 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/css/amazeui.min.css' saved [256317/256317]
+
+--2015-12-28 20:23:02--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?v=4.3.0
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 60767 (59K) [application/vnd.ms-fontobject]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?v=4.3.0'
+
+cdn.amazeui.org/ama 100%[=====================>]  59.34K  --.-KB/s   in 0.08s  
+
+2015-12-28 20:23:02 (709 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?v=4.3.0' saved [60767/60767]
+
+--2015-12-28 20:23:02--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 60767 (59K) [application/vnd.ms-fontobject]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?'
+
+cdn.amazeui.org/ama 100%[=====================>]  59.34K  --.-KB/s   in 0.09s  
+
+2015-12-28 20:23:03 (641 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.eot?' saved [60767/60767]
+
+--2015-12-28 20:23:03--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff2?v=4.3.0
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 56780 (55K) [application/octet-stream]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff2?v=4.3.0'
+
+cdn.amazeui.org/ama 100%[=====================>]  55.45K  --.-KB/s   in 0.08s  
+
+2015-12-28 20:23:03 (680 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff2?v=4.3.0' saved [56780/56780]
+
+--2015-12-28 20:23:03--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff?v=4.3.0
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 71508 (70K) [application/x-font-woff]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff?v=4.3.0'
+
+cdn.amazeui.org/ama 100%[=====================>]  69.83K  --.-KB/s   in 0.1s   
+
+2015-12-28 20:23:03 (681 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.woff?v=4.3.0' saved [71508/71508]
+
+--2015-12-28 20:23:03--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.ttf?v=4.3.0
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 122092 (119K) [application/x-font-ttf]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.ttf?v=4.3.0'
+
+cdn.amazeui.org/ama 100%[=====================>] 119.23K   651KB/s   in 0.2s   
+
+2015-12-28 20:23:03 (651 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.ttf?v=4.3.0' saved [122092/122092]
+
+--2015-12-28 20:23:03--  http://cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.svg?v=4.3.0
+Reusing existing connection to cdn.amazeui.org:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 313398 (306K) [image/svg+xml]
+Saving to: 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.svg?v=4.3.0'
+
+cdn.amazeui.org/ama 100%[=====================>] 306.05K   590KB/s   in 0.5s   
+
+2015-12-28 20:23:04 (590 KB/s) - 'cdn.amazeui.org/amazeui/2.4.2/fonts/fontawesome-webfont.svg?v=4.3.0' saved [313398/313398]
+
+--2015-12-28 20:23:04--  https://mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTjofjNqjAcpltDm3zyuicNSrCFd22iagxicJicy3u3lR5zYH9NtU3anj01w/0?wx_fmt=jpeg
+Resolving mmbiz.qlogo.cn... 117.144.242.49, 117.144.244.21, 117.144.244.20
+Connecting to mmbiz.qlogo.cn|117.144.242.49|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 27237 (27K) [image/jpeg]
+Saving to: 'mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTjofjNqjAcpltDm3zyuicNSrCFd22iagxicJicy3u3lR5zYH9NtU3anj01w/0?wx_fmt=jpeg'
+
+mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6r 100%[==========================================================================>]  26.60K  --.-KB/s   in 0.06s  
+
+2015-12-28 20:23:09 (470 KB/s) - 'mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTjofjNqjAcpltDm3zyuicNSrCFd22iagxicJicy3u3lR5zYH9NtU3anj01w/0?wx_fmt=jpeg' saved [27237/27237]
+
+--2015-12-28 20:23:09--  https://mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTL1KfzQENy8DzLHABqpZ6qV5yV67gt7yuRKM3hqPkhDfl4PDF3ku7cA/0?wx_fmt=jpeg
+Reusing existing connection to mmbiz.qlogo.cn:443.
+HTTP request sent, awaiting response... 200 OK
+Length: 30501 (30K) [image/jpeg]
+Saving to: 'mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTL1KfzQENy8DzLHABqpZ6qV5yV67gt7yuRKM3hqPkhDfl4PDF3ku7cA/0?wx_fmt=jpeg'
+
+mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rC 100%[=============================================================================>]  29.79K  --.-KB/s   in 0.05s  
+
+2015-12-28 20:23:09 (588 KB/s) - 'mmbiz.qlogo.cn/mmbiz/icrf6mBAZHqoVZ6rCRb5AdicOMkdDfs7KTL1KfzQENy8DzLHABqpZ6qV5yV67gt7yuRKM3hqPkhDfl4PDF3ku7cA/0?wx_fmt=jpeg' saved [30501/30501]
+
+--2015-12-28 20:23:09--  http://221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy.html?v20151211141818
+Connecting to 221.179.140.145:30000... failed: Operation timed out.
+Retrying.
+
+--2015-12-28 20:23:10--  (try: 2)  http://221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy.html?v20151211141818
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1179 (1.2K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy.html?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/h 100%[===============================================================================>]   1.15K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:10 (141 MB/s) - '221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy.html?v20151211141818' saved [1179/1179]
+
+--2015-12-28 20:23:10--  http://221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 961 [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy.css?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]     961  --.-KB/s   in 0s     
+
+2015-12-28 20:23:10 (229 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy.css?v20151211141818' saved [961/961]
+
+--2015-12-28 20:23:10--  http://221.179.140.145:30000/tlbagui/traffic/images/back.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1496 (1.5K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/back.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.46K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:10 (238 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/back.png' saved [1496/1496]
+
+--2015-12-28 20:23:10--  http://221.179.140.145:30000/tlbagui/traffic/js/my_flux_buy/my_flux_buy.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 18123 (18K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/js/my_flux_buy/my_flux_buy.js?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/j 100%[===============================================================================>]  17.70K  --.-KB/s   in 0.009s 
+
+2015-12-28 20:23:10 (1.84 MB/s) - '221.179.140.145:30000/tlbagui/traffic/js/my_flux_buy/my_flux_buy.js?v20151211141818' saved [18123/18123]
+
+--2015-12-28 20:23:10--  http://221.179.140.145:30000/tlbagui/traffic/html/my_flux.html?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 2201 (2.1K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/my_flux.html?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/h 100%[===============================================================================>]   2.15K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (350 MB/s) - '221.179.140.145:30000/tlbagui/traffic/html/my_flux.html?v20151211141818' saved [2201/2201]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/css/common.css
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1473 (1.4K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/common.css'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]   1.44K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (82.6 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/common.css' saved [1473/1473]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/css/my_flux.css
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 2764 (2.7K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/my_flux.css'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]   2.70K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (329 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/my_flux.css' saved [2764/2764]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_red_hot.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1652 (1.6K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_red_hot.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.61K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (315 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_red_hot.png' saved [1652/1652]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_icon.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1274 (1.2K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_icon.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.24K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (243 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/my_flux/flux_icon.png' saved [1274/1274]
+
+--2015-12-28 20:23:11--  http://hm.baidu.com/hm.js?dba07b88069095653349fa753d6f8933
+Resolving hm.baidu.com... 111.13.101.191
+Connecting to hm.baidu.com|111.13.101.191|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 0 [text/plain]
+Saving to: 'hm.baidu.com/hm.js?dba07b88069095653349fa753d6f8933'
+
+hm.baidu.com/hm.js?dba07b88069095653349     [ <=>                                                                            ]       0  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (0.00 B/s) - 'hm.baidu.com/hm.js?dba07b88069095653349fa753d6f8933' saved [0/0]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http://frp.orientalwisdom.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538088
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 0
+Saving to: '221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http:%2F%2Ffrp.orientalwisdom.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538088'
+
+221.179.140.145:9090/tlbsserver/stagelo     [ <=>                                                                            ]       0  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (0.00 B/s) - '221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http:%2F%2Ffrp.orientalwisdom.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538088' saved [0/0]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/js/my_flux/my_flux.js?v20151211141818
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 11671 (11K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/js/my_flux/my_flux.js?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/j 100%[===============================================================================>]  11.40K  --.-KB/s   in 0.008s 
+
+2015-12-28 20:23:11 (1.34 MB/s) - '221.179.140.145:30000/tlbagui/traffic/js/my_flux/my_flux.js?v20151211141818' saved [11671/11671]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbaserver/traffic/trafficheadinfo
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 333 [charset=utf-8]
+Saving to: '221.179.140.145:30000/tlbaserver/traffic/trafficheadinfo'
+
+221.179.140.145:30000/tlbaserver/traffi 100%[===============================================================================>]     333  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (52.9 MB/s) - '221.179.140.145:30000/tlbaserver/traffic/trafficheadinfo' saved [333/333]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbaserver/traffic/recommend/?type=all&time=1451304538179
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [charset=utf-8]
+Saving to: '221.179.140.145:30000/tlbaserver/traffic/recommend/index.html?type=all&time=1451304538179'
+
+221.179.140.145:30000/tlbaserver/traffi     [ <=>                                                                            ]  12.04K  --.-KB/s   in 0.007s 
+
+2015-12-28 20:23:11 (1.71 MB/s) - '221.179.140.145:30000/tlbaserver/traffic/recommend/index.html?type=all&time=1451304538179' saved [12327]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/html/flux.html?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 2742 (2.7K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/flux.html?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/h 100%[===============================================================================>]   2.68K  --.-KB/s   in 0.008s 
+
+2015-12-28 20:23:11 (344 KB/s) - '221.179.140.145:30000/tlbagui/traffic/html/flux.html?v20151211141818' saved [2742/2742]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/css/flux.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 3034 (3.0K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/flux.css?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]   2.96K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (181 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/flux.css?v20151211141818' saved [3034/3034]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/images/flux/shop.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1492 (1.5K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/flux/shop.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.46K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (237 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/flux/shop.png' saved [1492/1492]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/images/flux/flux.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1795 (1.8K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/flux/flux.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.75K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:11 (285 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/flux/flux.png' saved [1795/1795]
+
+--2015-12-28 20:23:11--  http://221.179.140.145:30000/tlbagui/traffic/js/flux/flux.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 32558 (32K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/js/flux/flux.js?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/j 100%[===============================================================================>]  31.79K  --.-KB/s   in 0.02s  
+
+2015-12-28 20:23:11 (1.50 MB/s) - '221.179.140.145:30000/tlbagui/traffic/js/flux/flux.js?v20151211141818' saved [32558/32558]
+
+--2015-12-28 20:23:11--  http://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&et=0&fl=20.0&ja=0&ln=zh-CN&lo=0&nv=1&rnd=467312204&si=dba07b88069095653349fa753d6f8933&st=3&su=http%3A%2F%2Fwww.yktz.net%2F&v=1.1.22&lv=1
+Connecting to hm.baidu.com|111.13.101.191|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 43 [image/gif]
+Saving to: 'hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&et=0&fl=20.0&ja=0&ln=zh-CN&lo=0&nv=1&rnd=467312204&si=dba07b88069095653349fa753d6f8933&st=3&su=http%3A%2F%2Fwww.yktz.net%2F&v=1.1.22&lv=1'
+
+hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit 100%[===============================================================================>]      43  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (6.83 MB/s) - 'hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&et=0&fl=20.0&ja=0&ln=zh-CN&lo=0&nv=1&rnd=467312204&si=dba07b88069095653349fa753d6f8933&st=3&su=http%3A%2F%2Fwww.yktz.net%2F&v=1.1.22&lv=1' saved [43/43]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbaserver/traffic/summary/?time=1451304538320
+Connecting to 221.179.140.145:30000... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 1126 (1.1K) [charset=utf-8]
+Saving to: '221.179.140.145:30000/tlbaserver/traffic/summary/index.html?time=1451304538320'
+
+221.179.140.145:30000/tlbaserver/traffi 100%[===============================================================================>]   1.10K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (179 MB/s) - '221.179.140.145:30000/tlbaserver/traffic/summary/index.html?time=1451304538320' saved [1126/1126]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/html/flux_detail.html?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1694 (1.7K) [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/flux_detail.html?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/h 100%[===============================================================================>]   1.65K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (269 MB/s) - '221.179.140.145:30000/tlbagui/traffic/html/flux_detail.html?v20151211141818' saved [1694/1694]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/css/flux_detail.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 3248 (3.2K) [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/flux_detail.css?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]   3.17K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (516 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/flux_detail.css?v20151211141818' saved [3248/3248]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/images/back_w.png
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1495 (1.5K) [image/png]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/back_w.png'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]   1.46K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (204 MB/s) - '221.179.140.145:30000/tlbagui/traffic/images/back_w.png' saved [1495/1495]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy_loading.html?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 946 [text/html]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy_loading.html?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/h 100%[===============================================================================>]     946  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (150 MB/s) - '221.179.140.145:30000/tlbagui/traffic/html/my_flux_buy_loading.html?v20151211141818' saved [946/946]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy_loading.css?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 523 [text/css]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy_loading.css?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/c 100%[===============================================================================>]     523  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (83.1 MB/s) - '221.179.140.145:30000/tlbagui/traffic/css/my_flux_buy_loading.css?v20151211141818' saved [523/523]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/images/my_flux_loading/loading_ico.gif
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 11244 (11K) [image/gif]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/images/my_flux_loading/loading_ico.gif'
+
+221.179.140.145:30000/tlbagui/traffic/i 100%[===============================================================================>]  10.98K  --.-KB/s   in 0.01s  
+
+2015-12-28 20:23:12 (865 KB/s) - '221.179.140.145:30000/tlbagui/traffic/images/my_flux_loading/loading_ico.gif' saved [11244/11244]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbagui/traffic/js/flux_detail/flux_detail.js?v20151211141818
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 14264 (14K) [application/javascript]
+Saving to: '221.179.140.145:30000/tlbagui/traffic/js/flux_detail/flux_detail.js?v20151211141818'
+
+221.179.140.145:30000/tlbagui/traffic/j 100%[===============================================================================>]  13.93K  --.-KB/s   in 0.01s  
+
+2015-12-28 20:23:12 (1.42 MB/s) - '221.179.140.145:30000/tlbagui/traffic/js/flux_detail/flux_detail.js?v20151211141818' saved [14264/14264]
+
+--2015-12-28 20:23:12--  http://221.179.140.145:30000/tlbaserver/traffic/details/?time=1451304538464
+Reusing existing connection to 221.179.140.145:30000.
+HTTP request sent, awaiting response... 200 OK
+Length: 1126 (1.1K) [charset=utf-8]
+Saving to: '221.179.140.145:30000/tlbaserver/traffic/details/index.html?time=1451304538464'
+
+221.179.140.145:30000/tlbaserver/traffi 100%[===============================================================================>]   1.10K  --.-KB/s   in 0s     
+
+2015-12-28 20:23:12 (215 MB/s) - '221.179.140.145:30000/tlbaserver/traffic/details/index.html?time=1451304538464' saved [1126/1126]
+
+--2015-12-28 20:23:12--  http://s95.cnzz.com/z_stat.php?id=1256614665&show=pic
+Resolving s95.cnzz.com... 111.13.56.97, 111.13.56.104
+Connecting to s95.cnzz.com|111.13.56.97|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9944 (9.7K) [application/javascript]
+Saving to: 's95.cnzz.com/z_stat.php?id=1256614665&show=pic'
+
+s95.cnzz.com/z_stat.php?id=1256614665&s 100%[===============================================================================>]   9.71K  --.-KB/s   in 0.001s 
+
+2015-12-28 20:23:13 (8.54 MB/s) - 's95.cnzz.com/z_stat.php?id=1256614665&show=pic' saved [9944/9944]
+
+--2015-12-28 20:23:13--  http://c.cnzz.com/core.php?web_id=1256614665&show=pic&t=z
+Resolving c.cnzz.com... 111.13.56.97, 111.13.56.104
+Reusing existing connection to s95.cnzz.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 765 [application/javascript]
+Saving to: 'c.cnzz.com/core.php?web_id=1256614665&show=pic&t=z'
+
+c.cnzz.com/core.php?web_id=1256614665&s 100%[===============================================================================>]     765  --.-KB/s   in 0s     
+
+2015-12-28 20:23:13 (122 MB/s) - 'c.cnzz.com/core.php?web_id=1256614665&show=pic&t=z' saved [765/765]
+
+--2015-12-28 20:23:13--  http://z4.cnzz.com/stat.htm?id=1256614665&r=http%3A%2F%2Fwww.yktz.net%2F&lg=zh-cn&ntime=none&cnzz_eid=1750679271-1451304452-http%3A%2F%2Fwww.yktz.net%2F&showp=2560x1440&t=%E7%83%AD%E6%8D%A7%E6%B8%B8%E6%88%8F&h=1&rnd=643907509
+Resolving z4.cnzz.com... 42.120.219.93
+Connecting to z4.cnzz.com|42.120.219.93|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: 'z4.cnzz.com/stat.htm?id=1256614665&r=http%3A%2F%2Fwww.yktz.net%2F&lg=zh-cn&ntime=none&cnzz_eid=1750679271-1451304452-http%3A%2F%2Fwww.yktz.net%2F&showp=2560x1440&t=%E7%83%AD%E6%8D%A7%E6%B8%B8%E6%88%8F&h=1&rnd=643907509'
+
+z4.cnzz.com/stat.htm?id=1256614665&r=ht     [ <=>                                                                            ]       0  --.-KB/s   in 0s     
+
+2015-12-28 20:23:14 (0.00 B/s) - 'z4.cnzz.com/stat.htm?id=1256614665&r=http%3A%2F%2Fwww.yktz.net%2F&lg=zh-cn&ntime=none&cnzz_eid=1750679271-1451304452-http%3A%2F%2Fwww.yktz.net%2F&showp=2560x1440&t=%E7%83%AD%E6%8D%A7%E6%B8%B8%E6%88%8F&h=1&rnd=643907509' saved [0]
+
+--2015-12-28 20:23:14--  http://icon.cnzz.com/img/pic.gif
+Resolving icon.cnzz.com... 111.13.56.104, 111.13.56.97
+Reusing existing connection to s95.cnzz.com:80.
+HTTP request sent, awaiting response... 200 OK
+Length: 719 [image/gif]
+Saving to: 'icon.cnzz.com/img/pic.gif'
+
+icon.cnzz.com/img/pic.gif               100%[===============================================================================>]     719  --.-KB/s   in 0s     
+
+2015-12-28 20:23:14 (171 MB/s) - 'icon.cnzz.com/img/pic.gif' saved [719/719]
+
+--2015-12-28 20:23:14--  http://221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http://17jifen.bj.chinamobile.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538842
+Connecting to 221.179.140.145:9090... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 0
+Saving to: '221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http:%2F%2F17jifen.bj.chinamobile.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538842'
+
+221.179.140.145:9090/tlbsserver/stagelo     [ <=>                                                                            ]       0  --.-KB/s   in 0s     
+
+2015-12-28 20:23:14 (0.00 B/s) - '221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http:%2F%2F17jifen.bj.chinamobile.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538842' saved [0/0]
+
+--2015-12-28 20:23:14--  http://www.yktz.net/favicon.ico
+Connecting to www.yktz.net|121.199.33.111|:80... connected.
+HTTP request sent, awaiting response... 404 Not Found
+2015-12-28 20:23:14 ERROR 404: Not Found.
+
+The name is too long, 381 chars total.
+Trying to shorten...
+New name is hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%.
+The name is too long, 381 chars total.
+Trying to shorten...
+New name is hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%.
+--2015-12-28 20:23:14--  http://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%3A0%7D&et=87&fl=20.0&ja=0&ln=zh-CN&lo=0&nv=1&rnd=237738923&si=dba07b88069095653349fa753d6f8933&st=3&su=http%3A%2F%2Fwww.yktz.net%2F&v=1.1.22&lv=1
+Connecting to hm.baidu.com|111.13.101.191|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 43 [image/gif]
+Saving to: 'hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%'
+
+hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit 100%[===============================================================================>]      43  --.-KB/s   in 0s     
+
+2015-12-28 20:23:15 (10.3 MB/s) - 'hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%' saved [43/43]
+
+FINISHED --2015-12-28 20:23:15--
+Total wall clock time: 26s
+Downloaded: 140 files, 2.2M in 3.8s (603 KB/s)
+LYN-iMac:tmp liuyuning$ 

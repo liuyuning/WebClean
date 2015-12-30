@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../css/flux_detail.css?v20151211141818" />
+<title>流量详情</title>
+</head>
+<body w="300" h="300" f="20">
+	<dl class="imain">
+		<dt class="ititle">
+		<a class="ibackbtn" href="#">
+      </a>
+        	<i>流量详情</i>
+        </dt>
+		<dd class="ibody touchable">
+<!--start-->
+<div class="flux">
+<div class="flux_round1">
+	<div class="left">
+        <div class="round">
+        <div class="round2">
+        	<div class="zz">
+            	<div class="con"></div>
+            </div>
+            <div class="txt"></div>
+        </div>
+        </div>
+    </div> 
+	<div class="right">
+        <p><span class="s24">我的总流量</span><span class="s24_allflux"></span><span class="s32" id="s24_allfluxunit"></span></p>
+        <p><span class="s24">已用流量</span><span class="s24_useflux"></span><span class="s32" id="s24_usefluxunit"></span></p>
+        <p class="s20 alpha"></p>
+    </div>
+    </div>
+</div>
+<ul class="commend">
+    <li class="commendCan">
+        <canvas class="flux_round" id="flux_round{0}"  width="240" height="240">{1}</canvas>
+    <!--    <div class="flux_txt">40%</div>-->
+        <div class="tit">{2}</div>
+        <p>总流量：{3}B 已用：{4}B 剩余：{5}B</p>
+    </li>
+</ul>
+<!--end-->
+		</dd>
+	</dl>
+
+</body>
+</html>

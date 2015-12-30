@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../css/my_flux_buy_loading.css?v20151211141818" />
+<title>套餐订购</title>
+</head>
+<body w="300" h="300" f="20">
+	<dl class="imain">
+		<dt class="ititle">
+        	<i>套餐订购</i>
+        </dt>
+		<dd class="ibody touchable">
+<!--流量包订购加载稍后start-->
+<div class="mf_buy_loading">
+	<img src="../images/my_flux_loading/loading_ico.gif" alt=""/>
+    <p class="mf_buy_txt">亲，正在为您订购<br /><span></span>。请稍候…</p>
+</div>
+
+<!--流量包订购加载稍后end-->
+  
+		</dd>
+	</dl>
+
+</body>
+</html>

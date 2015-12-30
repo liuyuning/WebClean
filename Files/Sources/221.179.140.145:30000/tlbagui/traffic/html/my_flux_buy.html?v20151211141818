@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../css/my_flux_buy.css?v20151211141818" />
+<title>套餐订购</title>
+</head>
+<body w="300" h="300" f="20">
+	<dl class="imain">
+		<dt class="ititle">
+        	<a class="ibackbtn" href="#">
+      </a>
+        	<i>套餐订购</i>
+        </dt>
+		<dd class="ibody touchable">
+<!--流量包订购start-->
+<div class="mf_bag_buy">
+    <dl>
+        <dt>业务名称</dt>
+        <dd id="package_name"></dd>
+    </dl>
+    <dl>
+        <dt>资费标准</dt>
+        <dd id="package_desc"></dd>
+    </dl>
+    <dl>
+        <dt>生效方式</dt>
+        <dd id="package_effectiveli"></dd>
+    </dl>
+</div>
+<div class="qr_buy_btn">
+	<input type="button" value="确认订购" class="buttonOk"/>
+</div>
+
+<!--流量包订购end-->
+  
+		</dd>
+	</dl>
+
+</body>
+</html>

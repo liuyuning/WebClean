@@ -1,0 +1,9 @@
+@charset "utf-8";
+.ititle {background:#FFF;color:#555;}
+.ibody {margin-bottom:.4em;}
+.hidden{ display:none;}
+/****流量包订购****/
+.mf_buy_loading{ width:100%; padding:1em 0.5em; text-align:center; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.mf_buy_loading img{ width:20%; padding:2em 0;}
+.mf_buy_loading p.mf_buy_txt{ width:100%; text-align:center; color:#949494; font-size:0.65em;line-height:1.6em;}
+.mf_buy_loading p.mf_buy_txt span{ color:#8ec31f; font-size:1.1em;}

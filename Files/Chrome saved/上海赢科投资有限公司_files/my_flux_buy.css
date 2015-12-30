@@ -1,0 +1,10 @@
+@charset "utf-8";
+#businessDealWith .ititle {background:#FFF;color:#555; position: relative;}
+#businessDealWith .ititle a {position:absolute;top:.1em;left:0;background:url("../images/back.png") no-repeat 0 0;width:1.2em;height:1.2em; background-size:1.4em 1.4em;}
+/****流量包订购****/
+#businessDealWith .mf_bag_buy {box-sizing:border-box;border-bottom:1px solid #ccc;margin:0 .5em;}
+#businessDealWith .mf_bag_buy dl {margin-top:.3em;margin-bottom:1em;}
+#businessDealWith .mf_bag_buy dl:last-child {margin-bottom:.3em;}
+#businessDealWith .mf_bag_buy dl dt {font-size:0.6em;font-weight:bold;color:#555;line-height:1.5em;margin-bottom:.3em;}
+#businessDealWith .mf_bag_buy dl dd {font-size:0.65em;color:#949494;line-height:1.35em}
+#businessDealWith .qr_buy_btn input {font-size:.65em;width:10.2em; margin:1.3em auto 2.5em;height:2.6em;line-height:2.6em;background:#3ab100; border-radius:.2em;box-shadow: 0 .1em .2em #CCC;color:#FFF; display: block;}

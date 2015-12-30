@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title></title>
+<link rel="stylesheet" href="../../common/css/tlba.css?v20151211141818" charset="UTF-8"/>
+<link href="../css/common.css?v20151211141818" rel="stylesheet" type="text/css" />
+</head>
+<body w="300" h="300" f="20" style="display:none">
+	<div id="overview" style="display:none"></div>
+	<div id="detail" style="display:none"></div>
+	<div id="fluxRecommandAndDone" style="display:none"></div>
+	<div id="businessDealWith" style="display:none"></div>
+	<div id="order_tc" style="display:none"></div> 
+	<div id="flow_un" style="display:none"></div> 
+	<div id="orderRemind" style="display:none">
+	</div>
+	
+	<script type="text/javascript" src="../../common/jquery/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../../common/js/whdz.js?v20151211141818"></script>
+	<script type="text/javascript" src="../../common/js/tlba_cn.js?v20151211141818"></script>
+	<script type="text/javascript" src="../js/all.js?v20151211141818"></script>
+</body>
+</html>

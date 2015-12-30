@@ -1,0 +1,21 @@
+@charset "utf-8";
+/*通用样式*/
+body,div,p,a,li,ul,ol,span,input,dl, dd, dt, form, h1, h2, h3, h4, h5, h6, h7, input, select, pre,img,textarea,blockquote{ padding:0px; margin:0px; list-style:none; outline:none; font-size:system; border:0 none; text-decoration:none;-webkit-tap-highlight-color:rgba(0,0,0,0);font-family:"microsoft yahei";}
+input[type="submit"],input[type="reset"],input[type="button"],input[type="text"],button {-webkit-appearance: none;}
+input,textarea,select,button{font-family:inherit;font-size:inherit;font-weight:inherit;}
+
+table{border-collapse:collapse;border-spacing:0;}
+img{border:0;}
+em,strong,th,b,i{font-style:normal;font-weight:normal;}
+h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}
+img,input,label,button{vertical-align:middle;}
+input:focus,button:focus,select:focus,textarea:focus{outline:0;}
+
+a{blr:expression(this.onFocus=this.blur())}            /*去掉a标签的虚线框，避免出现奇怪的选中区域*/
+a.hidefocus,a:active,a:focus,.hidefocus:focus,input[type=button] ,input[type=submit] { outline:none; -moz-outline:none;}    /*去掉a标签的虚线框，避免出现奇怪的选中区域*/
+button.hidefocus::-moz-focus-inner {border:none;}      /*::-moz-focus-inner无边框 */
+
+.clear{clear:both;}
+.clearfloat{clear:both;zoom:1;}
+.clearfloat:after{height:0px;clear:both;content:".";display:block;visibility:hidden;}
+/*.round{-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;}*/

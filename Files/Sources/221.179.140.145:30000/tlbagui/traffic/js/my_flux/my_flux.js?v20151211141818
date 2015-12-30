@@ -1,0 +1,357 @@
+var introDetail1;
+var introDetail2;
+var introDetail3;
+var packageDatas;
+
+
+$(function() {
+    var isOrder='0';
+    var ispkgOrder_Done='0';
+	// 不是预加载，则执行js
+	$("#fluxRecommandAndDone .ibackbtn").xclick(function(){
+	  $("#overview").css("display","block");
+	  $("#fluxRecommandAndDone").css("display","none");
+	  f_contrail('p003_BTN001','套餐商店页面返回按钮','my_flux.html','0','','p003');
+	//window.location.href='overview.html?v20150304091113';
+	});
+	var isPreload = getQueryString("preload");
+	if(!isPreload){
+		loaded_Done();
+	}
+	/*
+	if(ispkgOrder_Done=='0'){
+	   orderpkg();
+	   ispkgOrder_Done='1';
+	}
+	*/
+	 /*
+	if(ispkgOrder_Done=='0'){
+	   alert()
+	   $("#fluxRecommandAndDone .btn a").click(function(){
+	       var name = $(this).attr("name");
+	       // url = queryStringInUrl(name);
+	       alert(name);
+	       //getIspkgOrder(name);
+	       //$("#businessDealWith").css("display","block");
+	       //$("#fluxRecommandAndDone").css("display","none");
+	   })
+	   //orderpkg(url);
+	   ispkgOrder_Done='1';
+	}
+	*/
+});
+
+function goout(obj){
+	
+	var url = $(obj).attr("name");
+	window.location.href=url;
+}
+
+function orderpkg(){
+var type=getQueryString("type");
+if(type!="" && type!=undefined&&type!="undefined"){
+var msgdata={
+type:type
+};
+$.ajax({
+		url: "/tlbaserver/traffic/pakagereocrd", 
+		data:msgdata,
+		success:function(data){
+		
+		},
+	});
+}
+}
+
+
+
+function loaded_Done() {
+	// 绑定页面中的事件的方法
+	$.ajax({
+		url:"/tlbaserver/traffic/trafficheadinfo",
+		type:"get",
+		async:"false",
+		dataType:"json",
+		success:function(data){
+		    var page1 = $('.mf_tab_tit ul li').eq(0);
+		    var page2 = $('.mf_tab_tit ul li').eq(1);
+		    var page3 = $('.mf_tab_tit ul li').eq(2);
+		    
+			//初始化头数据
+			page1.html(data.info1);
+			page2.html(data.info2);
+			page3.html(data.info3);
+			introDetail1=data.detail1;
+			introDetail2=data.detail2;
+			introDetail3=data.detail3;
+			$("#countryTrafficDataTips").html(introDetail1);
+			$("#provinceTrafficDataTips").html(introDetail2);
+			$("#freeToPlayTrafficDataTips").html(introDetail3);
+			
+			if(introDetail1=="" || introDetail1==null || introDetail1=="#" || introDetail1=="*" || introDetail1==0){
+			//$(".mf_bag_0").hide();
+			$("#countryTrafficDataTips").hide();
+			}
+            if(introDetail2=="" || introDetail2==null || introDetail2=="#" || introDetail2=="*" || introDetail2==0){
+			//$(".mf_bag_02").hide();
+			$("#provinceTrafficDataTips").hide();
+			}
+            if(introDetail3=="" || introDetail3==null || introDetail3=="#" || introDetail3=="*" || introDetail3==0){
+			//$(".mf_bag_03").hide();
+			$("#freeToPlayTrafficDataTips").hide();
+			}
+		},
+		error:function(){
+		}	
+	});
+	
+	var bindPageClick_done = function() {
+		$('.mf_tab_tit ul li').eq(0).xclick(function(){toPage(1);f_contrail('p003_BTN002','套餐商店页面tab切换按钮','my_flux.html','0','','p003'); });
+		$('.mf_tab_tit ul li').eq(1).xclick(function(){toPage(2);f_contrail('p003_BTN002','套餐商店页面tab切换按钮','my_flux.html','0','','p003'); });
+		$('.mf_tab_tit ul li').eq(2).xclick(function(){toPage(3);f_contrail('p003_BTN002','套餐商店页面tab切换按钮','my_flux.html','0','','p003'); });
+	}
+	
+
+	// tab页面跳转方法
+	 function toPage(i) {
+	     var page = $(".mf_tab_tit ul li").eq(i-1);
+	     var index=i;
+	     page.addClass('curr');
+	     page.siblings('li').removeClass('curr');
+		   for(var i=0;i<$('.mf_tab_tit ul li').length;i++)
+			  {
+				  $(".mf_bag_0"+(i+1)).hide();
+			  }
+			  $(".mf_bag_0"+(index)).show();
+	}
+	
+	// 重新获取方法
+	var warn = function() {
+		$(".prompt-line").show().children(".reload").show().siblings().hide();
+		$(".ratio-line ul p.desc i").html(TrafficRes.NOT_OPEN_PACKAGE_DESCRIBE);
+	};
+	// 10秒后显示网络繁忙点击重新加载方法
+	var reload = setTimeout(warn, 10000);
+	// 1秒后显示请稍候的等待方法
+	var wait = setTimeout(function() {
+		$(".prompt-line").show().children(".wait").show().siblings().hide();
+	}, 1000);
+
+	// 初始化tab页面的方法
+	function createUI (data) {
+		// 获取条形数据列表的模板。
+		if (data == null || data == 'undifined' || data == '') {
+			return;
+		}
+		
+		clearTimeout(wait);
+		clearTimeout(reload);
+		$(".prompt-line").hide();
+		// 根据当前数据，初始化当前页面的所有套餐列表页面。
+		packageDatas = data;
+		initPackageListLineUI_done(data);
+	}
+
+	// 根据当前数据，初始化当前页面的所有套餐列表页面。
+	 function initPackageListLineUI_done(data) {
+		// 根据页面初始化所有数据。
+		for(var j=0;j<data.packageInfos.length;j++){
+		   if(data.packageInfos[j].packageEffect == 'y' && 
+		      data.packageInfos[j].packageType==1){//判断是否已订购月套餐
+				   isOrder='1';
+	      }
+		}
+		
+		 //td
+	    var htmlCountryChildren1 = $("#temp tr").html();
+	    //tr
+	    var htmlCountryDom1 = $("#temp tbody").html();
+	    
+	    var a1 = 0;
+	    var a2 = 0;
+	    var a3 = 0;
+		for ( var i = 0; i < data.packageInfos.length; i++) {
+			var htmlCountryDom;
+			var htmlCountryChildren;
+			// 循环使用类型数组，来根据packageInfos来初始化不同的页面
+			// 此处按顺序来初始化页面，packageType==1代表的月套餐，packageType==3表示的叠加包，packageType==4表示的随心加。
+			var unitstr;
+			if (data.packageInfos[i].packageType == 1) {//可选包
+			    a1++;
+			    if(a1%2!=0)
+			    {
+			    htmlCountryChildren = htmlCountryDom1;
+				htmlCountryDom = $("#flux_table3");
+			    }else
+			    {
+				htmlCountryChildren = htmlCountryChildren1;
+				htmlCountryDom = $("#flux_table3").find("tr").last();
+			    }
+			    unitstr="元/月";
+			}else if (data.packageInfos[i].packageType == 3) {//叠加包
+				a2++;
+			    if(a2%2!=0)
+			    {
+			    htmlCountryChildren = htmlCountryDom1;
+			    htmlCountryDom = $("#flux_table2");
+			    }else
+			    {
+				htmlCountryChildren = htmlCountryChildren1;
+                htmlCountryDom = $("#flux_table2").find("tr").last();
+			    }
+				unitstr="元/次";
+			} else if (data.packageInfos[i].packageType == 5
+			||data.packageInfos[i].packageType==6
+			||data.packageInfos[i].packageType==7
+			||data.packageInfos[i].packageType==8
+	        ||data.packageInfos[i].packageType==9
+	        ||data.packageInfos[i].packageType==10) {//和4G
+				a3++;
+			    if(a3%2!=0)
+			    {
+			    htmlCountryChildren = htmlCountryDom1;
+			    htmlCountryDom = $("#flux_table1");
+			    }else
+			    {
+				htmlCountryChildren =htmlCountryChildren1;
+				htmlCountryDom = $("#flux_table1").find("tr").last();
+			    }
+				unitstr="元/月";
+			} 
+			// 获取组装模板所需要的数据
+			var packageId = data.packageInfos[i].packageId;
+			var packagePrice = data.packageInfos[i].packagePrice+unitstr;
+			 var packageName = data.packageInfos[i].packageshowname;
+             var preferential=data.packageInfos[i].preferential;
+             var packagedecription=data.packageInfos[i].packageInstruction;
+             var displayPer="block";
+             if(preferential=="0"){
+             displayPer="none";
+             }
+             
+             if(packageName.indexOf("G")!=-1)
+             {
+               var packageUnit = "GB";
+             }else if(packageName.indexOf("M")!=-1)
+             {
+               var packageUnit = "MB";
+             }
+             packageName = parseInt(packageName);
+            //var index = htmlCountryDom.children("tr").last().find("td").size();
+	                htmlCountryDom.append(htmlCountryChildren.format(packageId,packageName,packageUnit,
+							packagePrice,displayPer));
+			// 判断是否生效 生效置灰
+			if (data.packageInfos[i].packageEffect == 'y') {
+				var btnid = "openTraffic_" + packageId
+				$("#" + btnid).addClass("grey-tbn");
+			} else {
+				var packageInfo = data.packageInfos[i];
+				var btnid = "openTraffic_" + packageId
+				$("#" + btnid).removeClass("grey-tbn");
+				// 开通 方法逻辑
+				var page = "javascript:window.location.href='businessDealWith.html?v20150304091113&packageId="
+					+ packageId + "&packageEffect="
+					+ data.packageInfos[i].packageEffect + "&packageType="
+					+ data.packageInfos[i].packageType +"&isOrder="+isOrder+
+					 "&type=3&returnFlag=" + 1;
+				var funstr="recodePackage('"+packageId+"')";
+				$("#" + btnid).attr("name",page);
+				
+				$("#"+btnid).xclick(function(){
+	            var name = $(this).attr("name");
+	            var ispkgOrder = getQueryStringInUrl("isOrder",name);
+	            var packageId = getQueryStringInUrl("packageId",name);
+	            var returnFlag = getQueryStringInUrl("returnFlag",name);
+	            var packageType = getQueryStringInUrl("packageType",name);
+	            var type = getQueryStringInUrl("type",name);
+	            packageInfoLoad(packageId,packageType,returnFlag,ispkgOrder,type,packageDatas);
+	            $("#businessDealWith").css("display","block");
+	            $("#fluxRecommandAndDone").css("display","none");
+	            f_contrail('p003_BTN003','套餐商店页面返回按钮','my_flux.html','0',packageId,'p003');
+	            //var height = $("#descol").height();
+	            //detailheight=height;
+	           // $("#descol .name").height(detailheight);
+//	            $("#nameol .name").height($("#nameol").height());
+	         })
+			}
+		}
+		
+		
+		// 处理套餐列表数据之间的间隔
+		//$(".commend-line ol:nth-child(even)").addClass("grey");
+		
+		$(".imgopen").xclick(function(){
+	    if($(this).parent().children(".tc_detail").css("display")=="none"){
+              //add by wx178793 只显示一个(".tc_detail") 如果以前显示过，则关闭 start
+              //判断列表中是否有展示过的详情信息，如果有则关闭
+              var p=$(this).parent().parent().children("ol").children(".tc_detail");
+              p.css("display","none");
+              $(this).parent().children(".tc_detail").show();
+		}else{
+			$(this).parent().children(".tc_detail").hide();
+		}
+    	});	
+    		
+    	$(".img_close").xclick(function(){
+    	$(this).parent(".tc_detail").hide();
+    	});
+	}
+
+	//从url中获取指定参数的值的方法。
+	var getQueryStringByName = function(name) {
+		var result = location.search.match(new RegExp(
+				"[\?\&]" + name + "=([^\&]+)", "i"));
+		if (result == null || result.length < 1) {
+			return "";
+		}
+		return result[1];
+	}
+	
+	var initData_done = function() {
+		// 向服务器请求数据
+		$.ajax({
+			url : "/tlbaserver/traffic/recommend/?type=all", // "/tlbaserver/traffic/summary/",
+			data : "time=" + new Date().getTime(),
+			dataType : "json",
+			success : createUI,
+			error : function() {
+				clearTimeout(wait);
+				clearTimeout(reload);
+				warn();
+			}
+		});
+
+		// 请稍候的关闭按钮
+		$(".prompt-line .close").xclick(function() {
+			$(this).closest(".prompt-line").hide();
+		});
+		// 重新加载按钮
+		$(".prompt-line .reload a").xclick(function() {
+			window.location.reload();
+		});
+	}
+	
+	// 初始化组件等
+	initData_done();
+	// 绑定对应的数据。
+	bindPageClick_done();
+	//默认选择第一个tab页面
+
+	if (null == getQueryStringByName("packageType")
+			|| "" == getQueryStringByName("packageType")) {
+		
+		toPage(1);
+	} else {
+		var page=getQueryStringByName("packageType");
+		if(page==3){
+			toPage(2);
+		}else if(page==1){
+			toPage(3);
+		}else{
+			toPage(1);
+		}
+	}	
+};
+
+			
+				

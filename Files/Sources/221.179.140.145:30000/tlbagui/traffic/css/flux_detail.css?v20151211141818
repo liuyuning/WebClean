@@ -1,0 +1,43 @@
+@charset "utf-8";
+#detail .ititle {color:#FFF; position:relative;
+background:-webkit-linear-gradient(top,#02d6f5,#02c8ee);
+background:-moz-linear-gradient(top,#02d6f5,#02c8ee);
+background:-linear-gradient(top,#02d6f5,#02c8ee);}
+#detail .ititle a {position:absolute;top:.1em;left:0;background:url("../images/back_w.png") no-repeat 0 0;width:1.2em;height:1.2em; background-size:1.4em 1.4em;}
+#detail .flux {padding:.7em 0;box-shadow:0 0 .5em #999;
+background:-webkit-linear-gradient(top,#02c8ee,#0087cf);
+background:-moz-linear-gradient(top,#02c8ee,#0087cf);
+background:-linear-gradient(top,#02c8ee,#0087cf);}
+#detail .flux_round1 {padding:0 .5em 0 6.8em;position:relative;min-height:4.5em;}
+#detail .flux .left {position: absolute;left:1.5em;width:4.5em;height:4.5em;border-right:1px solid rgba(255,255,255,.2);padding-right:.5em;}
+#detail .flux .left .round {height:100%;width:100%;border:.1em solid rgba(255,255,255,.5);border-radius:50%;box-sizing:border-box;padding:.15em;}
+#detail .flux .left .round2 {position:relative;width:100%;height:100%;}
+#detail .flux .left .round .zz {position:absolute;overflow:hidden;left:0;bottom:0;height:0;width:100%;z-index:1;}
+#detail .flux .left .round .zz .con { position:absolute;left:0;bottom:0;border-radius:50%;width:100%;height:4em;background: rgba(255,255,255,.8);}
+#detail .flux .left .round .txt {position:absolute;left:0;top:0;font-size:1em;color:#0081cc;height:4em;width:4em;line-height:4em;text-align:center;z-index:2;}
+#detail .flux .left .round.round_red .zz .con {background:rgba(255,91,110,.9);}
+#detail .flux .left .round.round_red .txt {color:#e6e6e6;}
+#detail .flux .left .round.round_yellow .zz .con {background:rgba(255,229,140,.9);}
+#detail .flux .left .round.round_yellow .txt {color:#0081cc;}
+#detail .flux .left .round.round_green .zz .con {background:rgba(180,246,204,.9);}
+#detail .flux .left .round.round_green .txt {color:#0081cc;}
+
+
+#detail .flux .right { float:left;padding-left:.5em;}
+#detail .flux p {color:#FFF;line-height:1.2;}
+#detail .flux p .s24 {font-size:.55em; width:5.5em;display:inline-block;}
+#detail .flux p .s32 {font-size:.7em;padding-left:.5em;}
+#detail .flux p.alpha {color: rgba(255,255,255,.8);}
+#detail .flux p.s20 {font-size:.45em; line-height:1;padding-top:2em; width:14em;}
+#detail .flux .btn {padding:1em 0;}
+#detail .flux .btn a {color:#9fe60e; font-size:.7em;padding:0 2.2em 0 1.3em;}
+#detail .flux .btn a img {height:1em;width:1em;padding-right:.2em; margin-top:-.15em;}
+#detail .commend {padding:0 .5em 1em;}
+#detail .commend .title {font-size:.55em; color: #949494; height: 3em; line-height: 3em;}
+#detail .commend ul {padding:0 .5em;}
+#detail .commend li {position:relative;padding:.5em .5em .5em 2.3em;border-bottom:1px solid #d6d6d6;}
+#detail .commend li:last-child {border-bottom:none;}
+#detail .commend li .flux_round {position:absolute;font-size:.5em;width:4.2em;height:4.2em;top:.8em;left:0;}
+#detail .commend li .flux_txt {position:absolute;font-size:.5em;width:4.2em;height:4.2em;top:.8em;left:0;line-height:4.2em;text-align: center; color:#949494;}
+#detail .commend li .tit {font-size:.65em;color:#555; line-height:1.5em;}
+#detail .commend li p {font-size:.55em;color:#949494; line-height:1.5em;}

@@ -1,0 +1,51 @@
+/* Write your styles */
+.bgcolor { background:#fff;}
+.am-badge-danger { background:#DF5AA0;}
+.am-badge-success { background:#93C433;}
+.am-badge-black { background:#666666;}
+.am-badge {
+    display: inline-block;
+    padding: 1px;
+}
+
+
+[class*=am-u-] {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.am-figure-default img {
+    border: 0px solid #eee;
+    margin: 0 auto 10px;
+	width:100%;
+}
+
+.am-figure-default img, .am-figure-one img {
+    padding: 0;
+}
+.am-figure-default {
+    margin: 0;
+}
+
+.am-radius.am-btn {
+    border-radius: 5px;
+}
+
+.am-radius {
+    border-radius: 10px;
+}
+.am-wzline { line-height:180%;}
+
+.swiper-container{width: 100%;height: 100%;}
+
+.main{
+    height: 300px;
+    width: 300px;
+    -webkit-transform-origin:left top;
+	overflow:auto;
+}
+
+.am-figure-default figcaption {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}

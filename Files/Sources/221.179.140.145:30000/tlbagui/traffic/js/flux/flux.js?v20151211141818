@@ -1,0 +1,838 @@
+var Flowtag = "";// 页面加载后，先请求一次数据
+//var color = "";
+$(function(){
+    loaded_overview();
+    //var bodySize = $("body").css("font-size");
+//  $("#overview .commend-line .title th").css("padding",0.2*bodySize);
+    //$("#detailmore").xclick(function(){openDetails_overview();});
+    $(".lastmore").xclick(function(){
+         $("#fluxRecommandAndDone").css("display","block");
+         $("#overview").css("display","none");
+         f_contrail('p001_BTN001','我的流量页面套餐商店按钮','flux.html','0','','p001');
+         //window.location.href = "all.html?v2.30&page=fluxRecommandAndDone&type=2";
+    });
+    $(".detaildata").xclick(function(){
+         $("#detail").css("display","block");
+         $("#overview").css("display","none");
+         f_contrail('p001_BTN002','我的流量页面流量详情按钮','flux.html','0','','p001');
+    });
+});
+var tdata="";
+var isOrder='0';
+var ismonth="0";
+// 设置定时器, 每10分钟请求一次数据
+/*var timer_overview = window.setInterval(function() {
+    loaded_overview(); // 加载数据
+}, 600000);*/
+function loaded_overview(){
+    // 向服务器请求数据
+    $.ajaxplus({ // $.ajaxplus()是$.ajax()的增强版, 详见tlba.js
+        url: "/tlbaserver/traffic/summary/", // overview.txt
+        data: "time=" + new Date().getTime(),
+        dataType: "json",
+        success: function(data) {
+            window.colorValve = data.flux.colorValve;
+            //initRatioLine_overview(data);
+            //$("#errorTips").css({'display':'none'});
+            //$(".imain").show();
+
+        $(".flow_detail").show();
+            tdata=data; 
+            var num = data.flux.totalFlush || 0;
+
+            if(num<=0){
+                //隐藏流量详情代码
+                $(".detaildata").hide();
+            }
+               window.greenOrangeValve = data.flux.greenOrangeValve;
+               window.orangeRedValve = data.flux.orangeRedValve;
+               initRatioLine_overview(data); // 初始化<div class="ratio-line">
+               //initDetailsLine_overview(data,'1'); // 初始化<div class="details-line">
+               initCommendLine_overview(data); // 初始化<div class="commend-line">
+        },
+        error: function() {
+                $("#overview .left").html("<img src='../images/flux/fail.png'/>");
+                $("#ok").hide();
+                $("#queryError").show();
+                $("#overview .btn").html('<a class="lastmore"><img src="../images/flux/shop.png" width="32" height="32" />套餐商店</a>').css("padding-left","5.6em");
+                $(".lastmore").xclick(function(){
+                $("#fluxRecommandAndDone").css("display","block");
+                 $("#overview").css("display","none");
+                 f_contrail('p001_BTN001','我的流量页面套餐商店按钮','flux.html','0','','p001');
+         //window.location.href = "all.html?v2.30&page=fluxRecommandAndDone&type=2";
+                 });
+        }
+    });
+};
+
+function openDetails_overview(){
+$("#detailmore").hide();
+$("#overview .trafficlist").show();
+initDetailsLine_overview(tdata,'2'); // 初始化<div class="details-line">
+}
+//把总流量和已用流量转换成M 来计算剩余流量
+function getLeave_overview(total,used,f){
+var tatnum=total.substring(0,total.length-1);
+var tatunit=total.substring(total.length-1,total.length);
+var usednum=used.substring(0,used.length-1);
+var usedunit=used.substring(used.length-1,used.length);
+if(tatunit=="G"){
+ tatnum=tatnum*1024;
+}
+if(usedunit=="G"){
+usednum=usednum*1024;
+}else if(usedunit=="K"){
+  usednum=(usednum/1024).toFixed(5);
+}
+var leave=(tatnum-usednum);
+var flag=1;
+if(f==1){
+ leave=Math.abs(leave);
+}else{
+ if(leave<0){
+   flag=0;
+ }
+ leave=Math.abs(leave);
+}
+if(leave<1){
+  leave=leave*1024+",K";
+}else if(leave>10000){
+  var f = (leave % 1024) == 0 ? 0 : 2;
+leave=(leave/1024).toFixed(f)+",G";
+}else {
+  leave=leave.toFixed(2)+",M";
+}
+if(f==0&&flag==0){
+leave="-"+leave;
+}
+return leave;
+}
+
+//对于小数点后的 都是0的 取整数显示
+function  cleanZero(num,d){
+  var x=num.substring(num.length-d,num.length);
+  if(parseInt(x)==0){
+    return parseFloat(num).toFixed(0);
+  }else{
+   return parseFloat(num).toFixed(d);
+  }
+}
+
+// 初始化<div class="ratio-line">
+function initRatioLine_overview(data) {
+    var $pnl = $(".flux .right"),
+        total = data.flux.totalFlush || 0, // 总流量
+        totalUsed = data.flux.usedFlux;
+    // 设置查询时间
+    //$(".querytime").removeClass("hid");
+    //$(".querytimeId").html(TrafficRes.TRAFFIC_QUERY + "【" + data.flux.queryTime + "】");
+    var queryTime = data.flux.lastSyncTime;
+    var formateQueryTime = queryTime.substring(0,4)+"-"+queryTime.substring(4,6)+"-"+queryTime.substring(6,8)+" "+queryTime.substring(8,10)+":"+queryTime.substring(10,12);
+    $("#overview .alpha4").find("i").html(formateQueryTime);
+    if (total == 0) { // 没有订购套餐
+         $("#overview .left").html("<img src='../images/flux/none.png'/>");
+         $("#ok").hide();
+         $("#noTraffic").show();
+        // 设置总流量和剩余流量为无
+        //$pnl.find("p.total i").add($pnl.find("p.leave i")).html(TrafficRes.NOT_OPEN_PACKAGE_TRAFFIC);
+        // 显示无法获取流量数据
+        //$pnl.find(".graydata").addClass("warn").html(TrafficRes.NOT_OPEN_PACKAGE_DESCRIBE);
+        //$pnl.find("p.totalUsed i").html(formatTraffic(totalUsed));
+    } else {
+        var flag=0;
+        var used = data.flux.usedFlux, // 已用流量
+            leave = total - used, // 剩余流量
+            percent = (used / total).toFixed(2), // 已用百分比
+            color = getColor(percent);
+            if(total<used){//超出流量
+              //$("#leavename i").html("超出流量");
+              flag=1;
+            }
+            
+        // 显示流量数据仅供参考
+        //$pnl.find("#overview .graydata").removeClass("warn").html("流量数据仅供参考");
+        // 设置总流量和剩余流量
+        var totalstr=formatTraffic(total).replace("B","").trim();
+        var leavestr=formatTraffic(leave).replace("B","").replace("-","").trim();
+        var usedstr=formatTraffic(used).replace("B","").trim();
+        var tnum=totalstr.substring(0,totalstr.length-1);//总流量数值
+        var lnum=leavestr.substring(0,leavestr.length-1);//剩余流量数值
+        var unum=usedstr.substring(0,usedstr.length-1);//已用流量数值
+        var tunit=totalstr.substring(totalstr.length-1,totalstr.length);//总流量单位
+        var uunit=usedstr.substring(usedstr.length-1,usedstr.length);//已用流量单位
+        var lunit=leavestr.substring(leavestr.length-1,leavestr.length);//剩余流量单位
+        var unum1=unum;
+        var uunit1=uunit;
+        
+        if(tunit=="M"){//总流量为M的时候  小于100M 保留2为小数  大于100 小于999 保留1位小数  大于等于1000 不保留小数
+           var d=0;
+          if(tnum>0&&tnum<100){
+             d=2;
+          }else if(tnum>=100&&tnum<=999){
+            d=1;
+          }
+          if(tnum.indexOf(".")>0){
+            tnum=parseFloat(tnum).toFixed(d);
+          }
+            if(uunit=="M"){
+               if(unum.indexOf(".")>0){
+                 unum=parseFloat(unum).toFixed(d);
+               }
+            }else if(uunit=="K"){
+               if(d==0){
+                if(unum!=0&&unum<1024){
+                   unum1=1;
+                   uunit1="M";
+                }
+               }else if(d==1){
+                 if(unum!=0&&unum<103){
+                    unum1=103;
+                 }
+               }else if(d==2){
+                if(unum!=0&&unum<11){
+                  unum1=11;
+                }
+               }
+            }
+         
+           var lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+            lunit=lstr.split(",")[1];
+            if(lunit=="K"){//剩余力量为K时
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+             if(d==0){
+              if(lnum>0&&lnum<1024){
+                    //if(flag==0){
+                    //  unum=(parseFloat(unum)-1).toFixed(0);
+                    //}
+                 }
+             }else if(d==1){
+                 if(lnum>0&&lnum<103){
+                 if(flag==0){
+                  unum=(parseFloat(unum)-0.1).toFixed(d);
+                 }else{
+                  unum=(parseFloat(unum)+0.1).toFixed(d);
+                 }
+                   
+                 }
+               }else if(d==2){
+                if(lnum>0&&lnum<11){
+                 if(flag==0){
+                  unum=(parseFloat(unum)-0.01).toFixed(d);
+                 }else{
+                   unum=(parseFloat(unum)+0.01).toFixed(d);
+                 }
+                }
+               }
+            }else if(lunit=="M"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(d);
+            }else if(lunit=="G"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(2);
+            }
+            if((unum+"").indexOf(".")>0){
+              unum= cleanZero(unum,d);
+             }
+             if((lnum+"").indexOf(".")>0){
+              lnum= cleanZero(lnum,d);
+             }
+             
+        }else if(tunit=="G"){
+        var lstr="";
+        var d=(tnum*1024*0.0006).toFixed(0);
+            if(uunit=="M"){
+               unum=parseFloat(unum).toFixed(0);
+               if(d-unum>0){
+                  unum1=d;
+               }
+              lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+            } else if(uunit=="K"){
+               if(unum!=0&&unum<1024){
+                   unum1=d;
+                   uunit1="M";
+                }
+                 lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+            }else if(uunit=="G"){//当已用的G单位
+                lstr=lnum+","+lunit;
+            }
+            lunit=lstr.split(",")[1];
+            if(lunit=="G"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(2);
+            } else if(lunit=="K"){
+               lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+               if(flag==0){
+               unum=(parseFloat(unum)-0.01).toFixed(2);
+               }else{
+               unum=(parseFloat(unum)+0.01).toFixed(2);
+               }
+               
+            }else if(lunit=="M"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+              if(lnum>0&&lnum<d){
+               if(flag==0){
+                 unum=(parseFloat(unum)-0.01).toFixed(2);
+                 }else{
+                 unum=(parseFloat(unum)+0.01).toFixed(2);
+                 }
+              }
+            } 
+             if((unum+"").indexOf(".")>0){
+              unum= cleanZero(unum,2);
+             }
+              if((lnum+"").indexOf(".")>0){
+              lnum= cleanZero(lnum,2);
+             }
+        }
+        lnum=lnum.replace("-","");
+        //lnum=getLeave_overview(tnum+tunit,unum+uunit);
+        $pnl.find(".s90").html(lnum);
+        $pnl.find(".s80").html(lunit+"B");
+        
+        
+/*      var nowDate = new Date();
+        var d = nowDate.getDate();*/
+        
+          var today = new Date();
+            var now = today.getDate();
+            var year = today.getYear();
+            if (year < 2000) year += 1900;
+            var month = today.getMonth();
+            var monarr = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
+            if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) monarr[1] = "29";
+            var d = monarr[month]-now+1;
+        $pnl.find(".s70").html((lnum/d).toFixed(2));
+        $pnl.find(".s60").html(lunit+"B");
+	if (percent > 1) {
+		$pnl.find(".alpha8 .s20").text();
+		$(".alpha8").text("超过流量");
+		percent = 1;
+	}
+        var rate = (100-(percent * 100).toFixed(0)) + "%";
+        $("#overview .round .txt").html(rate);
+        init(color);
+        //$pnl.find("p.total i").html(tnum);
+//      
+//      $pnl.find("p.use i").html(unum);
+//      $pnl.find("p.leave i").html(lnum);
+//      
+//      $pnl.find("p.total span").html(tunit);
+//      $pnl.find("p.use span").html(uunit);
+//      $pnl.find("p.leave span").html(lunit);
+//      $pnl.find("p.leave span").css({color:color});
+//      $pnl.find("p.leave i").css({color:color});
+        // 圆形的流量百分比动画效果
+        //initCircle(percent);
+    }
+};
+// 初始化<div class="details-line">
+function initDetailsLine_overview(data,typeid) {
+    var $pnl = $("#detail .commend"),
+        $can = $("#detail .commend").html(),
+        list = data.infos || [];
+    if ((data.flux.totalFlush || 0) == 0 || list.length == 0) {
+        // 总流量为0或免费流量列表为空, 则隐藏免费资源, 显示警告信息
+        $pnl.find(".warn").css({display:"block"}).siblings().hide();
+        // 去掉推荐套餐后面的"(根据您的实际使用情况,推荐如下上网流量包:)"
+        $("#detail .commend-line .info i:last").text("");
+    } else {
+        // 删除原来的数据
+        $pnl.find("li").remove();
+        // 加载新数据
+        //var html = $pnl.html();
+        var lengthstr=list.length;
+        //if(typeid=="1"){
+//      if(lengthstr>2){
+//        lengthstr=2;
+//        $("#detailmore").show();
+//         $(".trafficlist").hide();
+//      }else{//已订购套餐size小于2 隐藏更多按钮
+//         $("#detailmore").hide();
+//         $(".trafficlist").show();
+//      }
+//      }
+        for (var i = 0; i < lengthstr; i++) {
+			var name,used,leave,percent;
+			name = makeLineBr(list[i].name), desc = list[i].desc, total = formatTraffic(
+					list[i].totalFlux).replace("B", "").trim(); // 总流量
+			used = formatTraffic(list[i].usedFlux).replace("B", "").trim(); // 已用流量
+                // 剩余流量
+			leave = formatTraffic(list[i].totalFlux - list[i].usedFlux)
+					.replace("B", "").trim();
+                // 已用百分比
+			percent = (list[i].usedFlux / list[i].totalFlux).toFixed(2); 
+			if(percent > 1){
+				percent = 1;
+			}
+			rate = (percent * 100).toFixed(0)+ "%";
+			rateCanv = (percent * 100).toFixed(0); 
+			color = getColor(percent);
+			
+                var ttype=list[i].packagetype;
+                if(ttype=="1"){
+                  ismonth="1";
+                }
+                
+        var tnum=total.substring(0,total.length-1);//总流量数值
+        var lnum=leave.substring(0,leave.length-1);//剩余流量数值
+        var unum=used.substring(0,used.length-1);//已用流量数值
+        var tunit=total.substring(total.length-1,total.length);//总流量单位
+        var uunit=used.substring(used.length-1,used.length);//已用流量单位
+        var lunit=leave.substring(leave.length-1,leave.length);//剩余流量单位
+        var unum1=unum;
+        var uunit1=uunit;
+        var flag=0;
+                if(lnum<0){
+                flag=1;
+                }
+        if(tunit=="M"){//总流量为M的时候  小于100M 保留2为小数  大于100 小于999 保留1位小数  大于等于1000 不保留小数
+           var d=0;
+          if(tnum>0&&tnum<100){
+             d=2;
+          }else if(tnum>=100&&tnum<=999){
+            d=1;
+          }
+          if(tnum.indexOf(".")>0){
+          tnum=parseFloat(tnum).toFixed(d);
+          }
+            if(uunit=="M"){
+               if(unum.indexOf(".")>0){
+                 unum=parseFloat(unum).toFixed(d);
+               }
+            }else if(uunit=="K"){
+               if(d==0){
+                if(unum!=0&&unum<1024){
+                   unum1=1;
+                   uunit1="M";
+                }
+               }else if(d==1){
+                 if(unum!=0&&unum<103){
+                    unum1=103;
+                 }
+               }else if(d==2){
+                if(unum!=0&&unum<11){
+                  unum1=11;
+                }
+               }
+            }
+           var lstr= getLeave_overview(tnum+tunit,unum1+uunit1,0);
+           lunit=lstr.split(",")[1];
+            if(lunit=="K"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+              if(d==0){
+              if(lnum!=0&&lnum<1024){
+                    //if(flag==0){
+                   // unum=(parseFloat(unum)-1).toFixed(0);
+                   // }else{
+                   //  unum=(parseFloat(unum)+1).toFixed(0);
+                   // }
+                 }
+             }else if(d==1){
+                 if(lnum!=0&&lnum<103){
+                  if(flag==0){
+                    unum=(parseFloat(unum)-0.1).toFixed(d);
+                    }else{
+                    unum=(parseFloat(unum)+0.1).toFixed(d);
+                    }
+                    
+                 }
+               }else if(d==2){
+                if(lnum!=0&&lnum<11){
+                 if(flag==0){
+                    unum=(parseFloat(unum)-0.01).toFixed(d);
+                    }else{
+                   unum=(parseFloat(unum)+0.01).toFixed(d);
+                    }
+                  
+                }
+               }
+            }else{
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(d);
+            }
+             if((unum+"").indexOf(".")>0){
+              unum= cleanZero(unum,d);
+             }
+              if((lnum+"").indexOf(".")>0){
+              lnum= cleanZero(lnum,d);
+             }
+        }else if(tunit=="G"){//总流量为G的时候 总流量无需判断  已用流量和剩余流量  
+                            //小于100M 保留2为小数  大于100 小于999 保留1位小数  大于等于1000 不保留小数
+           var lstr="";
+        var d=(tnum*1024*0.0006).toFixed(0);
+            if(uunit=="M"){
+               unum=parseFloat(unum).toFixed(0);
+              if(d-unum>0){
+                  unum1=d;
+               }
+              lstr= getLeave_overview(tnum+tunit,unum1+uunit1,0);
+            } else if(uunit=="K"){
+               if(unum!=0&&unum<1024){
+                   unum1=d;
+                   uunit1="M";
+                }
+                 lstr= getLeave_overview(tnum+tunit,unum1+uunit1,0);
+            }else if(uunit=="G"){//当已用的G单位
+                lstr=lnum+","+lunit;
+            }
+            lunit=lstr.split(",")[1];
+            if(lunit=="G"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(2);
+            } else if(lunit=="K"){
+               lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+               if(flag==0){
+                   unum=(parseFloat(unum)-0.01).toFixed(2);
+                    }else{
+                  unum=(parseFloat(unum)+0.01).toFixed(2);
+                    }
+               
+            }else if(lunit=="M"){
+             lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+              if(lnum!=0&&lnum<d){
+               if(flag==0){
+                    unum=(parseFloat(unum)-0.01).toFixed(2);
+                    }else{
+                  unum=(parseFloat(unum)+0.01).toFixed(2);
+                    }
+                
+              }
+            } 
+             if((unum+"").indexOf(".")>0){
+              unum= cleanZero(unum,2);
+             }
+              if((lnum+"").indexOf(".")>0){
+              lnum= cleanZero(lnum,2);
+             }
+        }
+        // lnum=getLeave_overview(tnum+tunit,unum+uunit);
+        
+          tnum=tnum+tunit;
+          unum=unum+uunit;
+          lnum=lnum+lunit;
+          //$pnl.eq(i).find("canvas").attr("id","flux_round"+i+1).html(rate);
+//        $pnl.eq(i).find(".tit").html(name);
+//        $pnl.eq(i).find("p").html("总流量："+tnum+" 已用流量："+unum+"剩余流量："+lnum);
+          //$pnl.append($can.format(name,tnum,unum,lnum,rate,color,desc));
+          $pnl.append($can.format(i+1,rateCanv,name,tnum,unum,lnum));
+          //flux(flux_id,color,rateCanv);
+          flux("flux_round"+(i+1),rateCanv);
+        }
+        //$pnl.find("tr.data:even tr.r:even").css("background","red");
+        // 已用流量比率的动画效果
+        //$pnl.find(".rate .img s").each(function() {
+//          var text = $(this).attr("width"),
+//              width = Math.min(parseFloat(text), 100) + "%";
+//          $(this).animate({width:width}, 1000);
+//      });
+    }
+};
+// 初始化<div class="commend-line">
+function initCommendLine_overview(data) {
+    var $pnl = $("#overview_temp").html(),
+        list = data.recommand || [];
+    var cfg = $("#overview .commend .recommed_ul");
+    cfg.find("li").remove();
+    if (list.length == 0) {
+    $("#overview .commend").hide();
+        // 没有推荐套餐, 则隐藏推荐套餐区域
+        //$pnl.hide();
+        //$(".commend-line .info i").html("(进入套餐推荐列表)");
+    } else {
+        //$pnl.css({display:"table"});
+//      if ($pnl.children().is("tbody")) {
+//          $pnl = $pnl.children();
+//      }
+//      if ($cfg.children().is("tbody")) {
+//          $cfg = $cfg.children();
+//      }
+//      // 删除原来的数据
+        //$pnl.find(".data").remove();
+//      // 加载新数据
+//      var html = $cfg.html();
+        //$("#overview .commend .title ul li").remove();
+        
+        for (var i = 0; i < list.length; i++) {
+            var id = list[i].packageId,
+                               
+                name = list[i].packagesecname,
+                price = list[i].price,
+                packType = list[i].packageType;
+                name=name.replace("/每月","");
+                /*
+                var name1=name.substring(0,name.length-1);
+                var showname=name.substring(name.length-1,name.length);
+                */
+                var name1=name.substring(0,name.length);
+                var showname=name.substring(name.length,name.length);
+                var typename="";
+                if(packType=="1"){
+                   typename="可选包";
+                   if(ismonth=='1'){
+                    //typename=typename+"(次月生效)";
+                   }else{
+                     //typename=typename+"(立即生效)";
+                   }
+                   isOrder=ismonth;
+                }else if(packType=="3"){
+                   typename="加油包";
+                    //typename=typename+"(立即生效)";
+                    isOrder="0";
+                }else if(packType=="4"){
+                   typename="随心加";
+                     //typename=typename+"(立即生效)";
+                      isOrder="0";
+                }else if(packType=="5" ||packType=="6" ||packType=="7"||packType=="8"||packType=="9"||packType=="10")
+                { 
+                 typename="和4G套餐";
+                 //typename=typename+"(次月生效)";
+                 isOrder="0";
+                }
+
+                cfg.append($pnl.format(name1,id,"businessDealWith.html?v2.30&packageId="+id+"&returnFlag=0&isOrder="+isOrder+"&type=1"));
+            //if (packType=="3")
+//          {
+//              cfg.append($pnl.format(name1+showname,id,"businessDealWith.html?v2.30&packageId="+id+"&returnFlag=0&isOrder="+isOrder+"&type=1"));
+//              
+//              //$pnl.find("p").html(name+showname);
+////                $pnl.find("input").attr("id","openpkg"+id);
+////                $pnl.find("input").attr("name","businessDealWith.html?v2.30&packageId="+id+"&returnFlag=0&isOrder="+isOrder+"&type=1");
+//          }else {
+//              cfg.append($pnl.format(name1+showname,id,"businessDealWith.html?v2.30&packageId="+id+"&returnFlag=0&isOrder="+isOrder+"&type=1"));
+//              //$pnl.append(html.format(id, name1,showname,price,"元/月",isOrder));
+//              //$pnl.find("p").html(name+showname);
+////                $pnl.find("input").attr("id","openpkg"+id);
+////                $pnl.find("input").attr("name","businessDealWith.html?v2.30&packageId="+id+"&returnFlag=0&isOrder="+isOrder+"&type=1");
+//          }
+             $("#openpkg"+id).xclick(function(){orderPkg_overview(this);});
+        }
+    }
+    $("#overview .more-line").css({display:"block"}); // 显示定购按钮
+};
+
+/**
+ * 开通推荐套餐
+ */
+function orderPkg_overview(obj)
+{
+    var url = $(obj).attr("name");
+    var ispkgOrder = getQueryStringInUrl("isOrder",url);
+    var packageId = getQueryStringInUrl("packageId",url);
+    var returnFlag = getQueryStringInUrl("returnFlag",url);
+    var packageType = getQueryStringInUrl("packageType",url);
+    var type = getQueryStringInUrl("type",url);
+    packageInfoLoad(packageId,packageType,returnFlag,ispkgOrder,type,packageDatas)
+       //loaded_DealWith(url);
+    $("#overview").css("display","none");
+    $("#businessDealWith").css("display","block");
+    f_contrail('p001_BTN003','我的流量页面套餐订购按钮','flux.html','0',packageId,'p001');
+    //window.location.href=url;
+    //var height = $("#descol").height();
+    //detailheight=height;
+    //$("#descol .name").height(detailheight);
+//  $("#nameol .name").height($("#nameol").height());
+}
+
+function makeLineBr(name){
+    var dataNameLen =name.length;
+    if(dataNameLen<6){
+        return name;
+    }else{
+        //var br = $("<br/>");
+        var a = name.substring(0,6);
+        var b = name.substring(6,dataNameLen);
+        var c = a+b;
+        return c;
+    }
+}
+
+/*function getColor(percent) {
+    if (percent <= greenOrangeValve) { // 小于等于50%
+        return TrafficRes.COLOUR_GREEN;
+    } else if (percent > orangeRedValve) { // 大于80%
+        return TrafficRes.COLOUR_RED;
+    } else { // 50%-80%
+        return TrafficRes.COLOUR_ORANGE;
+    }
+};*/
+
+var getColor = function(percent) {
+    var groupList = colorValve.split(','),
+        per,//百分比
+        tmpColor,//颜色值
+        returnColor;
+        
+    for(var i = 0; i < groupList.length; i++){
+        var list = groupList[i].split(':');
+        per = list[0];
+        tmpColor = list[1];
+        
+        if(Number(per) > 1){
+            per = per/100;
+        }
+        if(percent > per){
+            returnColor = tmpColor;
+        }
+    }
+    return returnColor;
+};
+
+/**
+ *-------------------------------------------------------------
+ * 圆形的流量百分比动画效果
+ * bg=灰色背景, lft=左侧半圆, rgt=右侧半圆, img=覆盖在上面的图片
+ * 少于50%时, 通过旋转lft来实现从0度到180度的扇形
+ * 大于50%时, 通过旋转rgt与lft重合的角度实现右侧的扇形(rgt永远是半圆形)
+ * lft裁剪了右侧部分, lft下面的p裁剪了左侧部分, 可实现小于半圆的任意角度的扇形
+ * rgt本身没有任何作用, rgt下面的p裁剪了右侧部分, rgt永远是半圆形
+ *-------------------------------------------------------------
+ * author: 赵卉华 
+ * date: 2013-06-08 
+ *-------------------------------------------------------------
+ */
+function initCircle(percent) {
+    var start = new Date().getTime(),
+        lft = $("#overview .ratio-line .lft p"),
+        rgt = $("#overview .ratio-line .rgt p"),
+        fmt = "rotate({0}deg)",
+        last = 0,
+        color = getColor(percent);
+    lft.add(rgt).css({"background-color":color});
+    var per=cleanZero((percent * 100).toFixed(1),1);
+    $(".ratio-line .img i").html(per + "%");
+    var animate = setInterval(function() {
+        // 解决各个手机动画执行的速度不一致的问题
+        // 通过计算当前时间与开始时间的差值与总耗时的百分比来计算绘制进度
+        // t = 时间消逝的百分比(0-1), 总耗时1000毫秒完成动画
+        // i = 绘制进度的百分比(0-100)
+        var t = Math.min(1, (new Date().getTime() - start) / 1000),
+            i = Math.min(1, percent) * t * 100;
+        if (last >= percent * 100 || last >= 100) { // 达到百分比或者达到100%
+            clearInterval(animate);
+            return;
+        }
+        if (last == 0) {
+            lft.css({display:"block"});
+        } else if (last < 50 && i >= 50) { // 绘制进度跨过50%
+            // 绘制进度跨过50%, 要开始绘制右半圆了
+            //  , 左半圆完全显示
+            rgt.css({display:"block"});
+            lft.css({
+                "transform": "rotate(-180deg)",
+                "-o-transform": "rotate(-180deg)",
+                "-moz-transform": "rotate(-180deg)",
+                "-webkit-transform": "rotate(-180deg)"
+            });
+        } else if (i >= 100) {
+            // 规避百分百时左右两个半圆中间有一条缝的问题
+            $("#overview .ratio-line .bg").css({"background-color":color});
+        }
+        // 少于50%时, 通过旋转lft来实现从0度到180度的扇形
+        // 大于50%时, 通过旋转rgt与lft重合的角度实现右侧的扇形
+        var item = i <= 50 ? lft : rgt,
+            val = i <= 50 ? - i * 360 / 100 : - (i - 50) * 360 / 100,
+            text = fmt.format(val);
+        item.css({
+            "transform": text,
+            "-o-transform": text,
+            "-moz-transform": text,
+            "-webkit-transform": text
+        });
+        last = i;
+    }, 10);
+};
+
+function init(color){
+    var flux_height = parseInt($(".round .txt").html());
+    var round_height = 4;
+    h = flux_height*round_height/100;
+    $("#overview .round .zz").animate({height:h+"em"},500);
+    
+    if(flux_height>=0 && flux_height<=30){
+        $("#overview .round").addClass("round_red");
+        $('#overview .flux .left .round.round_red .zz .con').css({"background-color": color});
+    }else if(flux_height>30 && flux_height<=80){
+        $("#overview .round").addClass("round_yellow");
+        $('#overview .flux .left .round.round_yellow .zz .con').css({"background-color": color});
+    }else if(flux_height>80 && flux_height<=100){
+        $("#overview .round").addClass("round_green");
+        $('#overview .flux .left .round.round_green .zz .con').css({"background-color": color});
+    }
+    }
+function flux(id,value){
+    
+
+ //canvas init
+var userValue = value;      //已使用的数据
+var userAll = 100;          //总共的数据
+var charTit = value+'%';
+var canvas=document.getElementById(id);
+var ctx=canvas.getContext("2d");
+var W=canvas.width;
+var H=canvas.height;
+//variables
+var degrees=0;
+var new_degrees=0;          //旋转角度值
+var diff=0;
+var bgcolor="#eaeaea";      //进度背影色值
+var text;
+var animation_loop,redraw_loop,color;
+
+  if(userValue>=0)
+  {
+    if(userValue<30){
+        color="#f12991";
+    }else if(userValue>=30 && userValue<80){
+        color="#ff9703";
+    }else{
+        color="#8ec31f";
+    }
+  }
+function init_draw(){
+//clean the canvas everytime a chart is drawn
+    ctx.clearRect(0,0,W,H);
+//background 360 degree arc
+    ctx.beginPath();
+    ctx.strokeStyle=color;
+    ctx.lineWidth=15;    //进度背景条宽度
+    ctx.arc(W/2,H/2,100,0,Math.PI*2,false);       //初始旋转背景色
+    ctx.stroke();
+//Math.PI=180du
+    var radians=-degrees*Math.PI/180;
+    ctx.beginPath();
+    ctx.strokeStyle=bgcolor;      //进度条颜色值
+    ctx.lineWidth=15;           //进度条宽度
+    //radians-Math.PI/180-Math.PI/2
+    ctx.arc(W/2,H/2,100,-Math.PI/2,value==100?-Math.PI/2:radians-Math.PI/180-Math.PI/2,false);  
+    ctx.stroke();
+    userValue=Math.floor(degrees/360*userAll);
+    
+    ctx.fillStyle="#626262";
+    ctx.font="50px 微软雅黑";
+    text = Math.floor(degrees/360*100)+"%";
+    text_w = ctx.measureText(charTit).width;
+    ctx.fillText(charTit,W/2 - text_w/2,H/2+15);
+//  value_width = ctx.measureText(userValue).width;
+}
+function draw()
+{
+    if(typeof animation_loop!=undefined)
+        clearInterval(animation_loop);
+//               new_degrees=Math.round(Math.random()*360);    //随机获取旋转角度值
+    new_degrees =parseInt((value)*360/(userAll));        //获取旋转角度值
+    var diff=new_degrees-degrees;
+    animate_to()
+    //animation_loop=setInterval(animate_to,10/diff);
+    //10/diff
+}
+//animation for fun
+function animate_to()
+{
+    degrees=new_degrees;
+    /*
+    if(degrees<new_degrees)
+        degrees++;
+    else
+        degrees--;
+    if(degrees==new_degrees)
+        clearInterval(animation_loop);
+        */
+    init_draw();
+}
+draw();
+}

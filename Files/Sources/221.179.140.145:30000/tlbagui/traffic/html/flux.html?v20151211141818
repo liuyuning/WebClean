@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../css/flux.css?v20151211141818" />
+<title>我的流量</title>
+</head>
+<body w="300" h="300" f="20">
+	<dl class="imain">
+		<dt class="ititle">
+        	<i></i>
+        </dt>
+		<dd class="ibody touchable">
+<!--start-->
+<div class="flux">
+	<div class="flux_round">
+	<div class="left">
+    	<!--正常查询流量-->
+        <div class="round">
+                <div class="round2">
+                    <div class="zz">
+                        <div class="con"></div>
+                    </div>
+                    <div class="txt"></div>
+                </div>
+            </div>
+    	<!--流量查询失败时-->
+		<!--<img src="../images/flux/fail.png" />-->
+        <!--该用户未订购套餐时-->
+    	<!--<img src="../images/flux/none.png" />-->
+    </div> 
+	<div class="right">
+    	<!--正常查询流量-->
+    	<div id="ok">
+    	<p class="alpha8 s20">剩余流量</p>
+        <p><span class="s90"></span><span class="s80"></span></p>
+		<p><i>剩余日均</i><i class="s70"></i><i class="s60"></i></p>
+		<p class="alpha4 s20">
+        	更新时间：<i></i><br />
+        	数据仅供参考
+        </p>
+        </div>
+        <!--流量查询失败时-->
+        <div id="queryError" style="display:none">
+        <p class="s30">对不起</p>
+        <p class="s30">查询失败了</p>
+        <p class="alpha s20">请稍后再试，或咨询客服</p>
+        </div>
+        <!--该用户未订购套餐时-->
+        <div id="noTraffic" style="display:none">
+        <p class="s30">您没有流量套餐</p>
+        <p class="alpha s20">不办理流量套餐会产生较多的上网费用，建议进入套餐商店办理后再上网。</p>
+        </div>
+         </div>
+    </div>
+    <div class="btn">
+    	<a class="lastmore"><img src="../images/flux/shop.png" width="32" height="32" />套餐商店</a>
+    	<a class="detaildata"><img src="../images/flux/flux.png" width="32" height="32" />流量详情</a>
+    </div>
+</div>
+<div class="commend">
+	<div class="title">套餐推荐</div>
+    <ul class="recommed_ul">
+    </ul>
+</div>
+<!--end-->
+<ul id="overview_temp" style="display:none">
+        <li>
+            <p>{0}</p>
+            <input type="button" value="订购" id="openpkg{1}" name="{2}"/>
+        </li>
+    </ul>
+  
+		</dd>
+	</dl>
+
+</body>
+</html>

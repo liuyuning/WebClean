@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=1.0; maximum-scale=1.0;"/>
+<title>热捧游戏</title>
+	<link rel="stylesheet" type="text/css" href="css/amazeui.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/toolapp.css" />
+	<link rel="stylesheet" href="common/css/tlba.css" charset="UTF-8" />
+	<style type="text/css">
+	.ititle {
+		font-family:Microsoft Yahei, SimHei, STHeiti;
+		background: none repeat scroll 0% 0% #FFF;
+		color: #555;
+		height: 1.6em;
+		line-height: 1.6em;
+		text-align: center;
+		vertical-align: middle;
+	 	/*border-top-left-radius: 0.2em;
+	 	-moz-border-top-left-radius: 0.2em;
+	 	-webkit-border-top-left-radius: 0.2em;
+		 border-top-right-radius: 0.2em;
+	 	-moz-border-top-right-radius: 0.2em;
+	 	-webkit-border-top-right-radius: 0.2em;*/
+		width: 100%;
+		z-index: 20;
+	}
+	.ititle i {
+		font-size: 0.85em;
+	}
+	.ibody {
+		height: 13.5em;
+		position: relative;
+		padding:0 0.4em;
+		background:none;
+	}
+	.imain {
+		border-top-left-radius: 0.2em;
+		-moz-border-top-left-radius: 0.2em;
+		-webkit-border-top-left-radius: 0.2em;
+		border-top-right-radius: 0.2em;
+		-moz-border-top-right-radius: 0.2em;
+		-webkit-border-top-right-radius: 0.2em;
+		height: 15em;
+		width: 15em;
+	}
+	dt + dd {
+		margin-top: 0.2em;
+	}
+	dt, optgroup {
+		font-weight:  normal;
+	}
+	
+	.am-thumbnail {
+	    display: block;
+	    padding: 0px;
+	    margin-bottom: 0rem;
+	    background: none;
+	    border: none;
+	}
+	
+	.am-thumbnails > li {
+	    padding: 0 0 0 .5rem;
+	}
+	.am-thumbnails > li.two {
+	    padding: 0 .5rem 0 0;
+	}
+	.am-gallery {
+	    padding: 0 5px;
+	}
+	.am-gallery-default .am-gallery-title {
+	    margin-top: 3px;
+	}
+	</style>
+	<script src="js/jquery.min.js"></script> 
+	<script src="js/amazeui.min.js"></script>
+	<script type="text/javascript" src="common/js/tlba.js"></script>
+</head>
+<body w="300" h="300" f="20" style="display:none;">
+<dl class="imain">
+  <dt class="ititle"><i>热捧游戏</i></dt>
+  <dd class="ibody touchable">
+    <div class="prompt-line">
+      <div class="wait">
+        <p class="info"><i>Please wait...</i></p>
+        <p class="img close"></p>
+        <!--关闭图标--> 
+      </div>
+      <div class="reload">
+        <p class="img"></p>
+        <!--警告图标-->
+        <p class="info"> <span class="sorry"><i>Sorry!</i></span> <i><br/>
+          The network is busy now,<a>Please try again.</a></i><br/>
+          <i class="code"></i> </p>
+      </div>
+    </div>
+    <div class="am-g am-badge am-badge-danger">
+      <div class="am-u-sm-2">
+        <p class="am-wzline" style="padding-top:10px; line-height:120%;"> 1F<br /><br />
+        本周热销</p>
+      </div>
+      <div class="am-u-sm-10 bgcolor am-text-center">
+        <ul class="am-avg-sm-2 am-thumbnails">
+          <li>
+            <a id="kxxxl_url" href="javascript:void(0);" class="am-thumbnail">
+            <img src="i/hallpic_kx.jpg" alt="开心消消乐"/>
+            </a>
+          </li>
+          <!-- 
+          <li class="two">
+            <a id="tgmmx_url" href="javascript:void(0);" class="am-thumbnail">
+              <img src="i/hallpic_1.jpg" alt="糖果萌萌消"/>
+            </a>
+          </li>
+          -->
+          <li class="two">
+            <a id="hlddz_url" href="javascript:void(0);" class="am-thumbnail">
+              <img src="i/hallpic_ddz.jpg" alt="欢乐斗地主"/>
+            </a>
+          </li>
+        </ul>
+	</div>
+    </div>
+    <div class="am-g am-badge am-badge-success">
+      <div class="am-u-sm-2 am-text-center">
+        <p class="am-wzline" style="padding-top:10px;">
+          2F<br />
+          下载排行<br />
+          TOP3</p>
+      </div>
+      <div class="am-u-sm-10 bgcolor">
+        <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
+  am-avg-md-3 am-avg-lg-3 am-gallery-default">
+          <li>
+            <div class="am-gallery-item"> <a id="dtpk_url" href="javascript:void(0);"> <img src="i/1444816846215.jpg" class="am-radius" alt="地铁跑酷"/></a>
+              <h3 class="am-gallery-title"><span class="am-text-xs">地铁跑酷</span></h3>
+            </div>
+          </li>
+          <li>
+            <div class="am-gallery-item"> <a id="hcrlm_url" href="javascript:void(0);"> <img src="i/1426837479235.jpg" class="am-radius" alt="火柴人联盟"/></a>
+              <h3 class="am-gallery-title"><span class="am-text-xs">火柴人联盟</span></h3>
+            </div>
+          </li>
+          <li>
+            <div class="am-gallery-item"> <a id="jesjh_url" href="javascript:void(0);"> <img src="i/1418287305875.jpg" class="am-radius" alt="饥饿鲨进化"/></a>
+              <h3 class="am-gallery-title"><span class="am-text-xs">饥饿鲨进化</span></h3>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="am-g am-badge am-badge-black">
+      <div class="am-u-sm-2 am-text-center">
+        <p class="am-wzline"><br/>
+          3F<br/>
+          咪咕互娱<br/>
+          客户端</p>
+      </div>
+      <div class="am-u-sm-10 bgcolor"> <a id="mghy_url" href="javascript:void(0);">
+        <figure data-am-widget="figure" class="am am-figure am-figure-default "><img src="i/banner_migu.jpg" alt="点击或扫描二维下载和游戏客户端"/>
+          <figcaption class="am-figure-capition-btm"> 点击或扫描二维<span class="am-text-primary">下载和游戏客户端</span> </figcaption>
+        </figure>
+        </a> </div>
+    </div>
+  </dd>
+</dl>
+<div align="center" style="display:none;">
+<script type="text/javascript">
+	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+	document.write(unescape("%3Cspan id='cnzz_stat_icon_1256614665'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256614665%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
+	
+	
+	$('#kxxxl_url').on("click",function(){
+		window.open("/hd/toolbar/more_kaixin.html");
+	});
+	
+	//$('#tgmmx_url').on("click",function(){
+	//	window.open("/hd/toolbar/more_tgmmx.html");
+	//});
+	
+	$('#hlddz_url').on("click",function(){
+		window.open("/hd/toolbar/more_hlddz.html");
+	});
+	
+	$('#dtpk_url').on("click",function(){
+		window.open("/hd/toolbar/more_ditie.html");
+	});
+	
+	$('#hcrlm_url').on("click",function(){
+		window.open("/hd/toolbar/more_huochairen.html");
+	});
+	
+	$('#jesjh_url').on("click",function(){
+		window.open("/hd/toolbar/more_jesjh.html");
+	});
+	
+	$('#mghy_url').on("click",function(){
+		window.open("/hd/toolbar/miguyouxi.html");
+	});
+</script>
+</div>
+<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script></body>
+</html>

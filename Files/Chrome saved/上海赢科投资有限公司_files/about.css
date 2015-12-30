@@ -1,0 +1,15 @@
+@charset "utf-8";
+.ititle {background:#FFF;color:#555;}
+.about {padding:1em; position: relative;}
+.about .fl {float:left;width:3.5em;height:3.5em; padding:.65em .5em .5em 0;}
+.about .fr {float:right;width:4em;height:4em;padding-left:.5em;}
+.about p {font-size:.6em;color: #949494;line-height:1.5;}
+.about p:nth-child(3) {padding-top:1.5em;}
+.about p:nth-child(6) {padding-top:1.5em;}
+.about input.show {font-size:.65em;width:12em; margin:1.2em auto 0;height:3em;line-height:3em;background:#3ab100; border-radius:.2em;box-shadow: 0 .1em .2em #CCC;color:#FFF; display: block;}
+
+.pop {display: none;background:#FFF;box-shadow: 0 .5em 1em #CCC;width:11.38em; position: absolute; left:1em;top:5em;padding:.8em;}
+.pop .btn {text-align:center;padding-top:1.8em;}
+.pop .btn input {display:inline-block;font-size:.65em;width:6em;height:2.2em;line-height:2.2em;border-radius:.2em;box-shadow: 0 .1em .2em #CCC;color:#FFF; }
+.pop .btn input:first-child {background: #8ec21f;margin-right:2.5em;}
+.pop .btn input:last-child {background: #3ab100;}

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../../common/css/tlba.css?v1.1" charset="UTF-8" />
+<link rel="stylesheet" href="../css/common.css" />
+<link rel="stylesheet" href="../css/about.css" />
+<link rel="stylesheet" href="../css/feedback_msg.css" />
+<title>关于流量助手</title>
+</head>
+<body w="300" h="300" f="20" style="display:none">
+	<dl class="imain">
+		<dt class="ititle">
+		    <a id="goback" href="#" style="display:none"></a>
+        	<i>关于流量助手</i>
+        </dt>
+		<dd class="ibody touchable">
+<!--start-->
+<div class="about">
+    <p>流量助手是中国移动推出的轻量级上网助手工具，提供流量查询，业务办理以及业务查询等功能。</p>
+    <img class="fl" src="../images/about/img1.png" />
+    <p>流量助手提供权威的流量查询数据，最快捷的办理的渠道，让你用得放心。</p>
+    <div class="clear"></div>
+<!--20151120
+    <img class="fr" src="../images/about/img2.png" />
+    <p>服务开通与关闭都可拨打移动热线10086办理。</p>
+-->
+    <div class="clear"></div>
+    <input class="show" type="button" value="永久关闭" />
+    <div class="pop">
+        <p>永久关闭将无法使用流量助手的任何功能，是否确认永久关闭？如暂时不需要，可以点击菜单中的取消按钮。</p>
+        <div class="btn">
+            <input id="cancel" type="button" value="取消" />
+            <input id="sure"   type="button" value="确认" />
+        </div>
+    </div>
+</div>
+<!--end-->
+    <!-- 成功 -->
+    <div class="msg ok" style="display:none">
+        <span></span>
+        <p class="tip">您已成功关闭流量助手业务。</p>
+    </div>
+    <div class="msg fail" style="display:none">
+        <span></span>
+        <p class="tip">流量助手业务关闭失败。</p>
+    </div>
+    
+    <div style=" padding:.5em .5em 0;">
+        <input id="finishBtn" type="button" value="完成" style="font-size:.65em;width:10.2em; margin:1em auto 0;height:2.6em;line-height:2.6em;background:#3ab100; border-radius:.2em;box-shadow: 0 .1em .2em #CCC;color:#FFF; display: none;">
+    </div>
+		</dd>
+	</dl>
+<script type="text/javascript" src="../../common/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../common/js/tlba.js?v1.1"></script>
+<script type="text/javascript" src="../../common/js/whdz.js?v20141213173936"></script>
+<script type="text/javascript" src="../js/about/about.js"></script>
+</body>
+</html>

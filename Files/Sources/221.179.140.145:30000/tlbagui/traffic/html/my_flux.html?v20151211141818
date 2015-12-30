@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; minimum-scale=0.5; maximum-scale=2.0;" />
+<link rel="stylesheet" href="../../common/css/tlba.css?v1.1" charset="UTF-8" />
+<link rel="stylesheet" href="../css/common.css" />
+<link rel="stylesheet" href="../css/my_flux.css" />
+<title>套餐商店</title>
+</head>
+<body w="300" h="300" f="20">
+	<dl class="imain">
+		<dt class="ititle">
+		<a class="ibackbtn" href="#">
+      </a>
+        	<i>套餐商店</i>
+        </dt>
+		<dd class="ibody touchable">
+<!--我的流量start-->
+<div class="my_flux_con">
+	<div class="mf_tab_tit">
+    	<ul class="clearfloat">
+        	<li class="curr"></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="mf_bag_01">
+    	<div class="flux_bag_detail">
+    	    <div id="countryTrafficDataTips" class="message">
+    	    </div>
+        	<table id="flux_table1">
+            </table>
+        </div>
+    </div>
+    <div class="mf_bag_02 hidden">
+    	<div class="flux_bag_detail">
+            <div id="provinceTrafficDataTips" class="message">
+            </div>
+        	<table id="flux_table2">
+            </table>
+        </div>
+    </div>
+    <div class="mf_bag_03 hidden">
+    	<div class="flux_bag_detail">
+    	    <div id="freeToPlayTrafficDataTips" class="message">
+    	    </div>
+        	<table id="flux_table3">
+            </table>
+        </div>
+    </div>
+</div>
+
+<table style="display:none" id="temp">
+    	<tr>
+        	<td>
+            	<div class="flux_detail" id="openTraffic_{0}">
+                	<p class="first_txt"><span>{1}</span><b>{2}</b></p>
+                    <p class="second_txt">{3}</p>
+                    <img src="../images/my_flux/flux_red_hot.png" alt="" style="display:{4}"/>
+                </div>
+            </td>
+        </tr>
+            </table>
+<!--我的流量end-->
+  
+		</dd>
+	</dl>
+
+</body>
+</html>

@@ -1,0 +1,549 @@
+var packageType = 1; // 默认是流量包展示页面
+var returnFlag = 0; // 返回标记页面;
+var effectiveMode = "";
+var effectType = ""; //生效方式1：立即生效；2：次月生效
+var packageName = "";
+var effective = "";
+var code = "";
+var type = "";
+var tabClick = true;
+var ispkgOrder = '0';
+var packageid = "";
+//当前状态，用于保证用户只关闭一次。0表示已未关闭，1表示已关闭。
+var oderStatus = 0;
+var isOrder = ""; /** 是否有服务码 */
+var hasServerCode = "";
+var instarction = ""; //详情说明
+var instarction_desc = ""; //详情缩略说明
+var detailheight = ""; //收起之前的高度
+var dheight = ""; //详情展开 高度
+var tag_click = false;
+var orderRemindName = "";
+var packageType_ = "";
+
+$(function() {
+    // 不是预加载，则执行js
+    var isPreload = getQueryString("preload");
+    if (!isPreload) {
+        loaded_DealWith();
+        //bindPageClick();
+    }
+
+    function getIspkgOrder(url) {
+        if (url == "" || url == undefined) {
+            ispkgOrder = '0';
+        }
+        ispkgOrder = getQueryString("isOrder");
+        if (ispkgOrder == '0') {
+            orderPakg_DealWith();
+            ispkgOrder = '1';
+        }
+    }
+    //$(".desc span").xclick(function(){
+    //  if($(this).parent().parent().children(".tc_detail").css("display")=="none"){
+    //   $(this).parent().parent().children(".tc_detail").show();
+    //	}else{
+    //	$(this).parent().parent().children(".tc_detail").hide();
+    //	}
+    //});
+    //$(".img_close img").xclick(function(){
+    //	$(this).parent().parent(".tc_detail").hide();
+    // });
+/*
+	if("ontouchstart" in window)
+	{
+	   document.getElementById("buttonOk").addEventListener("touchstart",function()
+		{
+			orderPackage();
+		},false)
+	}else{
+		document.getElementById("buttonOk").addEventListener("click",function()
+		{
+			orderPackage();
+		},false)
+	}
+	*/
+});
+/*
+var bindPageClick = function() {
+
+	}
+*/
+
+function loaded_DealWith() {
+    packageType = getQueryString("packageType");
+    type = getQueryString("type");
+    $("#effectiveol").show();
+    $("#serverPwdAlertInfo1").hide();
+    $("#serverPwdAlertInfo2").hide();
+    $("#effectiveModeDiv").hide();
+    isOrder = getQueryString("isOrder");
+    /**
+     * 请求验证码
+     */
+    //resetCode();
+    // 添加滑动的效果
+    // $(".touchable").removeClass("untouchable");
+    $("#mask").hide();
+    returnFlag = getQueryString("returnFlag") || 0; // 返回标记页面
+    packageid = getQueryString("packageId");
+    if(null!=packageid&&undefined !=packageid)
+    {
+    $.ajax({
+        url: '/tlbaserver/traffic/getPkgInfoByPkgId?packageId=' + packageid,
+        success: setPageDateValue,
+        dataType: 'json'
+    });
+    }
+
+
+
+
+/*
+	if("ontouchstart" in window){
+		document.getElementById("ibackbtn").addEventListener("touchstart",function()
+		{
+			backToHistoryPage();
+		},false);
+		
+	}else{
+		document.getElementById("ibackbtn").addEventListener("click",function()
+		{
+			backToHistoryPage();
+		},false);
+	}
+	*/
+
+    $("#businessDealWith .ibackbtn").unbind().xclick(function() {
+        backToHistoryPage();
+    });
+
+    $("a.modeButton").xclick(closeDiv);
+    $("a.pop-greenbtn").xclick(sendValue);
+    $("div.selectDiv").xclick(changeModePic);
+    $("div.selectDiv1").xclick(changeModePic1);
+
+}
+
+function packageInfoLoad(packageId, packageType, Flag, isRecommend, type, data) {
+    packageType = packageType;
+    $("#effectiveol").show();
+    $("#serverPwdAlertInfo1").hide();
+    $("#serverPwdAlertInfo2").hide();
+    $("#effectiveModeDiv").hide();
+    isOrder = isRecommend;
+    type = type;
+    /**
+     * 请求验证码
+     */
+    //resetCode();
+    // 添加滑动的效果
+    // $(".touchable").removeClass("untouchable");
+    $("#mask").hide();
+    returnFlag = Flag; // 返回标记页面
+    packageid = packageId;
+    for (var i = 0; i < data.packageInfos.length; i++) {
+        if (data.packageInfos[i].packageId == packageId) {
+            setPageDateValue(data.packageInfos[i]);
+        }
+    }
+/*
+	$.ajax({
+				url : '/tlbaserver/traffic/getPkgInfoByPkgId?packageId='
+						+ packageid,
+				success : setPageDateValue,
+				dataType : 'json',
+				async:false
+			});
+			*/
+/*
+	if("ontouchstart" in window){
+		document.getElementById("ibackbtn").addEventListener("touchstart",function()
+		{
+			backToHistoryPage();
+		},false);
+		
+	}else{
+	    
+		document.getElementById("ibackbtn").addEventListener("click",function()
+		{
+			backToHistoryPage();
+		},false);
+	}
+	*/
+    $("#businessDealWith .ibackbtn").unbind().xclick(function() {
+        backToHistoryPage();
+    });
+    $("a.modeButton").xclick(closeDiv);
+    $("a.pop-greenbtn").xclick(sendValue);
+    $("div.selectDiv").xclick(changeModePic);
+    $("div.selectDiv1").xclick(changeModePic1);
+/*   
+  $("#businessDealWith #instruction_detail").unbind();
+  $("#businessDealWith #instruction_detail").xclick(function(){
+       var html=$("#instruction_detail").html();
+      if(html==BusinessDealWith.BUSINESS_DETAIL){
+         $("#instruction_detail").html(BusinessDealWith.BUSINESS_DEATIL_HIDE);
+         $(".instruction i").text(instarction);
+         dheight = $("#descol").height();
+         $("#descol .name").height(dheight);
+      }else if(html==BusinessDealWith.BUSINESS_DEATIL_HIDE){
+         $("#instruction_detail").html(BusinessDealWith.BUSINESS_DETAIL);
+         $(".instruction i").text(instarction_desc);
+         $("#descol .name").height(detailheight);//设置收起的高度
+      }
+	 $("#nameol .name").height($("#nameol").height());
+   	 //alert("height"+(".desc").height());
+   });
+  */
+}
+
+
+function setPageDateValue(data) {
+    if (!data) {
+        return;
+    }
+    var msisdn = data.msisdn; // /给手机号码赋值
+    var packageType = data.packageType;
+    var effectType = data.effectWay;
+    var cfmMsg = data.pkgCnfMsg;
+    var orderType = data.orderType; /**套餐是否有服务码 */
+    //hasServerCode=data.hasServerCode;
+    // /**判断显示服务码还是验证码 */
+    //    if(hasServerCode=="N"){
+    //        /** 显示验证码 */
+    //    	$("#servePass").show();
+    //    	$("#serveCode").hide();
+    //    }else if(hasServerCode=="Y"){
+    //    	/** 显示服务码  */
+    //    	$("#serveCode").show();
+    //    	$("#servePass").hide();
+    //    }else{
+    //    	/** 默认显示验证码 */
+    //    	$("#servePass").show();
+    //    	$("#serveCode").hide();
+    //    }
+    var prcestr = "";
+    if (packageType == "1") {
+        prcestr = "元/月";
+    } else if (packageType == "3") {
+        prcestr = "元/次";
+    } else {
+        prcestr = "元/月";
+    }
+    var name = data.packageSecName,
+        flowSize = data.packageFlow,
+        price = parseInt(data.packagePrice) + prcestr,
+        desc = data.packageInstruction;
+    orderRemindName = name;
+
+    $("#package_name").text(name);
+    $(".pricespan i").text(price);
+    instarction = desc;
+   // if (desc.length > 50) {
+//        desc = desc.substring(0, 50) + "...";
+//        $("#instruction_detail").html(BusinessDealWith.BUSINESS_DETAIL);
+//    } else {
+//        $("#instruction_detail").html("");
+//    }
+    instarction_desc = desc;
+    $("#package_desc").text(price+"。"+desc);
+
+    var height = $("#descol").height();
+    detailheight = height;
+    $("#descol .name").height(detailheight);
+
+    $("#nameol .name").height($("#nameol").height());
+    //$(".tips i").text(cfmMsg);
+    //	$(".tc_text").html(desc);
+    $(".pkgSizespan i").text(formatTraffic(flowSize));
+    if (packageType == 2) {
+        $(".effectiveli i").text("立即生效");
+    } else if (packageType == 1) {
+/*
+    	if(isOrder=='1'){
+          $(".effectiveli i").text("下月生效（无月套餐用户立即生效）");
+        }else{ 
+          $(".effectiveli i").text("下月生效（无月套餐用户立即生效）");
+        }
+        */
+        $("#package_effectiveli").text(orderType);
+    } else if (packageType == 3 || packageType == 4) {
+        $("#package_effectiveli").text(orderType);
+    } else if (packageType == 5 || packageType == 6 || packageType == 7 || packageType == 8 || packageType == 9 || packageType == 10) {
+        //$(".effectiveli i").text("下月生效（无月套餐用户立即生效），现有主套餐将被替换成和4G套餐");
+        $("#package_effectiveli").text(orderType);
+    }
+    packageName = name;
+    packageType_ = packageType;
+/*
+	if (returnFlag == 1) {
+	var backHostory = function(){
+	     $("#fluxRecommandAndDone").css("display","block");
+	     $("#businessDealWith").css("display","none");
+	}
+	
+		//$(".buttonCn a").attr("name",
+				//"fluxRecommandAndDone.html?v20151211141818&packageType=" + packageType+"&type="+type);
+	} else {
+	var backHostory = function(){
+	    $("#overview").css("display","block");
+	    $("#businessDealWith").css("display","none");
+	}
+		//$("#overview").css("display","block");
+		//$("#businessDealWith").css("display","none");
+	}
+	*/
+    //var content = "<span style='font-size: 0.7em;'>亲，正在为您订购<i style='color:#f00;'>" + orderRemindName + "</i>，请稍候...</span>";
+    $(".qr_buy_btn .buttonOk").unbind().xclick(function() { /*goout(this);*/
+        $("#businessDealWith").css("display", "none");
+        $("#orderRemind").css("display", "block");
+         f_contrail('p004_BTN002','套餐订购页面订购套餐按钮','my_flux_buy.html','0',packageid,'p004');
+        var c = /和4G/g;
+        if (c.test(orderRemindName)) {
+            //content ="<span>亲，正在为您订购<i style='color:red;'>"+orderRemindName+"</i>，请稍候...</span>";
+            $(".mf_buy_txt span").html(orderRemindName);
+        }else
+        {
+            $(".mf_buy_txt span").html(orderRemindName);
+        }
+        orderPackage();
+
+    });
+
+   // $("#businessDealWith .buttonCn a").xclick(function() { /*goout(this);*/
+//        backByTag();
+//    });
+    if (!tag_click) {
+        $("#businessDealWith #instruction_detail").unbind();
+        $("#businessDealWith #instruction_detail").xclick(function() {
+            var html = $("#instruction_detail").html();
+            if (html == BusinessDealWith.BUSINESS_DETAIL) {
+                $("#instruction_detail").html(BusinessDealWith.BUSINESS_DEATIL_HIDE);
+                $(".instruction i").text(instarction);
+                dheight = $("#descol").height();
+                $("#descol .name").height(dheight);
+            } else if (html == BusinessDealWith.BUSINESS_DEATIL_HIDE) {
+                $("#instruction_detail").html(BusinessDealWith.BUSINESS_DETAIL);
+                $(".instruction i").text(instarction_desc);
+                $("#descol .name").height(detailheight); //设置收起的高度
+            }
+            $("#nameol .name").height($("#nameol").height());
+            //alert("height"+(".desc").height());
+        });
+        tag_click = true;
+    }
+    //$("#orderPkgTips").hide();
+}
+
+function goout(obj) {
+
+    var url = $(obj).attr("name");
+    window.location.href = url;
+}
+
+function orderPackage() {
+    if ($(".buttonOk").is(".disabled")) {
+        return;
+    }
+    //returnFlag = getQueryStringInUrl("returnFlag",url);
+    $(".buttonOk").addClass("disabled");
+    var urlPost = '/tlbaserver/traffic/subscribe?packageId=';
+    urlPost += packageid;
+    urlPost += "&packageType=";
+    urlPost += packageType;
+    urlPost += "&effectType=";
+    urlPost += effective;
+    $(".buttonOk").addClass("disabled");
+    $.ajax({
+        url: urlPost,
+        type: "POST",
+        dataType: 'json',
+        success: returnmsgInfo,
+        error: function() {
+          var page = "my_flux_result.html?v20151211141818&code=1";
+          window.location.href = page;
+        }
+    });
+}
+// 返回消息信息
+
+function returnmsgInfo(data, status, xhr) {
+
+    var code = data.stateCode;
+    var page = "my_flux_result.html?v20151211141818&packageName=" + packageName + "&packageType=" + packageType_+"&code="+code;
+   // if (data.stateCode == "" || data.stateCode != 0) {
+//        var info = data.returnInfo;
+//        if (data.stateCode == -1) {
+//            info = info;
+//        }
+///*
+//		    else  {
+//			info = TrafficRes.NET_ERROR;
+//		    }*/
+//        page = "my_flux_result.html?v20151211141818&packageName=" + packageName + "&packageId=" + packageid + "&packageEffect=" + effectiveMode + "&packageType=" + packageType + "&returnInfo=" + packageName;
+//    }
+//    page = page + "&returnFlag=" + returnFlag;
+    window.location.href = page;
+}
+// 只能输入数字，在IE和firefox测试是木有问题的
+
+function vailFloatNumberPerfect(evnt, obj) {
+    evnt = evnt || window.event;
+    var keyCode = window.event ? evnt.keyCode : evnt.which;
+    if ((obj.value.length == 0 || obj.value.indexOf(".") != -1) && keyCode == 46) return false;
+    return keyCode >= 48 && keyCode <= 57 || keyCode == 46 || keyCode == 8;
+}
+// 去掉服务密码提示信息
+
+function deleteServerMsg() {
+    var passwd = $(".commend-line > ol .passwordtext").val();
+    // 如果服务密码不等于空了，把提示信息去掉;
+    if (passwd != "") {
+        $(".commend-line > ol .feeStarand1").hide();
+        $(".commend-line > ol .feeStarand2").hide();
+    }
+}
+
+// 校验数字
+
+function numCheck(num) {
+    var res = true;
+    for (var i = 0; i < num.length; i++) {
+        var c = num[i];
+        if (c < '0' || c > '9') {
+            res = false;
+            i = num.length;
+        }
+    }
+    return res;
+}
+$(".pop-graycenterbtnbg a").xclick(function() {
+    $("#effectiveModeDiv").hide();
+
+    // 添加滑动的效果
+    // $(".touchable").removeClass("untouchable");
+    $("#mask").hide();
+
+});
+
+function changeMode() {
+    // 获取当前弹出框的字体大小，用来转换为em单位
+    var fontSizes = $("#effectiveModeDiv").css("font-size").replace("px", "");
+    // 获取当前滚动条的滚动的值。
+    var scrollHeight = 2.4 + $(".ibody").scrollTop() / fontSizes;
+    $("#effectiveModeDiv").css("top", scrollHeight + "em");
+
+    // 去掉可滑动的效果
+    // $(".touchable").addClass("untouchable");
+    $("#effectiveModeDiv").show();
+    $("#mask").show();
+}
+
+function closeDiv() {
+    $("#effectiveModeDiv").hide();
+    // 添加滑动的效果
+    // $(".touchable").removeClass("untouchable");
+    $("#mask").hide();
+}
+
+function changeModePic() {
+    $("#radioImg").attr("src", "../image/business/radio_checked.png");
+    $("#radioImg1").attr("src", "../image/business/radio_unchecked.png");
+    effectiveMode = "次月生效";
+}
+
+function changeModePic1() {
+    $("#radioImg").attr("src", "../image/business/radio_unchecked.png");
+    $("#radioImg1").attr("src", "../image/business/radio_checked.png");
+    effectiveMode = "立即生效";
+}
+
+function sendValue() {
+    $("#effectiveModeDiv").hide();
+    // $(".touchable").removeClass("untouchable");
+    $("#mask").hide();
+    if (effectiveMode == "") {
+    }
+    $(".commend-line > ol .effectiveSelectDiv i").html(effectiveMode).attr("value", effectiveMode);
+}
+
+function backToHistoryPage() {
+    var page = "";
+    if (returnFlag == 1) {
+        // alert(packageType);
+        //page = "all.html?v20151211141818&page=fluxRecommandAndDone&packageType=" + packageType+"&type="+type;
+        //window.location.href = page;
+        $("#fluxRecommandAndDone").css("display", "block");
+        $("#businessDealWith").css("display", "none");
+        f_contrail('p004_BTN001','套餐订购页面返回按钮','my_flux_buy.html','0','','p004');
+    } else if (returnFlag == 0) {
+        //page = "overview.html?v20151211141818";
+            $("#overview").css("display", "block");
+            $("#businessDealWith").css("display", "none");
+            f_contrail('p004_BTN001','套餐订购页面返回按钮','my_flux_buy.html','0','','p004');
+        
+        // javascript: history.back(-1); // 返回不需要页面刷新
+    }
+    //window.location.href = page;
+    return false;
+}
+
+
+
+
+var codeStr = "";
+
+function orderPakg_DealWith() {
+    var packageid = getQueryString("packageId");
+    var type = getQueryString("type");
+    if (type != "" && typeof(type) != "undefined") {
+        var msgdata = {
+            type: type,
+            packageId: packageid
+        };
+        $.ajax({
+            url: "/tlbaserver/traffic/pakagereocrd",
+            data: msgdata,
+            success: function(data) {},
+        });
+    }
+
+}
+
+function getBuName(name) {
+    if (name.length > 12) {
+        $("#nameol").find(".packagenameli").css("height", 4 + "em");
+        var contheight = 4 + "em";
+        $("#nameol").find(".buname").css("height", contheight);
+        //var a = $("#nameol")[0].scrollHeight;
+        //$(".buname").css("height",contheight/10 + "em");
+    }
+
+}
+
+function getValidHg() {
+    var contheight = $("#servePass .desc").css("height", 4.5 + "em");
+    var contheight = 4.5 + "em";
+    $("#servePass #valid_name").css("height", contheight);
+    //$("#valid_name").css("height",contheight/18 + "em");
+}
+
+function backByTag() {
+    if (returnFlag == 1) {
+        $("#fluxRecommandAndDone").css("display", "block");
+        $("#businessDealWith").css("display", "none");
+        //$(".buttonCn a").attr("name",
+        //"fluxRecommandAndDone.html?v20151211141818&packageType=" + packageType+"&type="+type);
+    } else {
+        if (Flowtag == "flow") {
+            $("#flow_un").css("display", "block");
+            $("#businessDealWith").css("display", "none");
+        } else {
+            $("#overview").css("display", "block");
+            $("#businessDealWith").css("display", "none");
+        }
+        //$("#overview").css("display","block");
+        //$("#businessDealWith").css("display","none");
+    }
+}

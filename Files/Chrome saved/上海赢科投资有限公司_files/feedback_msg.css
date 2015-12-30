@@ -1,0 +1,13 @@
+@charset "utf-8";
+/***
+.ititle {position:relative;background:#FFF;color:#555;}
+.ititle a {position:absolute; top:.2em;left:0;background:url("../images/back.png") no-repeat 0 0;width:1.2em;height:1.2em; background-size:1.2em 1.2em;}
+***/
+.msg { text-align: center;padding-top:2.3em;}
+.msg.ok span {display:inline-block;margin-bottom:.8em;width:3.2em;height:3.2em;background:url("../images/feedback_msg/ok.png") no-repeat 0 0;background-size:3.2em 3.2em;}
+.msg p {font-size:.65em;line-height:1.6em;color:#949494;}
+.msg.ok p.tip {color:#8ec31f;}
+.msg.fail p.tip {color:#ea3b3b;}
+.msg.fail span {display:inline-block;margin-bottom:.8em;width:3.2em;height:3.2em;background:url("../images/feedback_msg/fail.png") no-repeat 0 0;background-size:3.2em 3.2em;}
+
+.fail { display: none;}

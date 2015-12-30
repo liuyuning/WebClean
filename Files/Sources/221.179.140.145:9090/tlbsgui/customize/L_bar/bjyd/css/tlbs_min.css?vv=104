@@ -1,0 +1,310 @@
+@charset "UTF-8"; 
+
+.ts-popup .ts-close{
+    background:url("../images/layout/close.png") no-repeat scroll center center / contain  transparent;
+    height:1.3em;
+    margin:0.1em;
+    position:absolute;
+    right:0;
+    top:0;
+    width:1.3em;
+}
+
+
+.tlbs {
+    text-align: left;
+    font-size: 20px;
+    display: block;
+    width: 2.5em;
+    height: 3.25em;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    overflow: visible;
+    z-index: 2147483647;
+    left: initial;
+}
+
+.ts-logo {
+    background: none no-repeat scroll right center/contain rgba(0, 0, 0, 0);
+    bottom: 0;
+    height: 2.8em;
+    right: 0;
+    top:0.4em;
+    width: 2.7em;
+    z-index: 20;
+}
+
+.ts-content .ts-menubox .ts-item{
+    background-color:transparent;
+    background-position:left center;
+    background-size:100% 100%;
+    border-right:1px solid #B1B1B1;
+    width:86%;
+}
+
+.ts-content {
+    width: 100%;
+    height: 2.8em;
+    left: 0;
+    bottom: 0;
+    background: url("../images/layout/content_bg_1.png") repeat-x scroll 0 0
+        #ededed;
+    background-size: 85% 100%;
+    display: none;
+    box-shadow: 0 0 .3em #999;
+}
+
+.ts-menu {
+    bottom: 2.79em;
+    display: none;
+    height: auto;
+    left: 0;
+    width: 2.41em;
+    z-index: 100000;
+	-webkit-transform:translateZ(0);
+}
+
+.ts-content .ts-box {
+    display: inline-block;
+    position: relative;
+    width: 2.5em;
+    height: 4.8em;
+    vertical-align: top;
+}
+
+.ts-selected {
+    background: url("../images/layout/active.png") no-repeat;
+    background-size: contain;
+}
+
+.ts-iconbox .ts-item {
+    width: 1.25em;
+    height: 1.25em;
+    position: absolute;
+    left: .6em;
+    top: .4em;
+}
+
+.ts-content .ts-menubox {
+    width: 2.8em;
+    padding: 0;
+    vertical-align: top;
+    z-index: 10;
+}
+
+.ts-content .ts-curr {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: .15em;
+    background: url("../images/layout/arrow_1.png") no-repeat scroll center
+        center transparent;
+    background-size: contain;
+}
+
+.ts-content .ts-icon .ts-text {
+    display: block;
+    font-size: .6em;
+    text-align: center;
+    margin-top: 3em;
+    color: #374146;
+    line-height: 1.5em;
+}
+
+.ts-menu .ts-layout .ts-text {
+    font-size: .7em;
+    text-align: center;
+}
+
+.ts-menu .ts-layout .ts-text .ts-i {
+    color: white;
+}
+
+.tlbs .ts-i {
+    color: #374146;
+    display: inline;
+    font-style: normal;
+    font-weight: normal;
+    font-size:0.9em;
+}
+
+.ts-menu .ts-layout {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.ts-menu .ts-box {
+    display: block;
+    height: 2.4em;
+}
+
+.ts-menu .ts-item {
+    float: left;
+    width: 100%;
+    height: 100%;
+    background: none no-repeat scroll left center transparent;
+    background-size: contain;
+}
+
+.tlbs .ts-cancel .ts-i {
+    color: #fff;
+}
+
+.tlbs .ts-yes {
+    border-bottom-color: #638F0E;
+    background: #88BF1C;
+}
+
+.tlbs .ts-yes .ts-i {
+    color: #FFF;
+}
+
+.ts-batchopen .ts-layout .ts-user .ts-i {
+    font-weight: bold;
+}
+
+.ts-batchopen .ts-box {
+    border: .15em solid #fff;
+    background-color: #fff;
+}
+
+.ts-batchopen .ts-box .ts-title .ts-i {
+    color: #374146;
+    font-size: .8em;
+}
+
+.ts-prompt .ts-text .ts-i {
+    color: #000;
+}
+
+.ts-prompt .ts-action, .ts-prompt .ts-action .ts-i {
+    color: #FF8A00;
+}
+
+.ts-prompt .ts-info {
+    float: left;
+    left: 2.5em;
+    line-height: .65em;
+    padding: .4em 0;
+    position: absolute;
+    right: 2.7em;
+    word-wrap: break-word;
+    width: auto;
+}
+
+.ts-content .ts-menubox .ts-item {
+    background-size: 100% 100%;
+}
+
+.ts-content .ts-switch-curr {
+    display: none;
+    height: 0em;
+}
+
+
+.scroll-left-arrow {
+background-image: url("../images/layout/arrow_left.png");
+background-repeat: no-repeat;
+background-size: contain;
+width: 2.7em;
+height: 2.7em;
+left: 1.8em;
+opacity: 0.5;
+position: absolute;
+display: none;
+z-index: 999999999999999999;
+}
+
+.scroll-right-arrow {
+background-image: url("../images/layout/arrow_right.png");
+background-repeat: no-repeat;
+background-size: contain;
+width: 2.7em;
+height: 2.7em;
+opacity: 0.5;
+position: absolute;
+right: 1.1em;
+display: none;
+}
+.ts-animatedprompt{
+width:100%;
+height:100%;
+background-color:#ff7a03;
+text-align:center
+}
+
+.ts-animatedprompt .ts-text .ts-i{
+font-size:0.85em;
+color:#ffffff;
+}
+.ts-animatedprompt .ts-info{
+float:left;
+left:2.5em;
+line-height:1em;
+padding:.4em 0;
+position:absolute;
+right:2.7em;
+word-wrap:break-word;
+width:auto;
+}
+.ts-animatedprompt {display: none;}
+}
+
+.ts-batchopen-new .ts-layout .ts-user .ts-i {
+font-weight:bold;
+}
+.ts-batchopen-new .ts-box {
+border: 0.15em solid #15AEFE;
+background-color:#15AEFE;
+}
+.ts-batchopen-new .ts-box .ts-title .ts-i {
+color:#fff;
+font-size:0.8em;
+}
+
+.ts-batchopen-new .ts-yes{
+border-bottom-color:#C00000;
+background:red;
+}
+
+.tlbs .scroll{
+height:15em;
+width:80%;
+overflow:scroll;
+margin:1.5em;
+z-index:100000;
+
+}
+.scrollText{
+height:20000em;
+}
+
+.ts-content .ts-switch-curr {
+        display: none;
+        height: 0em;
+}
+
+.ts-mask {
+    background-image:url("../images/animatelogo.png");
+}
+
+.tlbs .ts-batchopen .ts-layout .ts-box .ts-action .ts-cancel {
+    background: none repeat scroll 0 0 #3ab100;
+    border: 0 none;
+}
+
+
+.ts-dialog .ts-action, .ts-batchopen .ts-action, .ts-flow .ts-action
+{
+    background-color: #ffffff;
+    line-height: 1em;
+    padding: 0.5em 0;
+    text-align: center;    
+
+}
+
+.ts-batchopen .ts-info{line-height:.8em;padding:.7em .5em .8em .7em;font-weight:normal;background: none repeat scroll 0 0 #ffffff;}

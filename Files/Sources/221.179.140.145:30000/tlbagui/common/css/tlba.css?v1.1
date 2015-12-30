@@ -1,0 +1,195 @@
+@charset "UTF-8";
+* {
+	list-style: none outside none;
+	margin: 0;
+	padding: 0;
+}
+fieldset,
+img {
+	border: 0 none;
+}
+a {
+	outline: medium none;
+	text-decoration: none;
+}
+html {
+	height: 100%;
+}
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+body {
+	font-size: 20px;
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	background-color: #FFF;
+}
+input {
+	font-size: .8em;
+}
+i {
+	font-style: normal;
+}
+s {
+	text-decoration: none;
+}
+.hide {
+	display: none;
+}
+.config {
+	display: none;
+}
+.clear {
+	border: 0 none;
+	float: none;
+	clear: both;
+	overflow: hidden;
+	font-size: 0;
+	margin: 0;
+	padding: 0;
+}
+.ititle {
+	background:  no-repeat 0 0 #119ced;
+	color: #FFF;
+	height: 1.6em;
+	line-height: 1.6em;
+	text-align: center;
+	vertical-align: middle;
+	//border-top-left-radius: 0.2em;
+	//-moz-border-top-left-radius: 0.2em;
+	//-webkit-border-top-left-radius: 0.2em;
+	//border-top-right-radius: 0.2em;
+	//-moz-border-top-right-radius: 0.2em;
+	//-webkit-border-top-right-radius: 0.2em;
+	width: 100%;
+	z-index: 20;
+}
+.ititle i {
+	font-size: 0.85em;
+}
+.ibody {
+	height: 13.5em;
+	position: relative;
+}
+.touchable {
+	overflow: hidden;
+}
+.ibackbtn {
+	margin-left: 0;
+	position: absolute;
+	top: 0em;
+	left: 0em;
+	width: 1.425em;
+	height: 1.425em;
+	display: inline-block;
+	cursor: pointer;
+	background: url("../images/layout/pophead-backbtn.png") no-repeat scroll 0.3em 0.3em transparent;
+	background-size: 1.125em 1.125em;
+}
+a.btn-ok,
+a.btn-cancel {
+	margin: 0 .25em;
+	padding: .3em 1em .2em;
+	text-align: center;
+	display: inline-block;
+	border-bottom: .1em solid #638F0E;
+	background-color: #89BF1D;
+	color: #FFF;
+	cursor: pointer;
+}
+a.btn-cancel {
+	border-bottom-color: #CDCDCD;
+	background-color: #E2E2E2;
+	color: #42507F;
+}
+.prompt-line {
+	display: none;
+	position: absolute;
+	z-index: 100;
+	left: 0;
+	top: 0;
+	width: 100%;
+	max-width: 15em;
+	height: 13.5em;
+	text-align: center;
+}
+.prompt-line .wait,
+.prompt-line .reload {
+	display: none;
+	position: relative;
+	width: 50%;
+	line-height: 100%;
+	text-align: left;
+}
+.prompt-line .wait {
+	height: 2em;
+	margin: 6em auto 0;
+	color: #B4B4B4;
+	background-color: #4C4C4C;
+	border-radius: .1em .1em .1em .1em;
+}
+.prompt-line .reload {
+	width: 68%;
+	height: 3.8em;
+	margin: 5em auto 0;
+	color: #BDBDBD;
+	border: .05em solid #F2F2F2;
+	background-color: #F9F9F9;
+	border-radius: .1em .1em .1em .1em;
+}
+.prompt-line i {
+	font-size: .6em;
+}
+.prompt-line .wait .info {
+	position: absolute;
+	left: 2.3em;
+	top: .6em;
+	line-height: .9em;
+}
+.prompt-line .reload .info {
+	position: absolute;
+	left: 2.5em;
+	top: .6em;
+	line-height: .9em;
+}
+.prompt-line .reload a {
+	color: #333;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.prompt-line .wait .img {
+	position: absolute;
+	width: .6em;
+	height: .6em;
+	top: .2em;
+	right: .2em;
+	cursor: pointer;
+	background: url("../images/layout/loadclose.png") no-repeat scroll 0 0 transparent;
+	background-size: contain;
+}
+.prompt-line .reload .img {
+	position: absolute;
+	width: 1em;
+	height: 1em;
+	top: .9em;
+	left: .7em;
+	background: url("../images/layout/reloadwarn.png") no-repeat scroll 0 center transparent;
+	background-size: contain;
+}
+.prompt-line .reload.error .info {
+	top: .1em;
+}
+.imain {
+	border-top-left-radius: 0.2em;
+	-moz-border-top-left-radius: 0.2em;
+	-webkit-border-top-left-radius: 0.2em;
+	border-top-right-radius: 0.2em;
+	-moz-border-top-right-radius: 0.2em;
+	-webkit-border-top-right-radius: 0.2em;
+	height: 15em;
+	width: 15em;
+}

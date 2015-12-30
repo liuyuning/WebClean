@@ -1,0 +1,40 @@
+@charset "utf-8";
+#overview .ititle {color:#FFF;
+background:-webkit-linear-gradient(top,#02D6F5,#02c8ee);
+background:-moz-linear-gradient(top,#02D6F5,#02c8ee);
+background:-linear-gradient(top,#02D6F5,#02c8ee);}
+#overview .flux {overflow:hidden;box-shadow:0 0 .5em #999;
+background:-webkit-linear-gradient(top,#02c8ee,#0087cf);
+background:-moz-linear-gradient(top,#02c8ee,#0087cf);
+background:-linear-gradient(top,#02c8ee,#0087cf);}
+#overview .flux_round {padding:0 .5em 0 8.5em;position:relative;min-height:4.5em;}
+#overview .flux .left { position: absolute;top:0;left:2.25em;width:4.5em;height:4.5em;}
+#overview .flux .left .round {height:100%;width:100%;border:.1em solid rgba(255,255,255,.5);border-radius:50%;box-sizing:border-box;padding:.15em;}
+#overview .flux .left .round2 {position:relative;width:100%;height:100%;}
+#overview .flux .left .round .zz {position:absolute;overflow:hidden;left:0;bottom:0;height:0;width:100%;z-index:1;}
+#overview .flux .left .round .zz .con { position:absolute;left:0;bottom:0;border-radius:50%;width:100%;height:4em;background: rgba(255,255,255,.8);}
+#overview .flux .left .round .txt {position:absolute;left:0;top:0;font-size:1em;color:#0081cc;height:4em;width:4em;line-height:4em;text-align:center;z-index:2;}
+#overview .flux .left .round.round_red .zz .con {background:rgba(255,91,110,.9);}
+#overview .flux .left .round.round_red .txt {color:#e6e6e6;}
+#overview .flux .left .round.round_yellow .zz .con {background:rgba(255,229,140,.9);}
+#overview .flux .left .round.round_yellow .txt {color:#0081cc;}
+#overview .flux .left .round.round_green .zz .con {background:rgba(180,246,204,.9);}
+#overview .flux .left .round.round_green .txt {color:#0081cc;}
+#overview .flux .left img {width:4.5em;height:4.5em;}
+#overview .flux .right {padding-top:.3em;}
+#overview .flux p {color:#FFF;font-size:.55em;line-height:1.5;}
+#overview .flux p.alpha8 {color: rgba(255,255,255,.8);margin-bottom:0.3em;}
+#overview .flux p.alpha4 {color: rgba(255,255,255,.4);}
+#overview .flux p.s20 {font-size:.45em;line-height:1.2;}
+#overview .flux p.s30 {font-size:.7em;}
+#overview .flux .s90 {font-size:2.2em; line-height:1;}
+#overview .flux .btn {padding:.3em 0 .3em 2.6em;}
+#overview .flux .btn a {color:#9fe60e;font-size:.65em;padding-right:3.3em;}
+#overview .flux .btn a img {height:1em;width:1em;padding-right:.2em; margin-top:-.4em;}
+#overview .commend {padding:0 .5em 1em;}
+#overview .commend .title {font-size:.55em; color: #949494; height:2.2em; line-height:2em;}
+#overview .commend ul {border-radius:.2em;box-shadow: 0 .1em .2em #bbb;}
+#overview .commend li {position:relative;padding:.5em 3.8em .5em .5em;border-bottom:1px solid #d6d6d6;}
+#overview .commend li:last-child {border-bottom:none;}
+#overview .commend li p {font-size:.55em;color:#585858;}
+#overview .commend li input {position:absolute;font-size:.55em;width:5.5em;top:50%;margin-top:-1em;height:2em;line-height:2em;right:.5em; background: #3ab100; border-radius:.2em;box-shadow: 0 .1em .2em #CCC; color:#FFF;}

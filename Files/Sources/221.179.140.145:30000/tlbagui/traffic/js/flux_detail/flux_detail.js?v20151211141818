@@ -1,0 +1,421 @@
+﻿var flag=1;
+$(function() {
+	// 不是预加载，则执行js
+	 $("#detail .ibackbtn").xclick(function(){
+	     $("#detail").css("display","none");
+	     $("#overview").css("display","block");
+	     f_contrail('p002_BTN001','流量详情页面返回按钮','flux_detail.html','0','','p002');
+    });
+	var isPreload = getQueryString("preload");
+	if(!isPreload){
+		loaded_detail();
+	}
+});
+function loaded_detail(){
+	//初始化操作
+	var init_detail = function(data){
+	    window.colorValve = data.flux.colorValve;
+		$("#subscribePackageData").hide();
+		initTrafficDescribe_detail(data);
+		//initDetailsLine_detail(data);
+		initDetailsLine_overview(data,'2');
+//		initSubPackageLine(data);
+			
+		// 记录下来颜色分界值, getColor()方法要用到
+		//window.greenOrangeValve = data.flux.greenOrangeValve;
+//		window.orangeRedValve = data.flux.orangeRedValve;
+	
+	}
+	//获取数据
+	$.ajaxplus({
+		url:"/tlbaserver/traffic/details/",
+		data:"time=" + new Date().getTime(),
+		dataType:"json",
+		success:init_detail,
+		//error: function() {
+		    //console.debug("error");
+			//clearTimeout(wait);
+			//clearTimeout(reload);
+			//warn();
+		//}
+	});
+	// tab切换
+	$(".tab-line #trafficDetails").bind("click", function() {
+		$(".tab-line #trafficDetails").removeClass("notSelectedTab");
+		$(".tab-line #trafficDetails").addClass("selectedTab");
+		$(".tab-line #subscribePackage").removeClass("selectedTab");
+		$(".tab-line #subscribePackage").addClass("notSelectedTab");
+		$("#trafficDetailsData").show();
+		$("#subscribePackageData").hide();
+	});
+	$(".tab-line #subscribePackage").bind("click", function() {
+		$(".tab-line #trafficDetails").removeClass("selectedTab");
+		$(".tab-line #trafficDetails").addClass("notSelectedTab");
+		$(".tab-line #subscribePackage").removeClass("notSelectedTab");
+		$(".tab-line #subscribePackage").addClass("selectedTab");
+		$("#trafficDetailsData").hide();
+		$("#subscribePackageData").show();
+	});
+};
+
+//初始化<div class="details-line">
+function initDetailsLine_detail(data) {	
+	var $pnl = $("#detail .details-line").show(),
+	$cfg = $pnl.next("#detail .config"),
+	list = data.infos || [];
+//	if(data.flux.pkgTotal == 0 ) {
+	if ((data.flux.pkgTotal == 0) || list.length == 0) {
+		// 总流量为0或免费流量列表为空, 则隐藏免费资源, 显示警告信息
+		$pnl.find("#detail .warn").show().siblings().hide();
+		// 去掉推荐套餐后面的"(根据您的实际使用情况,推荐如下上网流量包:)"
+		$("#detail .commend-line .info i:last").text("");
+	} else {
+		if ($pnl.children().is("tbody")) {
+			$pnl = $pnl.children();
+		}
+		if ($cfg.children().is("tbody")) {
+			$cfg = $cfg.children();
+		}
+		var html = $cfg.html();
+		var totalAll=0,
+			totalUsed=0,
+			totalLeave=0,
+			totalRate=0;
+		for (var i = 0; i < list.length; i++) {
+			var name = list[i].name,
+			total = formatTrafficCopy(list[i].totalFlux), // 总流量
+			used = formatTrafficCopy(list[i].usedFlux), // 已用流量
+			
+			// 剩余流量
+			leave = formatTrafficCopy(list[i].totalFlux - list[i].usedFlux);
+			
+			// 已用百分比
+			var totlFlux_temp = list[i].totalFlux;
+			if(totlFlux_temp==0) {
+				percent = 0.00;
+			} else {
+				percent = (list[i].usedFlux / list[i].totalFlux).toFixed(2);
+			}
+			
+			rate = (percent * 100).toFixed(0) + "%";
+			color = getColor(percent);
+			$pnl.append(html.format(name,total,used,leave,rate,color));
+			//totalAll += (total.substring(0,total.length-2)*1);
+			//totalUsed += (used.substring(0,used.length-2)*1);
+			//totalLeave += (leave.substring(0,leave.length-2)*1);
+			totalAll += list[i].totalFlux;
+			totalUsed += list[i].usedFlux;
+			totalLeave += (list[i].totalFlux - list[i].usedFlux);
+		}
+		var totalPercent = (totalUsed / totalAll).toFixed(2);
+		var totalRateNum =  (totalPercent * 100).toFixed(0);
+		var totalRate = totalRateNum+"%";
+		$("#detail .round .txt").html(totalRate);
+		var round_height = 3.8;
+		h = parseInt(totalRate)*round_height/100;
+		$("#detail .round .zz").animate({height:h+"em"},500);
+	 	//$pnl.append(html.format("合计",formatTraffic(totalAll),formatTraffic(totalUsed),formatTraffic(totalLeave),totalRate,getColor(totalPercent)));
+		// 已用流量比率的动画效果
+		$pnl.find(".rate .img s").each(function() {
+			$(this).animate({width:$(this).attr("width")}, 1000);
+		});
+	}
+};
+
+// 初始化已订购套餐列表页面<div class="subpkg-line">
+/*var initSubPackageLine = function(data) {
+	var $pnl =$(".subpkg-line").show(),
+	$listUl = $pnl.children(".list-ul"),
+	html = $pnl.children(".config").html();
+	if (data.flux.totalFlux == 0 || data.infos.length == 0) {
+		// 总流量为0或免费流量列表为空, 则隐藏免费资源, 显示警告信息
+		$pnl.children(".warn").show().siblings().hide();
+	} else {
+		var list = data.packageNames;
+		for (var i = 0; i < list.length; i++) {
+			var packageName = list[i].packagename;
+			var nameCnt = 1;
+			var j = 0;
+			for(; j < list.length; j++)
+			{
+				if(packageName == list[j].packagename)
+				{
+					//遍历到自己本身跳出继续遍历下一个
+					if(j == i)
+					{
+						continue;
+					}
+					//已经遍历过的跳出循环
+					if(j < i)
+					{
+						break;
+					}
+					if(j > i)
+					{
+						nameCnt++;
+					}
+				}
+			}
+			if(nameCnt > 1)
+			{
+				packageName = packageName + " * " + nameCnt;
+			}
+			//如果已经遍历过就不再添加到显示列表里
+			if(j > i)
+			{
+				$listUl.append(html.format(packageName));
+			}
+		}
+	}
+	
+	// 处理套餐列表数据之间的间隔
+	$(".subpkg-line ul li:nth-child(even)").addClass("graybg");
+};*/
+
+//function K(percent) {
+//	if (percent <= greenOrangeValve) { // 小于等于50%
+//		return TrafficRes.COLOUR_GREEN;
+//	} else if (percent > orangeRedValve) { // 大于80%
+//		return TrafficRes.COLOUR_RED;
+//	} else { // 50%-80%
+//		return TrafficRes.COLOUR_ORANGE;
+//	}
+//};
+
+function initTrafficDescribe_detail(data) {
+	var	total = data.flux.totalFlush || 0; // 总流量
+	var	used = data.flux.usedFlux;
+	var leave = total - used; // 剩余流量
+			
+			
+		// 设置总流量和剩余流量
+		var totalstr=formatTraffic(total).replace("B","").trim();
+		var leavestr=formatTraffic(leave).replace("B","").replace("-","").trim();
+		var usedstr=formatTraffic(used).replace("B","").trim();
+		var tnum=totalstr.substring(0,totalstr.length-1);//总流量数值
+		var lnum=leavestr.substring(0,leavestr.length-1);//剩余流量数值
+		var unum=usedstr.substring(0,usedstr.length-1);//已用流量数值
+		var tunit=totalstr.substring(totalstr.length-1,totalstr.length);//总流量单位
+		var uunit=usedstr.substring(usedstr.length-1,usedstr.length);//已用流量单位
+		var lunit=leavestr.substring(leavestr.length-1,leavestr.length);//剩余流量单位
+		var unum1=unum;
+		var uunit1=uunit;
+		
+		if(tunit=="M"){//总流量为M的时候  小于100M 保留2为小数  大于100 小于999 保留1位小数  大于等于1000 不保留小数
+		   var d=0;
+		  if(tnum>0&&tnum<100){
+		     d=2;
+		  }else if(tnum>=100&&tnum<=999){
+		    d=1;
+		  }
+		  if(tnum.indexOf(".")>0){
+		    tnum=parseFloat(tnum).toFixed(d);
+		  }
+		    if(uunit=="M"){
+		       if(unum.indexOf(".")>0){
+		         unum=parseFloat(unum).toFixed(d);
+		       }
+		    }else if(uunit=="K"){
+		       if(d==0){
+		        if(unum!=0&&unum<1024){
+		           unum1=1;
+		           uunit1="M";
+		        }
+		       }else if(d==1){
+		         if(unum!=0&&unum<103){
+		            unum1=103;
+		         }
+		       }else if(d==2){
+		        if(unum!=0&&unum<11){
+		          unum1=11;
+		        }
+		       }
+		    }
+		 
+		   var lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+		    lunit=lstr.split(",")[1];
+		    if(lunit=="K"){//剩余力量为K时
+		     lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+		     if(d==0){
+		      if(lnum>0&&lnum<1024){
+		            //if(flag==0){
+		            //  unum=(parseFloat(unum)-1).toFixed(0);
+		            //}
+		         }
+		     }else if(d==1){
+		         if(lnum>0&&lnum<103){
+		         if(flag==0){
+		          unum=(parseFloat(unum)-0.1).toFixed(d);
+		         }else{
+		          unum=(parseFloat(unum)+0.1).toFixed(d);
+		         }
+		           
+		         }
+		       }else if(d==2){
+		        if(lnum>0&&lnum<11){
+		         if(flag==0){
+		          unum=(parseFloat(unum)-0.01).toFixed(d);
+		         }else{
+		           unum=(parseFloat(unum)+0.01).toFixed(d);
+		         }
+		        }
+		       }
+		    }else if(lunit=="M"){
+		     lnum=parseFloat(lstr.split(",")[0]).toFixed(d);
+		    }else if(lunit=="G"){
+		     lnum=parseFloat(lstr.split(",")[0]).toFixed(2);
+		    }
+		    if((unum+"").indexOf(".")>0){
+		      unum= cleanZero(unum,d);
+		     }
+		     if((lnum+"").indexOf(".")>0){
+		      lnum= cleanZero(lnum,d);
+		     }
+		     
+		}else if(tunit=="G"){
+		var lstr="";
+		var d=(tnum*1024*0.0006).toFixed(0);
+		    if(uunit=="M"){
+		       unum=parseFloat(unum).toFixed(0);
+		       if(d-unum>0){
+		          unum1=d;
+		       }
+		      lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+		    } else if(uunit=="K"){
+		       if(unum!=0&&unum<1024){
+		           unum1=d;
+		           uunit1="M";
+		        }
+		         lstr= getLeave_overview(tnum+tunit,unum1+uunit1,1);
+		    }else if(uunit=="G"){//当已用的G单位
+		        lstr=lnum+","+lunit;
+		    }
+		    lunit=lstr.split(",")[1];
+		    if(lunit=="G"){
+		     lnum=parseFloat(lstr.split(",")[0]).toFixed(2);
+		    } else if(lunit=="K"){
+		       lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+		       if(flag==0){
+		       unum=(parseFloat(unum)-0.01).toFixed(2);
+		       }else{
+		       unum=(parseFloat(unum)+0.01).toFixed(2);
+		       }
+		       
+		    }else if(lunit=="M"){
+		     lnum=parseFloat(lstr.split(",")[0]).toFixed(0);
+		      if(lnum>0&&lnum<d){
+		       if(flag==0){
+		         unum=(parseFloat(unum)-0.01).toFixed(2);
+		         }else{
+		         unum=(parseFloat(unum)+0.01).toFixed(2);
+		         }
+		      }
+		    } 
+		     if((unum+"").indexOf(".")>0){
+		      unum= cleanZero(unum,2);
+		     }
+		      if((lnum+"").indexOf(".")>0){
+		      lnum= cleanZero(lnum,2);
+		     }
+		}
+    var $model = $(".desc-line").show(),
+        html = $model.children(".config").html();
+    var queryTime = data.flux.queryTime,//修改日期格式。
+    	queryTime = queryTime.substring(0,4)+ "年" + queryTime.substring(5,7) + "月",
+    	//+queryTime.substring(8,10)+ "日" + queryTime.substring(11,13)+"时" + "】",
+    	/*
+        totalFluxForK = formatNumber(data.flux.totalFlush) + TrafficRes.KB_UNIT;
+        var dataLength = formatTraffic(data.flux.totalFlush).length;
+        if(dataLength>6){
+        totalFluxForMGB = formatTraffic(data.flux.totalFlush).substring(0,4)+formatTraffic(data.flux.totalFlush).substring(length-2,length);
+        }else{
+        totalFluxForMGB = formatTraffic(data.flux.totalFlush);
+        }
+        msisdn = data.flux.msisdn;
+        */
+        totalFluxForK = formatNumber(data.flux.totalFlush).toString().replace(/,/g,'') + TrafficRes.KB_UNIT;
+     
+        var msisdn = data.flux.msisdn;
+        var yue="=";
+/*        if(data.flux.pkgTotal < 1024){
+        	 yue = "";
+        	 totalFluxForMGB = "";
+        }*/
+        var totalFluxForMGB = unum + uunit+"B";
+        var detailRemind = data.flux.detailRemind;
+        $("#detail .s20").html(detailRemind);
+    //$model.append(html.format(queryTime,totalFluxForK,totalFluxForMGB,yue,msisdn));
+        $(".s24_useflux").html(unum);
+        $("#s24_usefluxunit").html(uunit+"B");
+        $(".s24_allflux").html(tnum);
+        $("#s24_allfluxunit").html(tunit+"B");
+        var totalPercent = (used/ total).toFixed(2);
+        var color = getColor(totalPercent);
+		var totalRate = (100-(totalPercent * 100).toFixed(0)) + "%";
+		$("#detail .round .txt").html(totalRate);
+		var flux_height = parseInt(totalRate);
+		var round_height = 4;
+		h = flux_height*round_height/100;
+		$(".round .zz").animate({height:h+"em"},500);
+		
+		$("#detail .round").addClass("round_red");
+		
+		$('#detail .flux .left .round.round_red .zz .con').css({"background-color": color});
+		
+		  if(flux_height>=0 && flux_height<=30){
+		        $("#detail .round").addClass("round_red");
+		        $('#detail .flux .left .round.round_red .zz .con').css({"background-color": color});
+		    }else if(flux_height>30 && flux_height<=80){
+		        $("#detail .round").addClass("round_yellow");
+		        $('#detail .flux .left .round.round_yellow .zz .con').css({"background-color": color});
+		    }else if(flux_height>80 && flux_height<=100){
+		        $("#detail .round").addClass("round_green");
+		        $('#detail .flux .left .round.round_green .zz .con').css({"background-color": color});
+		    }
+		
+/*		if(flux_height>0 && flux_height<=30){
+			$(".round").addClass("round_red");
+		}else if(flux_height>30 && flux_height<=80){
+			$(".round").addClass("round_yellow");
+		}else if(flux_height>80 && flux_height<=100){
+			$(".round").addClass("round_green");
+		}*/
+}
+
+var getColor = function(percent) {
+    var groupList = colorValve.split(','),
+        per,//百分比
+        tmpColor,//颜色值
+        returnColor;
+        
+    for(var i = 0; i < groupList.length; i++){
+        var list = groupList[i].split(':');
+        per = list[0];
+        tmpColor = list[1];
+        
+        if(Number(per) > 1){
+            per = per/100;
+        }
+        if(percent > per){
+            returnColor = tmpColor;
+        }
+    }
+    return returnColor;
+};
+
+function formatNumber(num){
+	var strNums = String(num).split(".");
+	var strNum = strNums[0];
+	var formatStr = "";
+	var i = strNum.length-3;
+	for(;i>0;i=i-3){
+		formatStr = "," + strNum[i] + strNum[i+1] + strNum[i+2] + formatStr;
+	}
+	formatStr = strNum.substring(0,3+i) + formatStr;
+	
+	// 拼接小数点后面的值。
+	formatStr = formatStr + (strNums[1] && strNums[1].length>0 ? "." + strNums[1] : "");   
+	return formatStr;
+}
+
+//redraw_loop=setInterval(draw,2000);              //事件定时触发器

@@ -1,0 +1,35 @@
+@charset "utf-8";
+#fluxRecommandAndDone .ititle {background:#FFF;color:#555555; background:#F6F6F6;position: relative;}
+#fluxRecommandAndDone .ititle a {position:absolute;top:.2em;left:0;background:url("../images/back.png") no-repeat 0 0;width:1.2em;height:1.2em; background-size:1.2em 1.2em;}
+#fluxRecommandAndDone .ibody {margin-bottom:.4em;}
+
+#fluxRecommandAndDone .clearfloat{ clear:both; zoom:1;}
+#fluxRecommandAndDone .clearfloat:after{ height:0px;clear:both;content:".";display:block;visibility:hidden;}
+#fluxRecommandAndDone .hidden{ display:none;}
+
+/****我的流量****/
+#fluxRecommandAndDone .my_flux_con{ width:100%;}
+#fluxRecommandAndDone .mf_tab_tit{ width:100%; padding:0 0.5em; border-bottom:1px solid #d8d8d8;box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; background:#f6f6f6;}
+#fluxRecommandAndDone .mf_tab_tit ul{ width:100%;}
+#fluxRecommandAndDone .mf_tab_tit ul li{ float:left; width:33.3%; height:2.9em; line-height:2.8em; text-align:center; color:#6f6f6f; font-size:.65em; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+#fluxRecommandAndDone .mf_tab_tit ul li.curr{ color:#03a9f4; border-bottom:0.25em solid #03a9f4;}
+
+#fluxRecommandAndDone .flux_bag_detail {width:100%;}
+#fluxRecommandAndDone .flux_bag_detail table{ width:100%;margin-bottom:1em;}
+#fluxRecommandAndDone .flux_bag_detail table tr td{ width:50%;}
+#fluxRecommandAndDone .flux_bag_detail table tr td:nth-child(odd) {padding:0.4em 0.25em 0 0.5em;}
+#fluxRecommandAndDone .flux_bag_detail table tr td:nth-child(even) {padding:0.4em 0.5em 0 0.25em;}
+#fluxRecommandAndDone .flux_bag_detail table tr td div{ width:100%; padding:.75em 0; text-align:center; position:relative;border-radius:0.2em; -moz-border-radius:0.2em; -webkit-border-radius:0.2em; box-shadow:0 .05em .15em #CCC; -moz-box-shadow:0 .05em .15em #CCC; -webkit-box-shadow:0 .05em .15em #CCC;}
+#fluxRecommandAndDone .flux_bag_detail table tr td div p.first_txt span{ color:#8ec31f; font-size:1.4em; line-height:1;}
+#fluxRecommandAndDone .flux_bag_detail table tr td div p.first_txt b{ color:#949494; font-size:0.95em; font-weight:normal; line-height:1;}
+#fluxRecommandAndDone .flux_bag_detail table tr td div p.second_txt{ color:#949494; font-size:0.9em; padding-top:0.3em; line-height:1;}
+#fluxRecommandAndDone .flux_bag_detail table tr td div img{ width:0.8em; height:.8em; position:absolute; top:0.3em; left:0.45em;}
+
+#fluxRecommandAndDone .flux_bag_detail .message {
+    background: url("../images/my_flux/flux_icon.png") no-repeat scroll 1.2em 1.3em / 0.7em 0.7em rgba(0, 0, 0, 0);
+    color: #949494;
+    font-size: 0.55em;
+    line-height: 1.2em;
+    padding: 1em 1em 0.6em 2.4em;
+    text-align: justify;
+}
