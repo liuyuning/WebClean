@@ -9,13 +9,13 @@
 
 点开后显示了流量的具体数据，还有流量订购功能，如下图。真是为用户操碎了心。
 
-[WebClean](Image/Safari-Screenshot-2.PNG)
+![WebClean](Image/Safari-Screenshot-2.PNG)
 
 大多数时候大家只是好奇这个东西是从哪里来的，这功能对一些用户来说可能有用，但同时也会浪费用户流量。
 这个图标时有时无，原因是我们当前使用的网络有关，如果是Wi-Fi(无线局域网)，则无。如果是蜂窝移动网络(移动4G)，就有。
 这个功能有一个大名“流量助手”，属于中国移动。具体信息可以在百度搜“中国移动 流量助手”，这里提供两个链接。
-http://bbs.feng.com/read-htm-tid-8732410.html
-http://zhidao.baidu.com/link?url=Rxc10K_9wSzWqrgTYewewCtUPpzmQm6JJZIgcYc8b1FLkdGZSHbDz0gG1Iy1Iou602nJ1oqPQYzQJ00XWTTT_4CHwW8FyIrNM1bwamjO8Ty
+ [链接1](http://bbs.feng.com/read-htm-tid-8732410.html)
+ [链接2](http://zhidao.baidu.com/link?url=Rxc10K_9wSzWqrgTYewewCtUPpzmQm6JJZIgcYc8b1FLkdGZSHbDz0gG1Iy1Iou602nJ1oqPQYzQJ00XWTTT_4CHwW8FyIrNM1bwamjO8Ty)
 
 
 # 下面我们着重分析一下“流量助手”的原理
@@ -27,7 +27,7 @@ http://zhidao.baidu.com/link?url=Rxc10K_9wSzWqrgTYewewCtUPpzmQm6JJZIgcYc8b1FLkdG
 
 对比了web-4G.html和web-WIFI.html两个不同网络的数据，下面的JS就是被注入的代码。
 <script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script></body>
-[WebClean](Image/HTML-Insert-JS.png)
+![WebClean](Image/HTML-Insert-JS.png)
 
 
 [原理] 
@@ -57,9 +57,9 @@ iPhone6, iOS9.2, 中国移动SIM卡
 
 www.yktz.net.har urls_109.json urls_109.txt wget_log.txt 可以在“Files”目录找到。
 如下是部分截图
-[WebClean](Image/ModHeader.png)
-[WebClean](Image/Chrome-Dev-Network.png)
-[WebClean](Image/Chrome-Dev-Sources.png)
+![WebClean](Image/ModHeader.png)
+![WebClean](Image/Chrome-Dev-Network.png)
+![WebClean](Image/Chrome-Dev-Sources.png)
 
 
 
@@ -89,7 +89,7 @@ www.yktz.net.har urls_109.json urls_109.txt wget_log.txt 可以在“Files”目
 //    }
 // }
 IP地址不可以，必须是域名。这里也不是个域名，这么巧。APPLE文档这么说"Must not be a numerical IP address (but rather a string)"
-[WebClean](Image/App Transport Security Settings.png)
+![WebClean](Image/App Transport Security Settings.png)
 
 3、【失败】修改request的"User-Agent"
 因为其实电脑共享手机流量上网的话，浏览器下面也会有一个“流量助手”的图标。
