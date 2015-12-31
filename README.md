@@ -71,20 +71,24 @@
 
 ## 详细分析
 借助于工具，看看这个被注入的JS一共加载了多少资源，资源有多大，都来自哪些网站。下面就详细分析一下。
+最后我们一共找到了109个URL，去除测试网站www.yktz.net的4个，那么一共额外加载了105个URL，有7个URL重复加载。
+最后保存文件98个，1482697Byte=1.41MB，最少又加载了1.41MB的数据。
 
-[原理] 
+【原理】 
+
 用iPhone使用4G上网，共享网络给电脑。这时我们在电脑上用chrome来访问，再使用开发者模式，看看这些数据。
 
-[环境]
+【环境】
  1. iMac, Mac OS X 10.11.2(EI Capitan)
- 2. iPhone6, iOS9.2, 中国移动SIM卡
+ 2. iPhone6, iOS9.2
+ 3. 中国移动SIM卡
 
-[工具]
+【工具】
  1. Chrome 47.0.2526.106 (64-bit)，肯定要有。
  2. ModHeader 2.0.5，一个HTTP header修改插件，修改"User-Agent"，让服务器认为是iPhone在访问。
  3. wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，后面下载时使用。
 
-[步骤]
+【步骤】
  1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接iMac电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
  2. 打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
  3. 在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
@@ -105,7 +109,7 @@ www.yktz.net.har urls_109.json urls_109.txt wget_log.txt 可以在“Files”目
 
 
 
-[屏蔽]
+## 如何屏蔽
 实验了4个方法，前面的两个失败。
 
 0、
