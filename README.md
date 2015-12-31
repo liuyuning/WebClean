@@ -1,4 +1,5 @@
-# WebClean（屏蔽中国移动“流量助手”，同时分析被注入的JS代码）
+# WebClean
+##屏蔽中国移动“流量助手”，同时分析被注入的JS代码
 
  - 当我们用手机上网时，打开浏览器或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下二图。上面显示着“xx%”，实际是你流量余量百分比。
 
@@ -29,16 +30,16 @@
 
 
 [原理] 
-用iPhone使用4G上网，共享网络给电脑。这时我们在电脑上用chrome来访问，再使用开发者模式，看看这些数据。
+**用iPhone使用4G上网，共享网络给电脑。这时我们在电脑上用chrome来访问，再使用开发者模式，看看这些数据。**
 
 [环境]
-iMac, Mac OS X 10.11.2(EI Capitan)
-iPhone6, iOS9.2, 中国移动SIM卡
+ 1. iMac, Mac OS X 10.11.2(EI Capitan)
+ 2. iPhone6, iOS9.2, 中国移动SIM卡
 
 [工具]
  1. Chrome 47.0.2526.106 (64-bit)，肯定要有。
  2. ModHeader 2.0.5，一个HTTP header修改插件，修改"User-Agent"，让服务器认为是iPhone在访问。
- 3 wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，后面下载时使用。
+ 3. wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，后面下载时使用。
 
 [步骤]
 1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接iMac电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
