@@ -15,7 +15,7 @@
 
 
 ## 一、简单分析
-为了显示直观，选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为展示页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
+为了便于分析，选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为测试展示网页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
 
 使用工程WebClean分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
 对比了web-4G.html和web-WIFI.html两个不同的数据，发现在`</body>`结束前被被注入了JS代码，如下
@@ -94,7 +94,7 @@
  4. Chrome访问http://www.yktz.net/ 这个网站，等待所有页面加载完毕。
  5. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har 。（没有更好的插件能够一次性导出所有文件）
  6. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
- 7. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
+ 7. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网页的URL，最后保存为urls_105.txt，给wget使用。
  8. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。有兴趣慢慢分析这些文件吧。
 ```shell
 wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
@@ -106,7 +106,7 @@ wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPh
 ```
 `www.yktz.net.har` `urls_109.json` `urls_105.txt` `wget_log.txt` 可以在“Files”目录找到。
 
-如下是截图
+以下是截图
 
 ![WebClean](Image/ModHeader.png)
 ![WebClean](Image/Chrome-Dev-Network.png)
@@ -182,9 +182,11 @@ NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/
 }
 ```
 
-#### 6. 【成功】使用HTTPS服务。这个是一劳永逸的方案，需要服务器都支持。但不是所有服务器都是HTTPS。
+#### 6. 【成功】使用HTTPS服务
+这个是一劳永逸的方案，需要服务器都支持。但不是所有服务器都是HTTPS。
 
-#### 7. 【未验证】WebKit.framework，在iOS8以上使用。
+#### 7. 【未验证】使用WebKit.framework
+在iOS8以上使用。
 
 
 
