@@ -94,39 +94,52 @@
           <i class="code"></i> </p>
       </div>
     </div>
+    <div class="am-g am-badge am-badge-secondary">
+      <div class="am-u-sm-2 am-text-center">
+        <p class="am-wzline" style="padding-top:10px; line-height:120%;"><br>
+          1F<br>
+          本月首发</p>
+      </div>
+      <div class="am-u-sm-10 bgcolor"> <a id="klddx_url" href="javascript:void(0);">
+      	<img src="i/banner_top.jpg" alt="快乐点点消" class="am-img-responsive" /></a> </div>
+    </div>
     <div class="am-g am-badge am-badge-danger">
       <div class="am-u-sm-2">
-        <p class="am-wzline" style="padding-top:10px; line-height:120%;"> 1F<br /><br />
-        本周热销</p>
+        <p class="am-wzline" style="padding-top:10px; line-height:120%;"> <br>2F<br />
+        热捧专区</p>
       </div>
       <div class="am-u-sm-10 bgcolor am-text-center">
         <ul class="am-avg-sm-2 am-thumbnails">
+          <li>
+            <a id="bwlb2_url" href="javascript:void(0);" class="am-thumbnail">
+              <img src="i/hallpic_jidi.jpg" alt="保卫萝卜2：极地之旅"/>
+            </a>
+          </li>
+          <li class="two">
+            <a id="hlddz_url" href="javascript:void(0);" class="am-thumbnail">
+              <img src="i/hallpic_ddz.jpg" alt="欢乐斗地主"/>
+            </a>
+          </li>
+          <!-- 
           <li>
             <a id="kxxxl_url" href="javascript:void(0);" class="am-thumbnail">
             <img src="i/hallpic_kx.jpg" alt="开心消消乐"/>
             </a>
           </li>
-          <!-- 
           <li class="two">
             <a id="tgmmx_url" href="javascript:void(0);" class="am-thumbnail">
               <img src="i/hallpic_1.jpg" alt="糖果萌萌消"/>
             </a>
           </li>
           -->
-          <li class="two">
-            <a id="hlddz_url" href="javascript:void(0);" class="am-thumbnail">
-              <img src="i/hallpic_ddz.jpg" alt="欢乐斗地主"/>
-            </a>
-          </li>
         </ul>
 	</div>
     </div>
     <div class="am-g am-badge am-badge-success">
       <div class="am-u-sm-2 am-text-center">
-        <p class="am-wzline" style="padding-top:10px;">
-          2F<br />
-          下载排行<br />
-          TOP3</p>
+        <p class="am-wzline" style="padding-top:10px;"><br>
+          3F<br />
+          下载排行</p>
       </div>
       <div class="am-u-sm-10 bgcolor">
         <ul data-am-widget="gallery" class="am-gallery am-avg-sm-3
@@ -152,7 +165,7 @@
     <div class="am-g am-badge am-badge-black">
       <div class="am-u-sm-2 am-text-center">
         <p class="am-wzline"><br/>
-          3F<br/>
+          4F<br/>
           咪咕互娱<br/>
           客户端</p>
       </div>
@@ -169,14 +182,21 @@
 	var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
 	document.write(unescape("%3Cspan id='cnzz_stat_icon_1256614665'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s95.cnzz.com/z_stat.php%3Fid%3D1256614665%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));
 	
-	
-	$('#kxxxl_url').on("click",function(){
-		window.open("/hd/toolbar/more_kaixin.html");
-	});
+	//$('#kxxxl_url').on("click",function(){
+	//	window.open("/hd/toolbar/more_kaixin.html");
+	//});
 	
 	//$('#tgmmx_url').on("click",function(){
 	//	window.open("/hd/toolbar/more_tgmmx.html");
 	//});
+	
+	$('#klddx_url').on("click",function(){
+		window.open("/hd/toolbar/more_klddx.html");
+	});
+	
+	$('#bwlb2_url').on("click",function(){
+		window.open("/hd/toolbar/more_bwlb2.html");
+	});
 	
 	$('#hlddz_url').on("click",function(){
 		window.open("/hd/toolbar/more_hlddz.html");

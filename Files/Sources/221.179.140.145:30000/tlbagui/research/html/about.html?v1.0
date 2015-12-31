@@ -22,11 +22,11 @@
     <img class="fl" src="../images/about/img1.png" />
     <p>流量助手提供权威的流量查询数据，最快捷的办理的渠道，让你用得放心。</p>
     <div class="clear"></div>
-<!--20151120
+<!--201511120
     <img class="fr" src="../images/about/img2.png" />
     <p>服务开通与关闭都可拨打移动热线10086办理。</p>
--->
-    <div class="clear"></div>
+-->  
+  <div class="clear"></div>
     <input class="show" type="button" value="永久关闭" />
     <div class="pop">
         <p>永久关闭将无法使用流量助手的任何功能，是否确认永久关闭？如暂时不需要，可以点击菜单中的取消按钮。</p>

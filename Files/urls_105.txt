@@ -1,7 +1,4 @@
-http://www.yktz.net/
-http://www.yktz.net/i/index.gif
 http://221.179.140.145:9090/tlbsgui/baseline/scg.js
-http://www.yktz.net/i/icon.gif
 http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451304537121
 http://221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151228200500
 http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151218144734
@@ -105,5 +102,4 @@ http://c.cnzz.com/core.php?web_id=1256614665&show=pic&t=z
 http://z4.cnzz.com/stat.htm?id=1256614665&r=http%3A%2F%2Fwww.yktz.net%2F&lg=zh-cn&ntime=none&cnzz_eid=1750679271-1451304452-http%3A%2F%2Fwww.yktz.net%2F&showp=2560x1440&t=%E7%83%AD%E6%8D%A7%E6%B8%B8%E6%88%8F&h=1&rnd=643907509
 http://icon.cnzz.com/img/pic.gif
 http://221.179.140.145:9090/tlbsserver/stagelog?Blocked%20a%20frame%20with%20origin%20%22http://17jifen.bj.chinamobile.com%22%20from%20accessing%20a%20cross-origin%20frame.&time=1451304538842
-http://www.yktz.net/favicon.ico
 http://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=2560x1440&ep=%7B%22netAll%22%3A131%2C%22netDns%22%3A61%2C%22netTcp%22%3A67%2C%22srv%22%3A62%2C%22dom%22%3A583%2C%22loadEvent%22%3A1117%2C%22qid%22%3A%22%22%2C%22bdDom%22%3A0%2C%22bdRun%22%3A0%2C%22bdDef%22%3A0%7D&et=87&fl=20.0&ja=0&ln=zh-CN&lo=0&nv=1&rnd=237738923&si=dba07b88069095653349fa753d6f8933&st=3&su=http%3A%2F%2Fwww.yktz.net%2F&v=1.1.22&lv=1
