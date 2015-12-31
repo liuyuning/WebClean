@@ -17,6 +17,9 @@
 ## 简单分析
 为了显示直观，我们选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为展示页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
 
+我们分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
+对比了web-4G.html和web-WIFI.html两个不同的数据，发现在`</body>`结束前被被注入了JS代码`<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>`，就是这行JS代码执行后就把整个“流量助手”的功能加载完成。
+
 ```objc
 - (IBAction)actionGetHTMLData:(id)sender{
     
@@ -54,8 +57,7 @@
 }
 ```
 
-对比了web-4G.html和web-WIFI.html两个不同网络的数据，下面的JS就是被注入的代码。
-<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script></body>
+被注入的代码
 ![WebClean](Image/HTML-Insert-JS.png)
 
 
