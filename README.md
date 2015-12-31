@@ -1,30 +1,30 @@
 # WebClean
-**屏蔽中国移动“流量助手”，分析被注入的JS代码**
+### 屏蔽中国移动“流量助手”，分析被注入的JS代码
 
-  当我们用手机上网时，打开Safari或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下图。上面显示“xx%”，实际是你流量余量百分比。点开后显示了流量的具体数值，还有流量订购功能，如下图。真是为用户操碎了心。
+  当我们用手机上网时，打开Safari或者App内置的WebView浏览网页时，会在右下角显示一个中国移动或淡绿色图标，如下图。上面显示“xx%”，实际是你流量余量百分比。点开后显示了流量的具体数值，还有流量订购功能，如下图。真是为用户操碎了心。
   
   这个图标只有在蜂窝移动网络(移动4G)才有。中国移动的这个功能叫作“流量助手”。具体信息可以搜“中国移动 流量助手”，也可参考这两个链接。
  [链接1](http://bbs.feng.com/read-htm-tid-8732410.html)
  [链接2](http://zhidao.baidu.com/link?url=Rxc10K_9wSzWqrgTYewewCtUPpzmQm6JJZIgcYc8b1FLkdGZSHbDz0gG1Iy1Iou602nJ1oqPQYzQJ00XWTTT_4CHwW8FyIrNM1bwamjO8Ty)
  
- 大多数时候我们只是好奇这个东西是从哪里来的，看着很小也不会想到流量问题，过后就不在意了。现在，下面就重点分析这个功能是从哪来的，如何在App内屏蔽这个功能。
+ 大多数时候我们只是好奇这个东西是从哪里来的，看起来很小也不会想到流量问题，过后就不在意了。现在，我们就重点分析这个东东是从哪来的，如何在App内屏蔽这个功能。
 
 ![WebClean](Image/Safari-Screenshot-1.PNG)
 ![WebClean](Image/Safari-Screenshot-2.PNG)
 ![WebClean](Image/WebClean-Screenshot-3.PNG)
 
 
-## 1、简单分析
+## 一、简单分析
 为了显示直观，选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为展示页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
 
-分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
-对比了web-4G.html和web-WIFI.html两个不同的数据，发现在`</body>`结束前被被注入了JS代码
+使用工程WebClean分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
+对比了web-4G.html和web-WIFI.html两个不同的数据，发现在`</body>`结束前被被注入了JS代码，如下
 ```js
 <script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>
 ```
 这个scg.js下载执行后又下载了一个类似JSON的数据“jsreq”，里面包含了CSS和JS的URL地址。具体分析见如下工程内的代码。
 
-**可见这个被注入的JS最后下载的数据就不止是几个，而是很多。那么见下面的详细分析。**
+**可见这个被注入的JS最后下载的文件就不止是几个，而是很多。所以有必要详细分析一下。**
 
 
 ```objc
@@ -68,14 +68,14 @@
 ![WebClean](Image/HTML-Insert-JS.png)
 
 
-## 2、详细分析
+## 二、详细分析
 借助于工具，看看这个被注入的JS一共加载了多少资源，资源有多大，都来自哪些网站。下面就详细分析一下。
 最后我们一共找到了109个URL，去除测试网站www.yktz.net的4个，那么一共额外加载了105个URL，有7个URL重复加载。
 最后保存文件98个，1482697Byte=1.41MB。详细资源见Files目录。
 
 ####【原理】 
 
-使用iPhone的4G上网，共享网络给电脑。这时在电脑上用chrome来访问“http://www.yktz.net/ ”，再使用开发者模式，查看加载过程。
+使用iPhone的4G上网，共享网络给电脑。这时在电脑上用Chrome来访问“http://www.yktz.net/ ”，再使用开发者模式，查看加载过程。
 
 ####【环境】
  1. iMac, Mac OS X 10.11.2(EI Capitan)
@@ -92,14 +92,14 @@
  2. 打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
  3. 在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
  4. Chrome访问http://www.yktz.net/ 这个网站，等待所有页面加载完毕。
- 5. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。（没有更好的插件能够一次性导出所有文件）
+ 5. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har 。（没有更好的插件能够一次性导出所有文件）
  6. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
  7. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
- 8. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
+ 8. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。有兴趣慢慢分析这些文件吧。
 ```shell
 wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
 ```
- 9. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
+ 9.再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
 ```shell
  find . -type f ! -iname .DS_Store -ls | wc -l
  find . -type f ! -iname .DS_Store -ls | awk '{total += $7} END {print total}'
@@ -114,8 +114,8 @@ wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPh
 
 
 
-## 3、如何屏蔽
-实验了6种方案，前4种失败。5从客户端解决，但是不完美；6是使用HTTPS；7没有验证。
+## 三、如何屏蔽
+实验了6种方案，前4种失败。5从客户端解决，但是不完美。6是使用HTTPS。7没有验证。
 
 #### 1. 【失败】使用UIWebView的delegate
 实现了UIWebView的delegate来控制。也不可以，即使返回NO，也不能阻止注入JS的加载.
