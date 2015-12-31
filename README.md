@@ -115,7 +115,8 @@ wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPh
 
 
 ## 三、如何屏蔽
-实验了6种方案，前4种失败。5从客户端解决，但是不完美。6是使用HTTPS。7没有验证。
+JS这种东西真是太强大了，搞个JS入侵之类完全可以。客户端目前就一种可以避免的方案，也不是很完美。
+一共实验了6种方案，前4种失败。5从客户端解决，但是不完美。6是使用HTTPS。7没有验证。
 
 #### 1. 【失败】使用UIWebView的delegate
 实现了UIWebView的delegate来控制。也不可以，即使返回NO，也不能阻止注入JS的加载.
