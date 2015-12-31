@@ -1,0 +1,10 @@
+105个URL去除www.yktz.net的5个URL，最后是105个URL。去掉7个重复文件，最后是98个文件。
+
+1个重复
+http://221.179.140.145:30000/tlbagui/common/css/tlba.css?v1.1
+1个重复
+http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/images/content/tlb_opt.png?uflag=20151218144734
+2个重复
+http://221.179.140.145:9090/tlbsgui/baseline/scg.js
+3个重复
+http://221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js

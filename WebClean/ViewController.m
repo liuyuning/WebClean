@@ -8,9 +8,6 @@
 
 #import "ViewController.h"
 
-
-NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>";
-
 //iPhone6,iOS9.2
 //"User-Agent" = "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75";
 
@@ -57,6 +54,7 @@ NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' s
             
             if (stringHTML) {
                 //删除被注入的JS代码
+                NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>";
                 stringHTML = [stringHTML stringByReplacingOccurrencesOfString:JSReplaceScript withString:@""];
                 NSLog(@"%@",stringHTML);
                 [_webView loadHTMLString:stringHTML baseURL:_webURL];
