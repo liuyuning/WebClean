@@ -96,9 +96,9 @@
  5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
  6. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
  7. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
-```shell
-wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
-```
+
+`wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
+`
 
  8. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
 ```shell
@@ -118,29 +118,33 @@ wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPh
 ## 3、如何屏蔽
 实验了4个方法，前面的两个失败。
 
-#### 1. 【失败】使用UIWebView的delegate来控
+#### 1. 【失败】使用UIWebView的delegate
 实现了UIWebView的delegate来控制。也不可以，即使返回NO，也不能阻止注入JS的加载.
 ```objc
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 ```
-1、【失败】使用Javascript
-在UIWebView执行JS去掉这个Element也不行。
+#### 2. 【失败】使用Javascript
+在UIWebView的-webViewDidFinishLoad:委托方法执行JS去掉这个Element也不行。
+```objc
 //去掉这个Element也不行
 [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('1qa2ws').remove();"];
 //给src赋值为空也不行
 [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('1qa2ws').src = '';"];
+```
 
-2、【失败】使用iOS9的NSAppTransportSecurity
-在Info.plist里面限制这个链接的加载:http://221.179.140.145:9090/tlbsgui/baseline/scg.js ,但是也不行。
-// NSAppTransportSecurity = {
-//    NSAllowsArbitraryLoads = YES;
-//    NSExceptionDomains = {
-//        "221.179.140.145" = {
-//            NSExceptionAllowsInsecureHTTPLoads = NO;
-//        }
-//    }
-// }
-IP地址不可以，必须是域名。这里也不是个域名，这么巧。APPLE文档这么说"Must not be a numerical IP address (but rather a string)"
+#### 3. 【失败】使用iOS9的NSAppTransportSecurity
+在Info.plist里面限制这个链接的加载:http://221.179.140.145:9090/tlbsgui/baseline/scg.js ，但是也不行，往下看。
+```
+ NSAppTransportSecurity = {
+    NSAllowsArbitraryLoads = YES;
+    NSExceptionDomains = {
+        "221.179.140.145" = {
+            NSExceptionAllowsInsecureHTTPLoads = NO;
+        }
+    }
+}
+```
+IP地址不可以，必须是域名。这里也不是个域名，这么巧。APPLE文档这么说"Must not be a numerical IP address (but rather a string)"[APPLE Doc](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)
 ![WebClean](Image/App Transport Security Settings.png)
 
 3、【失败】修改request的"User-Agent"
