@@ -99,6 +99,7 @@
 ```shell
 wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
 ```
+
  8. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
 ```shell
  find . -type f ! -iname .DS_Store -ls | wc -l
@@ -117,11 +118,11 @@ wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPh
 ## 3、如何屏蔽
 实验了4个方法，前面的两个失败。
 
-0、
-使用 UIWebView 的delegate - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType，来控制。
-不可以，即使返回NO，也不能阻止注入JS的加载。
-
-
+#### 1. 【失败】使用UIWebView的delegate来控
+实现了UIWebView的delegate来控制。也不可以，即使返回NO，也不能阻止注入JS的加载.
+```objc
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+```
 1、【失败】使用Javascript
 在UIWebView执行JS去掉这个Element也不行。
 //去掉这个Element也不行
