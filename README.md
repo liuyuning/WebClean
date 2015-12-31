@@ -15,9 +15,44 @@
 
 
 ## 简单分析
-为了显示直观，我们选用一个极其简单的页面。使用“http://www.yktz.net/”作为展示页，这个网页来自http://www.w3school.com.cn/的赞助商。
+为了显示直观，我们选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为展示页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
 
-在WebClean的工程里面我们获取了一下web页面的原始数据，简单分析了一下是因为被插入了一个JS导致。
+```objc
+- (IBAction)actionGetHTMLData:(id)sender{
+    
+    //1、获取并保存web页面的原始数据
+    NSData *data = [NSData dataWithContentsOfURL:_webURL];
+    NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/web.html"];
+    BOOL save = [data writeToFile:path atomically:YES];
+    NSLog(@"save:%d,len:%ld", save, data.length);
+    //4G   save:1,len:906  见文件 web-4G.html
+    //WIFI save:1,len:760  见文件 web-WIFI.html
+    
+    //在4G网络下多出来的数据就是这个被插入的JS，这个URL在只能在4G网络下才能访问到。JS如下，
+    //<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>
+    
+    
+    //2、获取这个被注入的JS
+    data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://221.179.140.145:9090/tlbsgui/baseline/scg.js"]];
+    path = [NSHomeDirectory() stringByAppendingString:@"/Documents/scg.js"];
+    save = [data writeToFile:path atomically:YES];
+    NSLog(@"save:%d,len:%ld", save, data.length);
+    //save:1,len:2676  见文件 scg.js，阅读美化后 scg_format.js
+    
+    //这个scg.js执行后拼接成一个新的URL，再被webview下载，其实是一个类似JSON的数据。
+    //http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451016603036
+    
+    //3、获取这个JSON数据
+    data = [NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://221.179.140.145:9090/tlbsserver/jsreq?tid=4&cid=2&time=1451016603036"]];
+    path = [NSHomeDirectory() stringByAppendingString:@"/Documents/jsreq.json"];
+    save = [data writeToFile:path atomically:YES];
+    NSLog(@"save:%d,len:%ld", save, data.length);
+    //save:1,len:958 见文件 jsreq.json 阅读美化后 jsreq_fromat.json
+    
+    //实际上是3个Dict，里面包含了CSS和其他JS的URL和其他信息。可以看到这个name为'流量助手'。
+    //top.tlbs={name : '流量助手', tlbaurl : '221.179.140.145:30000', tid : '4', cid : '2', url : 'http://221.179.140.145:9090/', css : 'http://221.179.140.145:9090/tlbsgui/baseline/L_bar/css/tlbs_min.css?vv=104|http://221.179.140.145:9090/tlbsgui/baseline/L_bar/buoy/css/fluxball_min.css?vv=104|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/css/tlbs_min.css?vv=104', iframejs : 'http://221.179.140.145:9090/tlbsgui/baseline/common/js/UA.js?v=20151230110500|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/config.js?vv=104&uflag=20151229110534|http://221.179.140.145:30000/tlbagui/common/jquery/jquery-1.11.1.min.js|http://221.179.140.145:9090/tlbsgui/baseline/L_bar/js/tlbs_min.js?vv=104|http://221.179.140.145:9090/tlbsgui/customize/L_bar/bjyd/js/simplifiedCloseHandler.js?vv=104'};top.tlbs.config={n:{t:-1,a:'',c:'1',s:40,edv:0,p:{}}};top.tlbs.templatesettings = {resCode : '0',dockingPosition : '0',buoyPosition : '85.333,89.484,1'};
+}
+```
 
 对比了web-4G.html和web-WIFI.html两个不同网络的数据，下面的JS就是被注入的代码。
 <script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script></body>
