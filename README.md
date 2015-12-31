@@ -14,7 +14,7 @@
 ![WebClean](Image/WebClean-Screenshot-3.PNG)
 
 
-## 简单分析
+## 1、简单分析
 为了显示直观，选用一个极其简单的页面。使用“http://www.yktz.net/ ”作为展示页，这个网页来自“http://www.w3school.com.cn/ ”的赞助商。
 
 分别在Wi-Fi和4G下直接获取网页的原始数据，然后分析数据的不同。
@@ -22,7 +22,7 @@
 ```js
 <script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>
 ```
-这个scg.js下载执行后又下载了一个类似JSON的数据“jsreq”，里面包含了CSS和JS的URL地址。具体分析见如下的代码。
+这个scg.js下载执行后又下载了一个类似JSON的数据“jsreq”，里面包含了CSS和JS的URL地址。具体分析见如下工程内的代码。
 
 **可见这个被注入的JS最后下载的数据就不止是几个，而是很多。那么见下面的详细分析。**
 
@@ -68,8 +68,7 @@
 ![WebClean](Image/HTML-Insert-JS.png)
 
 
-
-## 详细分析
+## 2、详细分析
 借助于工具，看看这个被注入的JS一共加载了多少资源，资源有多大，都来自哪些网站。下面就详细分析一下。
 最后我们一共找到了109个URL，去除测试网站www.yktz.net的4个，那么一共额外加载了105个URL，有7个URL重复加载。
 最后保存文件98个，1482697Byte=1.41MB。详细资源见Files目录。
@@ -83,33 +82,38 @@
  2. iPhone6, iOS9.2
  3. 中国移动SIM卡
 
-#####【工具】
+####【工具】
  1. Chrome 47.0.2526.106 (64-bit)，肯定要有。
  2. ModHeader 2.0.5，一个HTTP header修改插件，修改"User-Agent"，让服务器认为是iPhone在访问。
  3. wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，在后面下载时使用。
 
-###【步骤】
- 1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接iMac电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
+####【步骤】
+ 1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
  2. 打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
  3. 在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
  3. Chrome访问http://www.yktz.net/这个网站，等待所有页面加载完毕。
- 4. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。
- 5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的url保存到文件urls_109.json。
- 6. urls_109.json一共是109个url链接，我们把这个文件修改为单纯的url文件urls_109.txt，给wget使用。
- 7. 使用wget把所有的url都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。文件都下载下来了，自己看吧。
-//wget -r -e robots=off -i urls_109.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
- 8. 再计算一下Sources这个目录文件总字节。去掉www.yktz.net这个目录，一共是2405549Byte = 2.29MB，命令如下。
-//find . -type f  -ls | awk '{total += $7} END {print total}'
+ 4. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。（没有更好的插件能够一次性导出所有文件）
+ 5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
+ 6. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
+ 7. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
+```shell
+wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
+```
+ 8. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
+```shell
+ find . -type f ! -iname .DS_Store -ls | wc -l
+ find . -type f ! -iname .DS_Store -ls | awk '{total += $7} END {print total}'
+```
+`www.yktz.net.har urls_109.json urls_105.txt wget_log.txt` 可以在“Files”目录找到。
 
-www.yktz.net.har urls_109.json urls_109.txt wget_log.txt 可以在“Files”目录找到。
-如下是部分截图
+如下是截图
 ![WebClean](Image/ModHeader.png)
 ![WebClean](Image/Chrome-Dev-Network.png)
 ![WebClean](Image/Chrome-Dev-Sources.png)
 
 
 
-## 如何屏蔽
+## 3、如何屏蔽
 实验了4个方法，前面的两个失败。
 
 0、
