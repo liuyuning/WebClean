@@ -91,16 +91,15 @@
  1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
  2. 打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
  3. 在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
- 3. Chrome访问http://www.yktz.net/这个网站，等待所有页面加载完毕。
- 4. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。（没有更好的插件能够一次性导出所有文件）
- 5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
- 6. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
- 7. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
-
-`wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
-`
-
- 8. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
+ 4. Chrome访问http://www.yktz.net/ 这个网站，等待所有页面加载完毕。
+ 5. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。（没有更好的插件能够一次性导出所有文件）
+ 6. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
+ 7. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
+ 8. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
+```shell
+wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
+```
+ 9. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
 ```shell
  find . -type f ! -iname .DS_Store -ls | wc -l
  find . -type f ! -iname .DS_Store -ls | awk '{total += $7} END {print total}'
@@ -116,7 +115,7 @@
 
 
 ## 3、如何屏蔽
-实验了4个方法，前面的两个失败。
+实验了6种方案，前4种失败。5从客户端解决，但是不完美；6是使用HTTPS；7没有验证。
 
 #### 1. 【失败】使用UIWebView的delegate
 实现了UIWebView的delegate来控制。也不可以，即使返回NO，也不能阻止注入JS的加载.
@@ -144,22 +143,48 @@
     }
 }
 ```
-IP地址不可以，必须是域名。这里也不是个域名，这么巧。APPLE文档这么说"Must not be a numerical IP address (but rather a string)"[APPLE Doc](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)
+IP地址不可以，必须是域名。这里也不是个域名，这么巧。APPLE文档这么说"Must not be a numerical IP address (but rather a string)"。[APPLE Doc](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html)
 ![WebClean](Image/App Transport Security Settings.png)
 
-3、【失败】修改request的"User-Agent"
-因为其实电脑共享手机流量上网的话，浏览器下面也会有一个“流量助手”的图标。
+#### 4. 【失败】修改request的"User-Agent"
+实际上电脑共享手机流量上网的话，浏览器下面也会有一个“流量助手”的图标。所以修改了User-Agent也没用。
 ```objc
 NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:@"Mozilla/Whatever version 913.6.beta", @"UserAgent", nil];
 [[NSUserDefaults standardUserDefaults] registerDefaults:dictionary];
 ```
 
-4、【成功】分布加载UIWebView,先下载web数据，再去掉这个JS的元素。
-方法见例子中的-actionRefresh2:函数，只是这种方案不能一劳永逸，跳转到新的页面，这个就没有作用了。
+#### 5. 【成功】分步加载UIWebView，先下载web数据，再去掉这个JS的元素
+方法见例子中的-actionRefresh2:函数，只是这种方案也不完美，跳转到新的页面，这个就没有作用了。
+```objc
+- (IBAction)actionRefresh2:(id)sender{
+    
+    //NSData *data = [NSData dataWithContentsOfURL:_webURL];//也可以使用这个获取数据
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:_webURL];
+    NSURLSessionDataTask *dataTask =  [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (data && data.length) {
+            NSString *stringHTML = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            if (!stringHTML) {
+                NSStringEncoding encoding= CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+                stringHTML = [[NSString alloc] initWithData:data encoding:encoding];
+            }
+            
+            if (stringHTML) {
+                //删除被注入的JS代码
+                NSString *const JSReplaceScript = @"<script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script>";
+                stringHTML = [stringHTML stringByReplacingOccurrencesOfString:JSReplaceScript withString:@""];
+                NSLog(@"%@",stringHTML);
+                [_webView loadHTMLString:stringHTML baseURL:_webURL];
+            }
+        }
+    }];
+    [dataTask resume];
+}
+```
 
-5、【成功】使用HTTPS服务。这个是一劳永逸的方案，需要服务器都支持。也不是很现实。
+#### 6. 【成功】使用HTTPS服务。这个是一劳永逸的方案，需要服务器都支持。但不是所有服务器都是HTTPS。
 
-6、【未验证】WebKit.framework，在iOS8上面使用。
+#### 7. 【未验证】WebKit.framework，在iOS8以上使用。
 
 
 
