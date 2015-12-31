@@ -1,5 +1,5 @@
-# WebClean
-屏蔽中国移动“流量助手”，同时分析被注入的JS代码。
+# WebClean 
+**屏蔽中国移动“流量助手”，同时分析被注入的JS代码**
 
 
 当我们用手机上网时，打开浏览器或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下二图。上面显示着“xx%”，实际是你流量余量百分比。
@@ -38,21 +38,21 @@ iMac, Mac OS X 10.11.2(EI Capitan)
 iPhone6, iOS9.2, 中国移动SIM卡
 
 [工具]
-1、Chrome 47.0.2526.106 (64-bit)，肯定要有。
-2、ModHeader 2.0.5，一个HTTP header修改插件，修改"User-Agent"，让服务器认为是iPhone在访问。
-3、wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，后面下载时使用。
+1. Chrome 47.0.2526.106 (64-bit)，肯定要有。
+2. ModHeader 2.0.5，一个HTTP header修改插件，修改"User-Agent"，让服务器认为是iPhone在访问。
+3 wget 1.16.3，其实可以不用Chrome，但是wget的JS支持不好，后面下载时使用。
 
 [步骤]
-1、iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接iMac电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
-2、打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
-3、在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
-3、Chrome访问http://www.yktz.net/这个网站，等待所有页面加载完毕。
-4、在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。
-5、这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的url保存到文件urls_109.json。
-6、urls_109.json一共是109个url链接，我们把这个文件修改为单纯的url文件urls_109.txt，给wget使用。
-7、使用wget把所有的url都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。文件都下载下来了，自己看吧。
+1. iMac电脑通过iPhone上网：iPhone关闭Wi-Fi，开启4G，开启个人热点，USB连接iMac电脑。电脑关闭Wi-Fi，断开网线。此时iPhone显示共享了网络，在最上面有一个蓝条。
+2. 打开Chrome，视图 -> 开发者 -> 开发者工具，进入开发者模式。
+3. 在ModHeader里面填入Name: "User-Agent" Value: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
+3. Chrome访问http://www.yktz.net/这个网站，等待所有页面加载完毕。
+4. 在开发者工具的Network tab下右键点击“Save as HAR with Content”,保存文件 www.yktz.net.har。
+5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的url保存到文件urls_109.json。
+6. urls_109.json一共是109个url链接，我们把这个文件修改为单纯的url文件urls_109.txt，给wget使用。
+7. 使用wget把所有的url都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。文件都下载下来了，自己看吧。
 //wget -r -e robots=off -i urls_109.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75"
-8、再计算一下Sources这个目录文件总字节。去掉www.yktz.net这个目录，一共是2405549Byte = 2.29MB，命令如下。
+8. 再计算一下Sources这个目录文件总字节。去掉www.yktz.net这个目录，一共是2405549Byte = 2.29MB，命令如下。
 //find . -type f  -ls | awk '{total += $7} END {print total}'
 
 www.yktz.net.har urls_109.json urls_109.txt wget_log.txt 可以在“Files”目录找到。
