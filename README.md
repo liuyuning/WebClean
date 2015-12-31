@@ -1,23 +1,21 @@
 # WebClean
 **屏蔽中国移动“流量助手”，同时分析被注入的JS代码**
 
-  当我们用手机上网时，打开浏览器或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下图。上面显示着“xx%”，实际是你流量余量百分比。点开后显示了流量的具体数值，还有流量订购功能，如下图。真是为用户操碎了心。
+  当我们用手机上网时，打开Safari或者App内置的WebView，会在右下角显示一个中国移动或淡绿色图标，如下图。上面显示“xx%”，实际是你流量余量百分比。点开后显示了流量的具体数值，还有流量订购功能，如下图。真是为用户操碎了心。
   
-  这个图标时有时无，原因是和当前使用的网络有关，如果是Wi-Fi(无线局域网)，则无。如果是蜂窝移动网络(移动4G)，就有。中国移动的这个功能叫作“流量助手”。具体信息可以搜“中国移动 流量助手”，这里提供两个链接。
+  这个图标只有在蜂窝移动网络(移动4G)才有。中国移动的这个功能叫作“流量助手”。具体信息可以搜“中国移动 流量助手”，也可参考这两个链接。
  [链接1](http://bbs.feng.com/read-htm-tid-8732410.html)
  [链接2](http://zhidao.baidu.com/link?url=Rxc10K_9wSzWqrgTYewewCtUPpzmQm6JJZIgcYc8b1FLkdGZSHbDz0gG1Iy1Iou602nJ1oqPQYzQJ00XWTTT_4CHwW8FyIrNM1bwamjO8Ty)
  
- 大多数时候我们只是好奇这个东西是从哪里来的，看着很小也不会想到流量问题，过后就不在意了。现在，我们就重点分析这个功能是从哪来的，最后如何在App内屏蔽这个功能。
+ 大多数时候我们只是好奇这个东西是从哪里来的，看着很小也不会想到流量问题，过后就不在意了。现在，我们就重点分析这个功能是从哪来的，如何在App内屏蔽这个功能。
 
 ![WebClean](Image/Safari-Screenshot-1.PNG)
 ![WebClean](Image/Safari-Screenshot-2.PNG)
 ![WebClean](Image/WebClean-Screenshot-3.PNG)
 
 
-# 下面我们着重分析一下“流量助手”的原理
-
-看看这到底是个啥东西，如何加载到页面里面，一共加载了多少资源，资源有多大，都从哪里来。
-为了显示直观，我们选用一个极其简单的页面，这种页面还真不好找。使用“http://www.yktz.net/”，这个网页来自http://www.w3school.com.cn/的赞助商。
+## 简单分析
+为了显示直观，我们选用一个极其简单的页面。使用“http://www.yktz.net/”作为展示页，这个网页来自http://www.w3school.com.cn/的赞助商。
 
 在WebClean的工程里面我们获取了一下web页面的原始数据，简单分析了一下是因为被插入了一个JS导致。
 
@@ -25,6 +23,10 @@
 <script type='text/javascript' id='1qa2ws' src='http://221.179.140.145:9090/tlbsgui/baseline/scg.js' mtid='4' mcid='2' ptid='4' pcid='2'></script></body>
 ![WebClean](Image/HTML-Insert-JS.png)
 
+
+
+## 详细分析
+看看这到底是个啥东西，如何加载到页面里面，一共加载了多少资源，资源有多大，都从哪里来
 
 [原理] 
 **用iPhone使用4G上网，共享网络给电脑。这时我们在电脑上用chrome来访问，再使用开发者模式，看看这些数据。**
