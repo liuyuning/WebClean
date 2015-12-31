@@ -96,7 +96,9 @@
  5. 这个www.yktz.net.har文件其实是一个JSON文件，里面保存了所有网络请求的详细数据，我们只提取出"url"。使用工具“JSON Query.app”，过滤出所有的URL保存到文件urls_109.json。
  6. urls_109.json一共是109个URL链接，我们把这个文件修改为单纯的URL文件，去掉测试网站的URL，最后保存为urls_105.txt，留给wget使用。
  7. 使用wget把所有的URL都下载下来，log在wget_log.txt，就是Sources目录下得所有文件，命令如下。谁有兴趣慢慢分析这些文件吧。
-`wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt`
+```shell
+wget -r -Dnull -e robots=off -i ../urls_105.txt -U "Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13C75" -o ../wget_log.txt
+```
  8. 再计算一下Sources这个目录文件总数和总字节。文件98个，1482697Byte=1.41MB。命令如下。
 ```shell
  find . -type f ! -iname .DS_Store -ls | wc -l
@@ -105,6 +107,7 @@
 `www.yktz.net.har` `urls_109.json` `urls_105.txt` `wget_log.txt` 可以在“Files”目录找到。
 
 如下是截图
+
 ![WebClean](Image/ModHeader.png)
 ![WebClean](Image/Chrome-Dev-Network.png)
 ![WebClean](Image/Chrome-Dev-Sources.png)
